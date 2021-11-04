@@ -5,7 +5,6 @@
 ./test/jit/store.txt
 ./test/jit/int_convert.txt
 ./test/jit/stack_trace_comp_fail.txt
-./test/jit/truncation.txt
 ./test/jit/truncation_saturating.txt
 ./test/jit/get_set_tee_local.txt
 ./test/jit/alloca_dropkeep.txt

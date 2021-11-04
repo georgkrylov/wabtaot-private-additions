@@ -1,0 +1,210 @@
+[
+  {
+    "location": "/src/interp/binary-reader-interp.cc",
+    "line": [
+      {
+        "line": 823,
+        "character": 0
+      },
+      {
+        "line": 823,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/src/interp/interp-internal.h",
+    "line": [
+      {
+        "line": 84,
+        "character": 0
+      },
+      {
+        "line": 84,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "{value}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1732,
+        "character": 0
+      },
+      {
+        "line": 1732,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "condition": "i=15"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1845,
+        "character": 0
+      },
+      {
+        "line": 1845,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "condition": "i=16"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1857,
+        "character": 0
+      },
+      {
+        "line": 1857,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:BR"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1885,
+        "character": 0
+      },
+      {
+        "line": 1885,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:Return"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1898,
+        "character": 0
+      },
+      {
+        "line": 1898,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:I32Const const:{const_value}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1916,
+        "character": 0
+      },
+      {
+        "line": 1916,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:GlobalGet Index: {index}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1936,
+        "character": 0
+      },
+      {
+        "line": 1936,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalSet Value{value}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1942,
+        "character": 0
+      },
+      {
+        "line": 1942,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalTee thingy:{thingy}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1950,
+        "character": 0
+      },
+      {
+        "line": 1950,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:call offset:{offset}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2963,
+        "character": 0
+      },
+      {
+        "line": 2963,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:InterpAlloca"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2972,
+        "character": 0
+      },
+      {
+        "line": 2972,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:InterpBrUnless"
+  },
+  {
+    "location": "/test/run-tests.py",
+    "line": [
+      {
+        "line": 917,
+        "character": 0
+      },
+      {
+        "line": 917,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  }
+]

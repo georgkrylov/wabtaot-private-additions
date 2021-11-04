@@ -1,0 +1,183 @@
+[
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1732,
+        "character": 0
+      },
+      {
+        "line": 1732,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "condition": "i=16"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1803,
+        "character": 0
+      },
+      {
+        "line": 1803,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:GetGlobal {index}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1823,
+        "character": 0
+      },
+      {
+        "line": 1823,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalSet {value}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1829,
+        "character": 0
+      },
+      {
+        "line": 1829,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalTee {thingy}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1786,
+        "character": 0
+      },
+      {
+        "line": 1786,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:I32Const {debug}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2755,
+        "character": 0
+      },
+      {
+        "line": 2755,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "condition": "",
+    "logMessage": "Opcode:InterpBrUnless {new_pc}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1745,
+        "character": 0
+      },
+      {
+        "line": 1745,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:Br {debug}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1913,
+        "character": 0
+      },
+      {
+        "line": 1913,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode::InterpCallHost {func_index}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1989,
+        "character": 0
+      },
+      {
+        "line": 1989,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:I32Load {pc}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1817,
+        "character": 0
+      },
+      {
+        "line": 1817,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalGet {value}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2218,
+        "character": 0
+      },
+      {
+        "line": 2218,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:I32Shl"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2747,
+        "character": 0
+      },
+      {
+        "line": 2747,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:InterpAlloca count{count}"
+  }
+]
