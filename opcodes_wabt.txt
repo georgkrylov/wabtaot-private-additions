@@ -1,416 +1,416 @@
-0x1	Nop "nop"
-0x2	Block "block"
-0x3	Loop "loop"
-0x4	If "if"
-0x5	Else "else"
-0x6	Try "try"
-0x7	Catch "catch"
-0x8	Throw "throw"
-0x9	Rethrow "rethrow"
-0xa	BrOnExn "br_on_exn"
-0xb	End "end"
-0xc	Br "br"
-0xd	BrIf "br_if"
-0xe	BrTable "br_table"
-0xf	Return "return"
-0x10	Call "call"
-0x11	CallIndirect "call_indirect"
-0x12	ReturnCall "return_call"
-0x13	ReturnCallIndirect "return_call_indirect"
-0x14	Drop "drop"
-0x15	Select "select"
-0x16	LocalGet "local.get"
-0x17	LocalSet "local.set"
-0x18	LocalTee "local.tee"
-0x19	GlobalGet "global.get"
-0x1a	GlobalSet "global.set"
-0x1b	I32Load "i32.load"
-0x1c	I64Load "i64.load"
-0x1d	F32Load "f32.load"
-0x1e	F64Load "f64.load"
-0x1f	I32Load8S "i32.load8_s"
-0x20	I32Load8U "i32.load8_u"
-0x21	I32Load16S "i32.load16_s"
-0x22	I32Load16U "i32.load16_u"
-0x23	I64Load8S "i64.load8_s"
-0x24	I64Load8U "i64.load8_u"
-0x25	I64Load16S "i64.load16_s"
-0x26	I64Load16U "i64.load16_u"
-0x27	I64Load32S "i64.load32_s"
-0x28	I64Load32U "i64.load32_u"
-0x29	I32Store "i32.store"
-0x2a	I64Store "i64.store"
-0x2b	F32Store "f32.store"
-0x2c	F64Store "f64.store"
-0x2d	I32Store8 "i32.store8"
-0x2e	I32Store16 "i32.store16"
-0x2f	I64Store8 "i64.store8"
-0x30	I64Store16 "i64.store16"
-0x31	I64Store32 "i64.store32"
-0x32	MemorySize "memory.size"
-0x33	MemoryGrow "memory.grow"
-0x34	I32Const "i32.const"
-0x35	I64Const "i64.const"
-0x36	F32Const "f32.const"
-0x37	F64Const "f64.const"
-0x38	I32Eqz "i32.eqz"
-0x39	I32Eq "i32.eq"
-0x3a	I32Ne "i32.ne"
-0x3b	I32LtS "i32.lt_s"
-0x3c	I32LtU "i32.lt_u"
-0x3d	I32GtS "i32.gt_s"
-0x3e	I32GtU "i32.gt_u"
-0x3f	I32LeS "i32.le_s"
-0x40	I32LeU "i32.le_u"
-0x41	I32GeS "i32.ge_s"
-0x42	I32GeU "i32.ge_u"
-0x43	I64Eqz "i64.eqz"
-0x44	I64Eq "i64.eq"
-0x45	I64Ne "i64.ne"
-0x46	I64LtS "i64.lt_s"
-0x47	I64LtU "i64.lt_u"
-0x48	I64GtS "i64.gt_s"
-0x49	I64GtU "i64.gt_u"
-0x4a	I64LeS "i64.le_s"
-0x4b	I64LeU "i64.le_u"
-0x4c	I64GeS "i64.ge_s"
-0x4d	I64GeU "i64.ge_u"
-0x4e	F32Eq "f32.eq"
-0x4f	F32Ne "f32.ne"
-0x50	F32Lt "f32.lt"
-0x51	F32Gt "f32.gt"
-0x52	F32Le "f32.le"
-0x53	F32Ge "f32.ge"
-0x54	F64Eq "f64.eq"
-0x55	F64Ne "f64.ne"
-0x56	F64Lt "f64.lt"
-0x57	F64Gt "f64.gt"
-0x58	F64Le "f64.le"
-0x59	F64Ge "f64.ge"
-0x5a	I32Clz "i32.clz"
-0x5b	I32Ctz "i32.ctz"
-0x5c	I32Popcnt "i32.popcnt"
-0x5d	I32Add "i32.add"
-0x5e	I32Sub "i32.sub"
-0x5f	I32Mul "i32.mul"
-0x60	I32DivS "i32.div_s"
-0x61	I32DivU "i32.div_u"
-0x62	I32RemS "i32.rem_s"
-0x63	I32RemU "i32.rem_u"
-0x64	I32And "i32.and"
-0x65	I32Or "i32.or"
-0x66	I32Xor "i32.xor"
-0x67	I32Shl "i32.shl"
-0x68	I32ShrS "i32.shr_s"
-0x69	I32ShrU "i32.shr_u"
-0x6a	I32Rotl "i32.rotl"
-0x6b	I32Rotr "i32.rotr"
-0x6c	I64Clz "i64.clz"
-0x6d	I64Ctz "i64.ctz"
-0x6e	I64Popcnt "i64.popcnt"
-0x6f	I64Add "i64.add"
-0x70	I64Sub "i64.sub"
-0x71	I64Mul "i64.mul"
-0x72	I64DivS "i64.div_s"
-0x73	I64DivU "i64.div_u"
-0x74	I64RemS "i64.rem_s"
-0x75	I64RemU "i64.rem_u"
-0x76	I64And "i64.and"
-0x77	I64Or "i64.or"
-0x78	I64Xor "i64.xor"
-0x79	I64Shl "i64.shl"
-0x7a	I64ShrS "i64.shr_s"
-0x7b	I64ShrU "i64.shr_u"
-0x7c	I64Rotl "i64.rotl"
-0x7d	I64Rotr "i64.rotr"
-0x7e	F32Abs "f32.abs"
-0x7f	F32Neg "f32.neg"
-0x80	F32Ceil "f32.ceil"
-0x81	F32Floor "f32.floor"
-0x82	F32Trunc "f32.trunc"
-0x83	F32Nearest "f32.nearest"
-0x84	F32Sqrt "f32.sqrt"
-0x85	F32Add "f32.add"
-0x86	F32Sub "f32.sub"
-0x87	F32Mul "f32.mul"
-0x88	F32Div "f32.div"
-0x89	F32Min "f32.min"
-0x8a	F32Max "f32.max"
-0x8b	F32Copysign "f32.copysign"
-0x8c	F64Abs "f64.abs"
-0x8d	F64Neg "f64.neg"
-0x8e	F64Ceil "f64.ceil"
-0x8f	F64Floor "f64.floor"
-0x90	F64Trunc "f64.trunc"
-0x91	F64Nearest "f64.nearest"
-0x92	F64Sqrt "f64.sqrt"
-0x93	F64Add "f64.add"
-0x94	F64Sub "f64.sub"
-0x95	F64Mul "f64.mul"
-0x96	F64Div "f64.div"
-0x97	F64Min "f64.min"
-0x98	F64Max "f64.max"
-0x99	F64Copysign "f64.copysign"
-0x9a	I32WrapI64 "i32.wrap_i64"
-0x9b	I32TruncF32S "i32.trunc_f32_s"
-0x9c	I32TruncF32U "i32.trunc_f32_u"
-0x9d	I32TruncF64S "i32.trunc_f64_s"
-0x9e	I32TruncF64U "i32.trunc_f64_u"
-0x9f	I64ExtendI32S "i64.extend_i32_s"
-0xa0	I64ExtendI32U "i64.extend_i32_u"
-0xa1	I64TruncF32S "i64.trunc_f32_s"
-0xa2	I64TruncF32U "i64.trunc_f32_u"
-0xa3	I64TruncF64S "i64.trunc_f64_s"
-0xa4	I64TruncF64U "i64.trunc_f64_u"
-0xa5	F32ConvertI32S "f32.convert_i32_s"
-0xa6	F32ConvertI32U "f32.convert_i32_u"
-0xa7	F32ConvertI64S "f32.convert_i64_s"
-0xa8	F32ConvertI64U "f32.convert_i64_u"
-0xa9	F32DemoteF64 "f32.demote_f64"
-0xaa	F64ConvertI32S "f64.convert_i32_s"
-0xab	F64ConvertI32U "f64.convert_i32_u"
-0xac	F64ConvertI64S "f64.convert_i64_s"
-0xad	F64ConvertI64U "f64.convert_i64_u"
-0xae	F64PromoteF32 "f64.promote_f32"
-0xaf	I32ReinterpretF32 "i32.reinterpret_f32"
-0xb0	I64ReinterpretF64 "i64.reinterpret_f64"
-0xb1	F32ReinterpretI32 "f32.reinterpret_i32"
-0xb2	F64ReinterpretI64 "f64.reinterpret_i64"
-0xb3	I32Extend8S "i32.extend8_s"
-0xb4	I32Extend16S "i32.extend16_s"
-0xb5	I64Extend8S "i64.extend8_s"
-0xb6	I64Extend16S "i64.extend16_s"
-0xb7	I64Extend32S "i64.extend32_s"
-0xb8	InterpAlloca "alloca"
-0xb9	InterpBrUnless "br_unless"
-0xba	InterpCallHost "call_host"
-0xbb	InterpData "data"
-0xbc	InterpDropKeep "drop_keep"
-0xbd	I32TruncSatF32S "i32.trunc_sat_f32_s"
-0xbe	I32TruncSatF32U "i32.trunc_sat_f32_u"
-0xbf	I32TruncSatF64S "i32.trunc_sat_f64_s"
-0xc0	I32TruncSatF64U "i32.trunc_sat_f64_u"
-0xc1	I64TruncSatF32S "i64.trunc_sat_f32_s"
-0xc2	I64TruncSatF32U "i64.trunc_sat_f32_u"
-0xc3	I64TruncSatF64S "i64.trunc_sat_f64_s"
-0xc4	I64TruncSatF64U "i64.trunc_sat_f64_u"
-0xc5	MemoryInit "memory.init"
-0xc6	DataDrop "data.drop"
-0xc7	MemoryCopy"memory.copy"
-0xc8	MemoryFill "memory.fill"
-0xc9	TableInit "table.init"
-0xca	ElemDrop "elem.drop"
-0xcb	TableCopy "table.copy"
-0xcc	TableGet "table.get"
-0xcd	TableSet "table.set"
-0xce	TableGrow "table.grow"
-0xcf	TableSize "table.size"
-0xd0	RefNull "ref.null"
-0xd1	RefIsNull "ref.is_null"
-0xd2	RefFunc "ref.func"
-0xd3	V128Load "v128.load"
-0xd4	V128Store "v128.store"
-0xd5	V128Const "v128.const"
-0xd6	V8X16Shuffle "v8x16.shuffle"
-0xd7	I8X16Splat "i8x16.splat"
-0xd8	I8X16ExtractLaneS "i8x16.extract_lane_s"
-0xd9	I8X16ExtractLaneU "i8x16.extract_lane_u"
-0xda	I8X16ReplaceLane "i8x16.replace_lane"
-0xdb	I16X8Splat "i16x8.splat"
-0xdc	I16X8ExtractLaneS "i16x8.extract_lane_s"
-0xdd	I16X8ExtractLaneU "i16x8.extract_lane_u"
-0xde	I16X8ReplaceLane "i16x8.replace_lane"
-0xdf	I32X4Splat "i32x4.splat"
-0xe0	I32X4ExtractLane "i32x4.extract_lane"
-0xe1	I32X4ReplaceLane "i32x4.replace_lane"
-0xe2	I64X2Splat "i64x2.splat"
-0xe3	I64X2ExtractLane "i64x2.extract_lane"
-0xe4	I64X2ReplaceLane "i64x2.replace_lane"
-0xe5	F32X4Splat "f32x4.splat"
-0xe6	F32X4ExtractLane "f32x4.extract_lane"
-0xe7	F32X4ReplaceLane "f32x4.replace_lane"
-0xe8	F64X2Splat "f64x2.splat"
-0xe9	F64X2ExtractLane "f64x2.extract_lane"
-0xea	F64X2ReplaceLane "f64x2.replace_lane"
-0xeb	I8X16Eq "i8x16.eq"
-0xec	I8X16Ne "i8x16.ne"
-0xed	I8X16LtS "i8x16.lt_s"
-0xee	I8X16LtU "i8x16.lt_u"
-0xef	I8X16GtS "i8x16.gt_s"
-0xf0	I8X16GtU "i8x16.gt_u"
-0xf1	I8X16LeS "i8x16.le_s"
-0xf2	I8X16LeU "i8x16.le_u"
-0xf3	I8X16GeS "i8x16.ge_s"
-0xf4	I8X16GeU "i8x16.ge_u"
-0xf5	I16X8Eq "i16x8.eq"
-0xf6	I16X8Ne "i16x8.ne"
-0xf7	I16X8LtS "i16x8.lt_s"
-0xf8	I16X8LtU "i16x8.lt_u"
-0xf9	I16X8GtS "i16x8.gt_s"
-0xfa	I16X8GtU "i16x8.gt_u"
-0xfb	I16X8LeS "i16x8.le_s"
-0xfc	I16X8LeU "i16x8.le_u"
-0xfd	I16X8GeS "i16x8.ge_s"
-0xfe	I16X8GeU "i16x8.ge_u"
-0xff	I32X4Eq "i32x4.eq"
-0x100	I32X4Ne "i32x4.ne"
-0x101	I32X4LtS "i32x4.lt_s"
-0x102	I32X4LtU "i32x4.lt_u"
-0x103	I32X4GtS "i32x4.gt_s"
-0x104	I32X4GtU "i32x4.gt_u"
-0x105	I32X4LeS "i32x4.le_s"
-0x106	I32X4LeU "i32x4.le_u"
-0x107	I32X4GeS "i32x4.ge_s"
-0x108	I32X4GeU "i32x4.ge_u"
-0x109	F32X4Eq "f32x4.eq"
-0x10a	F32X4Ne "f32x4.ne"
-0x10b	F32X4Lt "f32x4.lt"
-0x10c	F32X4Gt "f32x4.gt"
-0x10d	F32X4Le "f32x4.le"
-0x10e	F32X4Ge "f32x4.ge"
-0x10f	F64X2Eq "f64x2.eq"
-0x110	F64X2Ne "f64x2.ne"
-0x111	F64X2Lt "f64x2.lt"
-0x112	F64X2Gt "f64x2.gt"
-0x113	F64X2Le "f64x2.le"
-0x114	F64X2Ge "f64x2.ge"
-0x115	V128Not "v128.not"
-0x116	V128And "v128.and"
-0x117	V128Or "v128.or"
-0x118	V128Xor "v128.xor"
-0x119	V128BitSelect "v128.bitselect"
-0x11a	I8X16Neg "i8x16.neg"
-0x11b	I8X16AnyTrue "i8x16.any_true"
-0x11c	I8X16AllTrue "i8x16.all_true"
-0x11d	I8X16Shl "i8x16.shl"
-0x11e	I8X16ShrS "i8x16.shr_s"
-0x11f	I8X16ShrU "i8x16.shr_u"
-0x120	I8X16Add "i8x16.add"
-0x121	I8X16AddSaturateS "i8x16.add_saturate_s"
-0x122	I8X16AddSaturateU "i8x16.add_saturate_u"
-0x123	I8X16Sub "i8x16.sub"
-0x124	I8X16SubSaturateS "i8x16.sub_saturate_s"
-0x125	I8X16SubSaturateU "i8x16.sub_saturate_u"
-0x126	I8X16Mul "i8x16.mul"
-0x127	I16X8Neg "i16x8.neg"
-0x128	I16X8AnyTrue "i16x8.any_true"
-0x129	I16X8AllTrue "i16x8.all_true"
-0x12a	I16X8Shl "i16x8.shl"
-0x12b	I16X8ShrS "i16x8.shr_s"
-0x12c	I16X8ShrU "i16x8.shr_u"
-0x12d	I16X8Add "i16x8.add"
-0x12e	I16X8AddSaturateS "i16x8.add_saturate_s"
-0x12f	I16X8AddSaturateU "i16x8.add_saturate_u"
-0x130	I16X8Sub "i16x8.sub"
-0x131	I16X8SubSaturateS "i16x8.sub_saturate_s"
-0x132	I16X8SubSaturateU "i16x8.sub_saturate_u"
-0x133	I16X8Mul "i16x8.mul"
-0x134	I32X4Neg "i32x4.neg"
-0x135	I32X4AnyTrue "i32x4.any_true"
-0x136	I32X4AllTrue "i32x4.all_true"
-0x137	I32X4Shl "i32x4.shl"
-0x138	I32X4ShrS "i32x4.shr_s"
-0x139	I32X4ShrU "i32x4.shr_u"
-0x13a	I32X4Add "i32x4.add"
-0x13b	I32X4Sub "i32x4.sub"
-0x13c	I32X4Mul "i32x4.mul"
-0x13d	I64X2Neg "i64x2.neg"
-0x13e	I64X2AnyTrue "i64x2.any_true"
-0x13f	I64X2AllTrue "i64x2.all_true"
-0x140	I64X2Shl "i64x2.shl"
-0x141	I64X2ShrS "i64x2.shr_s"
-0x142	I64X2ShrU "i64x2.shr_u"
-0x143	I64X2Add "i64x2.add"
-0x144	I64X2Sub "i64x2.sub"
-0x145	F32X4Abs "f32x4.abs"
-0x146	F32X4Neg "f32x4.neg"
-0x147	F32X4Sqrt "f32x4.sqrt"
-0x148	F32X4Add "f32x4.add"
-0x149	F32X4Sub "f32x4.sub"
-0x14a	F32X4Mul "f32x4.mul"
-0x14b	F32X4Div "f32x4.div"
-0x14c	F32X4Min "f32x4.min"
-0x14d	F32X4Max "f32x4.max"
-0x14e	F64X2Abs "f64x2.abs"
-0x14f	F64X2Neg "f64x2.neg"
-0x150	F64X2Sqrt "f64x2.sqrt"
-0x151	F64X2Add "f64x2.add"
-0x152	F64X2Sub "f64x2.sub"
-0x153	F64X2Mul "f64x2.mul"
-0x154	F64X2Div "f64x2.div"
-0x155	F64X2Min "f64x2.min"
-0x156	F64X2Max "f64x2.max"
-0x157	I32X4TruncSatF32X4S"i32x4.trunc_sat_f32x4_s"
-0x158	I32X4TruncSatF32X4U"i32x4.trunc_sat_f32x4_u"
-0x159	I64X2TruncSatF64X2S"i64x2.trunc_sat_f64x2_s"
-0x15a	I64X2TruncSatF64X2U"i64x2.trunc_sat_f64x2_u"
-0x15b	F32X4ConvertI32X4S "f32x4.convert_i32x4_s"
-0x15c	F32X4ConvertI32X4U "f32x4.convert_i32x4_u"
-0x15d	F64X2ConvertI64X2S "f64x2.convert_i64x2_s"
-0x15e	F64X2ConvertI64X2U "f64x2.convert_i64x2_u"
-0x15f	AtomicNotify "atomic.notify"
-0x160	I32AtomicWait "i32.atomic.wait"
-0x161	I64AtomicWait "i64.atomic.wait"
-0x162	I32AtomicLoad "i32.atomic.load"
-0x163	I64AtomicLoad "i64.atomic.load"
-0x164	I32AtomicLoad8U "i32.atomic.load8_u"
-0x165	I32AtomicLoad16U "i32.atomic.load16_u"
-0x166	I64AtomicLoad8U "i64.atomic.load8_u"
-0x167	I64AtomicLoad16U "i64.atomic.load16_u"
-0x168	I64AtomicLoad32U "i64.atomic.load32_u"
-0x169	I32AtomicStore "i32.atomic.store"
-0x16a	I64AtomicStore "i64.atomic.store"
-0x16b	I32AtomicStore8 "i32.atomic.store8"
-0x16c	I32AtomicStore16 "i32.atomic.store16"
-0x16d	I64AtomicStore8 "i64.atomic.store8"
-0x16e	I64AtomicStore16 "i64.atomic.store16"
-0x16f	I64AtomicStore32 "i64.atomic.store32"
-0x170	I32AtomicRmwAdd "i32.atomic.rmw.add"
-0x171	I64AtomicRmwAdd "i64.atomic.rmw.add"
-0x172	I32AtomicRmw8AddU "i32.atomic.rmw8.add_u"
-0x173	I32AtomicRmw16AddU "i32.atomic.rmw16.add_u"
-0x174	I64AtomicRmw8AddU "i64.atomic.rmw8.add_u"
-0x175	I64AtomicRmw16AddU "i64.atomic.rmw16.add_u"
-0x176	I64AtomicRmw32AddU "i64.atomic.rmw32.add_u"
-0x177	I32AtomicRmwSub "i32.atomic.rmw.sub"
-0x178	I64AtomicRmwSub "i64.atomic.rmw.sub"
-0x179	I32AtomicRmw8SubU "i32.atomic.rmw8.sub_u"
-0x17a	I32AtomicRmw16SubU "i32.atomic.rmw16.sub_u"
-0x17b	I64AtomicRmw8SubU "i64.atomic.rmw8.sub_u"
-0x17c	I64AtomicRmw16SubU "i64.atomic.rmw16.sub_u"
-0x17d	I64AtomicRmw32SubU "i64.atomic.rmw32.sub_u"
-0x17e	I32AtomicRmwAnd "i32.atomic.rmw.and"
-0x17f	I64AtomicRmwAnd "i64.atomic.rmw.and"
-0x180	I32AtomicRmw8AndU "i32.atomic.rmw8.and_u"
-0x181	I32AtomicRmw16AndU "i32.atomic.rmw16.and_u"
-0x182	I64AtomicRmw8AndU "i64.atomic.rmw8.and_u"
-0x183	I64AtomicRmw16AndU "i64.atomic.rmw16.and_u"
-0x184	I64AtomicRmw32AndU "i64.atomic.rmw32.and_u"
-0x185	I32AtomicRmwOr "i32.atomic.rmw.or"
-0x186	I64AtomicRmwOr "i64.atomic.rmw.or"
-0x187	I32AtomicRmw8OrU "i32.atomic.rmw8.or_u"
-0x188	I32AtomicRmw16OrU "i32.atomic.rmw16.or_u"
-0x189	I64AtomicRmw8OrU "i64.atomic.rmw8.or_u"
-0x18a	I64AtomicRmw16OrU "i64.atomic.rmw16.or_u"
-0x18b	I64AtomicRmw32OrU "i64.atomic.rmw32.or_u"
-0x18c	I32AtomicRmwXor "i32.atomic.rmw.xor"
-0x18d	I64AtomicRmwXor "i64.atomic.rmw.xor"
-0x18e	I32AtomicRmw8XorU "i32.atomic.rmw8.xor_u"
-0x18f	I32AtomicRmw16XorU "i32.atomic.rmw16.xor_u"
-0x190	I64AtomicRmw8XorU "i64.atomic.rmw8.xor_u"
-0x191	I64AtomicRmw16XorU "i64.atomic.rmw16.xor_u"
-0x192	I64AtomicRmw32XorU "i64.atomic.rmw32.xor_u"
-0x193	I32AtomicRmwXchg "i32.atomic.rmw.xchg"
-0x194	I64AtomicRmwXchg "i64.atomic.rmw.xchg"
-0x195	I32AtomicRmw8XchgU "i32.atomic.rmw8.xchg_u"
-0x196	I32AtomicRmw16XchgU "i32.atomic.rmw16.xchg_u"
-0x197	I64AtomicRmw8XchgU "i64.atomic.rmw8.xchg_u"
-0x198	I64AtomicRmw16XchgU "i64.atomic.rmw16.xchg_u"
-0x199	I64AtomicRmw32XchgU "i64.atomic.rmw32.xchg_u"
-0x19a	I32AtomicRmwCmpxchg "i32.atomic.rmw.cmpxchg"
-0x19b	I64AtomicRmwCmpxchg "i64.atomic.rmw.cmpxchg"
-0x19c	I32AtomicRmw8CmpxchgU "i32.atomic.rmw8.cmpxchg_u"
-0x19d	I32AtomicRmw16CmpxchgU "i32.atomic.rmw16.cmpxchg_u"
-0x19e	I64AtomicRmw8CmpxchgU "i64.atomic.rmw8.cmpxchg_u"
-0x19f	I64AtomicRmw16CmpxchgU "i64.atomic.rmw16.cmpxchg_u"
-0x1a0	I64AtomicRmw32CmpxchgU "i64.atomic.rmw32.cmpxchg_u"
+0x1	0x01	Nop	nop
+0x2	0x02	Block	block
+0x3	0x03	Loop	loop
+0x4	0x04	If	if
+0x5	0x05	Else	else
+0x6	0x06	Try	try
+0x7	0x07	Catch	catch
+0x8	0x08	Throw	throw
+0x9	0x09	Rethrow	rethrow
+0xa	0x0a	BrOnExn	br_on_exn
+0xb	0x0b	End	end
+0xc	0x0c	Br	br
+0xd	0x0d	BrIf	br_if
+0xe	0x0e	BrTable	br_table
+0xf	0x0f	Return	return
+0x10	0x10	Call	call
+0x11	0x11	CallIndirect	call_indirect
+0x12	0x12	ReturnCall	return_call
+0x13	0x13	ReturnCallIndirect	return_call_indirect
+0x14	0x1a	Drop	drop
+0x15	0x1b	Select	select
+0x16	0x20	LocalGet	local.get
+0x17	0x21	LocalSet	local.set
+0x18	0x22	LocalTee	local.tee
+0x19	0x23	GlobalGet	global.get
+0x1a	0x24	GlobalSet	global.set
+0x1b	0x28	I32Load	i32.load
+0x1c	0x29	I64Load	i64.load
+0x1d	0x2a	F32Load	f32.load
+0x1e	0x2b	F64Load	f64.load
+0x1f	0x2c	I32Load8S	i32.load8_s
+0x20	0x2d	I32Load8U	i32.load8_u
+0x21	0x2e	I32Load16S	i32.load16_s
+0x22	0x2f	I32Load16U	i32.load16_u
+0x23	0x30	I64Load8S	i64.load8_s
+0x24	0x31	I64Load8U	i64.load8_u
+0x25	0x32	I64Load16S	i64.load16_s
+0x26	0x33	I64Load16U	i64.load16_u
+0x27	0x34	I64Load32S	i64.load32_s
+0x28	0x35	I64Load32U	i64.load32_u
+0x29	0x36	I32Store	i32.store
+0x2a	0x37	I64Store	i64.store
+0x2b	0x38	F32Store	f32.store
+0x2c	0x39	F64Store	f64.store
+0x2d	0x3a	I32Store8	i32.store8
+0x2e	0x3b	I32Store16	i32.store16
+0x2f	0x3c	I64Store8	i64.store8
+0x30	0x3d	I64Store16	i64.store16
+0x31	0x3e	I64Store32	i64.store32
+0x32	0x3f	MemorySize	memory.size
+0x33	0x40	MemoryGrow	memory.grow
+0x34	0x41	I32Const	i32.const
+0x35	0x42	I64Const	i64.const
+0x36	0x43	F32Const	f32.const
+0x37	0x44	F64Const	f64.const
+0x38	0x45	I32Eqz	i32.eqz
+0x39	0x46	I32Eq	i32.eq
+0x3a	0x47	I32Ne	i32.ne
+0x3b	0x48	I32LtS	i32.lt_s
+0x3c	0x49	I32LtU	i32.lt_u
+0x3d	0x4a	I32GtS	i32.gt_s
+0x3e	0x4b	I32GtU	i32.gt_u
+0x3f	0x4c	I32LeS	i32.le_s
+0x40	0x4d	I32LeU	i32.le_u
+0x41	0x4e	I32GeS	i32.ge_s
+0x42	0x4f	I32GeU	i32.ge_u
+0x43	0x50	I64Eqz	i64.eqz
+0x44	0x51	I64Eq	i64.eq
+0x45	0x52	I64Ne	i64.ne
+0x46	0x53	I64LtS	i64.lt_s
+0x47	0x54	I64LtU	i64.lt_u
+0x48	0x55	I64GtS	i64.gt_s
+0x49	0x56	I64GtU	i64.gt_u
+0x4a	0x57	I64LeS	i64.le_s
+0x4b	0x58	I64LeU	i64.le_u
+0x4c	0x59	I64GeS	i64.ge_s
+0x4d	0x5a	I64GeU	i64.ge_u
+0x4e	0x5b	F32Eq	f32.eq
+0x4f	0x5c	F32Ne	f32.ne
+0x50	0x5d	F32Lt	f32.lt
+0x51	0x5e	F32Gt	f32.gt
+0x52	0x5f	F32Le	f32.le
+0x53	0x60	F32Ge	f32.ge
+0x54	0x61	F64Eq	f64.eq
+0x55	0x62	F64Ne	f64.ne
+0x56	0x63	F64Lt	f64.lt
+0x57	0x64	F64Gt	f64.gt
+0x58	0x65	F64Le	f64.le
+0x59	0x66	F64Ge	f64.ge
+0x5a	0x67	I32Clz	i32.clz
+0x5b	0x68	I32Ctz	i32.ctz
+0x5c	0x69	I32Popcnt	i32.popcnt
+0x5d	0x6a	I32Add	i32.add
+0x5e	0x6b	I32Sub	i32.sub
+0x5f	0x6c	I32Mul	i32.mul
+0x60	0x6d	I32DivS	i32.div_s
+0x61	0x6e	I32DivU	i32.div_u
+0x62	0x6f	I32RemS	i32.rem_s
+0x63	0x70	I32RemU	i32.rem_u
+0x64	0x71	I32And	i32.and
+0x65	0x72	I32Or	i32.or
+0x66	0x73	I32Xor	i32.xor
+0x67	0x74	I32Shl	i32.shl
+0x68	0x75	I32ShrS	i32.shr_s
+0x69	0x76	I32ShrU	i32.shr_u
+0x6a	0x77	I32Rotl	i32.rotl
+0x6b	0x78	I32Rotr	i32.rotr
+0x6c	0x79	I64Clz	i64.clz
+0x6d	0x7a	I64Ctz	i64.ctz
+0x6e	0x7b	I64Popcnt	i64.popcnt
+0x6f	0x7c	I64Add	i64.add
+0x70	0x7d	I64Sub	i64.sub
+0x71	0x7e	I64Mul	i64.mul
+0x72	0x7f	I64DivS	i64.div_s
+0x73	0x80	I64DivU	i64.div_u
+0x74	0x81	I64RemS	i64.rem_s
+0x75	0x82	I64RemU	i64.rem_u
+0x76	0x83	I64And	i64.and
+0x77	0x84	I64Or	i64.or
+0x78	0x85	I64Xor	i64.xor
+0x79	0x86	I64Shl	i64.shl
+0x7a	0x87	I64ShrS	i64.shr_s
+0x7b	0x88	I64ShrU	i64.shr_u
+0x7c	0x89	I64Rotl	i64.rotl
+0x7d	0x8a	I64Rotr	i64.rotr
+0x7e	0x8b	F32Abs	f32.abs
+0x7f	0x8c	F32Neg	f32.neg
+0x80	0x8d	F32Ceil	f32.ceil
+0x81	0x8e	F32Floor	f32.floor
+0x82	0x8f	F32Trunc	f32.trunc
+0x83	0x90	F32Nearest	f32.nearest
+0x84	0x91	F32Sqrt	f32.sqrt
+0x85	0x92	F32Add	f32.add
+0x86	0x93	F32Sub	f32.sub
+0x87	0x94	F32Mul	f32.mul
+0x88	0x95	F32Div	f32.div
+0x89	0x96	F32Min	f32.min
+0x8a	0x97	F32Max	f32.max
+0x8b	0x98	F32Copysign	f32.copysign
+0x8c	0x99	F64Abs	f64.abs
+0x8d	0x9a	F64Neg	f64.neg
+0x8e	0x9b	F64Ceil	f64.ceil
+0x8f	0x9c	F64Floor	f64.floor
+0x90	0x9d	F64Trunc	f64.trunc
+0x91	0x9e	F64Nearest	f64.nearest
+0x92	0x9f	F64Sqrt	f64.sqrt
+0x93	0xa0	F64Add	f64.add
+0x94	0xa1	F64Sub	f64.sub
+0x95	0xa2	F64Mul	f64.mul
+0x96	0xa3	F64Div	f64.div
+0x97	0xa4	F64Min	f64.min
+0x98	0xa5	F64Max	f64.max
+0x99	0xa6	F64Copysign	f64.copysign
+0x9a	0xa7	I32WrapI64	i32.wrap_i64
+0x9b	0xa8	I32TruncF32S	i32.trunc_f32_s
+0x9c	0xa9	I32TruncF32U	i32.trunc_f32_u
+0x9d	0xaa	I32TruncF64S	i32.trunc_f64_s
+0x9e	0xab	I32TruncF64U	i32.trunc_f64_u
+0x9f	0xac	I64ExtendI32S	i64.extend_i32_s
+0xa0	0xad	I64ExtendI32U	i64.extend_i32_u
+0xa1	0xae	I64TruncF32S	i64.trunc_f32_s
+0xa2	0xaf	I64TruncF32U	i64.trunc_f32_u
+0xa3	0xb0	I64TruncF64S	i64.trunc_f64_s
+0xa4	0xb1	I64TruncF64U	i64.trunc_f64_u
+0xa5	0xb2	F32ConvertI32S	f32.convert_i32_s
+0xa6	0xb3	F32ConvertI32U	f32.convert_i32_u
+0xa7	0xb4	F32ConvertI64S	f32.convert_i64_s
+0xa8	0xb5	F32ConvertI64U	f32.convert_i64_u
+0xa9	0xb6	F32DemoteF64	f32.demote_f64
+0xaa	0xb7	F64ConvertI32S	f64.convert_i32_s
+0xab	0xb8	F64ConvertI32U	f64.convert_i32_u
+0xac	0xb9	F64ConvertI64S	f64.convert_i64_s
+0xad	0xba	F64ConvertI64U	f64.convert_i64_u
+0xae	0xbb	F64PromoteF32	f64.promote_f32
+0xaf	0xbc	I32ReinterpretF32	i32.reinterpret_f32
+0xb0	0xbd	I64ReinterpretF64	i64.reinterpret_f64
+0xb1	0xbe	F32ReinterpretI32	f32.reinterpret_i32
+0xb2	0xbf	F64ReinterpretI64	f64.reinterpret_i64
+0xb3	0xC0	I32Extend8S	i32.extend8_s
+0xb4	0xC1	I32Extend16S	i32.extend16_s
+0xb5	0xC2	I64Extend8S	i64.extend8_s
+0xb6	0xC3	I64Extend16S	i64.extend16_s
+0xb7	0xC4	I64Extend32S	i64.extend32_s
+0xb8	0xe0	InterpAlloca	alloca
+0xb9	0xe1	InterpBrUnless	br_unless
+0xba	0xe2	InterpCallHost	call_host
+0xbb	0xe3	InterpData	data
+0xbc	0xe4	InterpDropKeep	drop_keep
+0xbd	0x00	I32TruncSatF32S	i32.trunc_sat_f32_s
+0xbe	0x01	I32TruncSatF32U	i32.trunc_sat_f32_u
+0xbf	0x02	I32TruncSatF64S	i32.trunc_sat_f64_s
+0xc0	0x03	I32TruncSatF64U	i32.trunc_sat_f64_u
+0xc1	0x04	I64TruncSatF32S	i64.trunc_sat_f32_s
+0xc2	0x05	I64TruncSatF32U	i64.trunc_sat_f32_u
+0xc3	0x06	I64TruncSatF64S	i64.trunc_sat_f64_s
+0xc4	0x07	I64TruncSatF64U	i64.trunc_sat_f64_u
+0xc5	0x08	MemoryInit	memory.init
+0xc6	0x09	DataDrop	data.drop
+0xc7	0x0a	MemoryCopy	memory.copy
+0xc8	0x0b	MemoryFill	memory.fill
+0xc9	0x0c	TableInit	table.init
+0xca	0x0d	ElemDrop	elem.drop
+0xcb	0x0e	TableCopy	table.copy
+0xcc	0x25	TableGet	table.get
+0xcd	0x26	TableSet	table.set
+0xce	0x0f	TableGrow	table.grow
+0xcf	0x10	TableSize	table.size
+0xd0	0xd0	RefNull	ref.null
+0xd1	0xd1	RefIsNull	ref.is_null
+0xd2	0xd2	RefFunc	ref.func
+0xd3	0x00	V128Load	v128.load
+0xd4	0x01	V128Store	v128.store
+0xd5	0x02	V128Const	v128.const
+0xd6	0x03	V8X16Shuffle	v8x16.shuffle
+0xd7	0x04	I8X16Splat	i8x16.splat
+0xd8	0x05	I8X16ExtractLaneS	i8x16.extract_lane_s
+0xd9	0x06	I8X16ExtractLaneU	i8x16.extract_lane_u
+0xda	0x07	I8X16ReplaceLane	i8x16.replace_lane
+0xdb	0x08	I16X8Splat	i16x8.splat
+0xdc	0x09	I16X8ExtractLaneS	i16x8.extract_lane_s
+0xdd	0x0a	I16X8ExtractLaneU	i16x8.extract_lane_u
+0xde	0x0b	I16X8ReplaceLane	i16x8.replace_lane
+0xdf	0x0c	I32X4Splat	i32x4.splat
+0xe0	0x0d	I32X4ExtractLane	i32x4.extract_lane
+0xe1	0x0e	I32X4ReplaceLane	i32x4.replace_lane
+0xe2	0x0f	I64X2Splat	i64x2.splat
+0xe3	0x10	I64X2ExtractLane	i64x2.extract_lane
+0xe4	0x11	I64X2ReplaceLane	i64x2.replace_lane
+0xe5	0x12	F32X4Splat	f32x4.splat
+0xe6	0x13	F32X4ExtractLane	f32x4.extract_lane
+0xe7	0x14	F32X4ReplaceLane	f32x4.replace_lane
+0xe8	0x15	F64X2Splat	f64x2.splat
+0xe9	0x16	F64X2ExtractLane	f64x2.extract_lane
+0xea	0x17	F64X2ReplaceLane	f64x2.replace_lane
+0xeb	0x18	I8X16Eq	i8x16.eq
+0xec	0x19	I8X16Ne	i8x16.ne
+0xed	0x1a	I8X16LtS	i8x16.lt_s
+0xee	0x1b	I8X16LtU	i8x16.lt_u
+0xef	0x1c	I8X16GtS	i8x16.gt_s
+0xf0	0x1d	I8X16GtU	i8x16.gt_u
+0xf1	0x1e	I8X16LeS	i8x16.le_s
+0xf2	0x1f	I8X16LeU	i8x16.le_u
+0xf3	0x20	I8X16GeS	i8x16.ge_s
+0xf4	0x21	I8X16GeU	i8x16.ge_u
+0xf5	0x22	I16X8Eq	i16x8.eq
+0xf6	0x23	I16X8Ne	i16x8.ne
+0xf7	0x24	I16X8LtS	i16x8.lt_s
+0xf8	0x25	I16X8LtU	i16x8.lt_u
+0xf9	0x26	I16X8GtS	i16x8.gt_s
+0xfa	0x27	I16X8GtU	i16x8.gt_u
+0xfb	0x28	I16X8LeS	i16x8.le_s
+0xfc	0x29	I16X8LeU	i16x8.le_u
+0xfd	0x2a	I16X8GeS	i16x8.ge_s
+0xfe	0x2b	I16X8GeU	i16x8.ge_u
+0xff	0x2c	I32X4Eq	i32x4.eq
+0x100	0x2d	I32X4Ne	i32x4.ne
+0x101	0x2e	I32X4LtS	i32x4.lt_s
+0x102	0x2f	I32X4LtU	i32x4.lt_u
+0x103	0x30	I32X4GtS	i32x4.gt_s
+0x104	0x31	I32X4GtU	i32x4.gt_u
+0x105	0x32	I32X4LeS	i32x4.le_s
+0x106	0x33	I32X4LeU	i32x4.le_u
+0x107	0x34	I32X4GeS	i32x4.ge_s
+0x108	0x35	I32X4GeU	i32x4.ge_u
+0x109	0x40	F32X4Eq	f32x4.eq
+0x10a	0x41	F32X4Ne	f32x4.ne
+0x10b	0x42	F32X4Lt	f32x4.lt
+0x10c	0x43	F32X4Gt	f32x4.gt
+0x10d	0x44	F32X4Le	f32x4.le
+0x10e	0x45	F32X4Ge	f32x4.ge
+0x10f	0x46	F64X2Eq	f64x2.eq
+0x110	0x47	F64X2Ne	f64x2.ne
+0x111	0x48	F64X2Lt	f64x2.lt
+0x112	0x49	F64X2Gt	f64x2.gt
+0x113	0x4a	F64X2Le	f64x2.le
+0x114	0x4b	F64X2Ge	f64x2.ge
+0x115	0x4c	V128Not	v128.not
+0x116	0x4d	V128And	v128.and
+0x117	0x4e	V128Or	v128.or
+0x118	0x4f	V128Xor	v128.xor
+0x119	0x50	V128BitSelect	v128.bitselect
+0x11a	0x51	I8X16Neg	i8x16.neg
+0x11b	0x52	I8X16AnyTrue	i8x16.any_true
+0x11c	0x53	I8X16AllTrue	i8x16.all_true
+0x11d	0x54	I8X16Shl	i8x16.shl
+0x11e	0x55	I8X16ShrS	i8x16.shr_s
+0x11f	0x56	I8X16ShrU	i8x16.shr_u
+0x120	0x57	I8X16Add	i8x16.add
+0x121	0x58	I8X16AddSaturateS	i8x16.add_saturate_s
+0x122	0x59	I8X16AddSaturateU	i8x16.add_saturate_u
+0x123	0x5a	I8X16Sub	i8x16.sub
+0x124	0x5b	I8X16SubSaturateS	i8x16.sub_saturate_s
+0x125	0x5c	I8X16SubSaturateU	i8x16.sub_saturate_u
+0x126	0x5d	I8X16Mul	i8x16.mul
+0x127	0x62	I16X8Neg	i16x8.neg
+0x128	0x63	I16X8AnyTrue	i16x8.any_true
+0x129	0x64	I16X8AllTrue	i16x8.all_true
+0x12a	0x65	I16X8Shl	i16x8.shl
+0x12b	0x66	I16X8ShrS	i16x8.shr_s
+0x12c	0x67	I16X8ShrU	i16x8.shr_u
+0x12d	0x68	I16X8Add	i16x8.add
+0x12e	0x69	I16X8AddSaturateS	i16x8.add_saturate_s
+0x12f	0x6a	I16X8AddSaturateU	i16x8.add_saturate_u
+0x130	0x6b	I16X8Sub	i16x8.sub
+0x131	0x6c	I16X8SubSaturateS	i16x8.sub_saturate_s
+0x132	0x6d	I16X8SubSaturateU	i16x8.sub_saturate_u
+0x133	0x6e	I16X8Mul	i16x8.mul
+0x134	0x73	I32X4Neg	i32x4.neg
+0x135	0x74	I32X4AnyTrue	i32x4.any_true
+0x136	0x75	I32X4AllTrue	i32x4.all_true
+0x137	0x76	I32X4Shl	i32x4.shl
+0x138	0x77	I32X4ShrS	i32x4.shr_s
+0x139	0x78	I32X4ShrU	i32x4.shr_u
+0x13a	0x79	I32X4Add	i32x4.add
+0x13b	0x7c	I32X4Sub	i32x4.sub
+0x13c	0x7f	I32X4Mul	i32x4.mul
+0x13d	0x84	I64X2Neg	i64x2.neg
+0x13e	0x85	I64X2AnyTrue	i64x2.any_true
+0x13f	0x86	I64X2AllTrue	i64x2.all_true
+0x140	0x87	I64X2Shl	i64x2.shl
+0x141	0x88	I64X2ShrS	i64x2.shr_s
+0x142	0x89	I64X2ShrU	i64x2.shr_u
+0x143	0x8a	I64X2Add	i64x2.add
+0x144	0x8d	I64X2Sub	i64x2.sub
+0x145	0x95	F32X4Abs	f32x4.abs
+0x146	0x96	F32X4Neg	f32x4.neg
+0x147	0x97	F32X4Sqrt	f32x4.sqrt
+0x148	0x9a	F32X4Add	f32x4.add
+0x149	0x9b	F32X4Sub	f32x4.sub
+0x14a	0x9c	F32X4Mul	f32x4.mul
+0x14b	0x9d	F32X4Div	f32x4.div
+0x14c	0x9e	F32X4Min	f32x4.min
+0x14d	0x9f	F32X4Max	f32x4.max
+0x14e	0xa0	F64X2Abs	f64x2.abs
+0x14f	0xa1	F64X2Neg	f64x2.neg
+0x150	0xa2	F64X2Sqrt	f64x2.sqrt
+0x151	0xa5	F64X2Add	f64x2.add
+0x152	0xa6	F64X2Sub	f64x2.sub
+0x153	0xa7	F64X2Mul	f64x2.mul
+0x154	0xa8	F64X2Div	f64x2.div
+0x155	0xa9	F64X2Min	f64x2.min
+0x156	0xaa	F64X2Max	f64x2.max
+0x157	0xab	I32X4TruncSatF32X4S	i32x4.trunc_sat_f32x4_s
+0x158	0xac	I32X4TruncSatF32X4U	i32x4.trunc_sat_f32x4_u
+0x159	0xad	I64X2TruncSatF64X2S	i64x2.trunc_sat_f64x2_s
+0x15a	0xae	I64X2TruncSatF64X2U	i64x2.trunc_sat_f64x2_u
+0x15b	0xaf	F32X4ConvertI32X4S	f32x4.convert_i32x4_s
+0x15c	0xb0	F32X4ConvertI32X4U	f32x4.convert_i32x4_u
+0x15d	0xb1	F64X2ConvertI64X2S	f64x2.convert_i64x2_s
+0x15e	0xb2	F64X2ConvertI64X2U	f64x2.convert_i64x2_u
+0x15f	0x00	AtomicNotify	atomic.notify
+0x160	0x01	I32AtomicWait	i32.atomic.wait
+0x161	0x02	I64AtomicWait	i64.atomic.wait
+0x162	0x10	I32AtomicLoad	i32.atomic.load
+0x163	0x11	I64AtomicLoad	i64.atomic.load
+0x164	0x12	I32AtomicLoad8U	i32.atomic.load8_u
+0x165	0x13	I32AtomicLoad16U	i32.atomic.load16_u
+0x166	0x14	I64AtomicLoad8U	i64.atomic.load8_u
+0x167	0x15	I64AtomicLoad16U	i64.atomic.load16_u
+0x168	0x16	I64AtomicLoad32U	i64.atomic.load32_u
+0x169	0x17	I32AtomicStore	i32.atomic.store
+0x16a	0x18	I64AtomicStore	i64.atomic.store
+0x16b	0x19	I32AtomicStore8	i32.atomic.store8
+0x16c	0x1a	I32AtomicStore16	i32.atomic.store16
+0x16d	0x1b	I64AtomicStore8	i64.atomic.store8
+0x16e	0x1c	I64AtomicStore16	i64.atomic.store16
+0x16f	0x1d	I64AtomicStore32	i64.atomic.store32
+0x170	0x1e	I32AtomicRmwAdd	i32.atomic.rmw.add
+0x171	0x1f	I64AtomicRmwAdd	i64.atomic.rmw.add
+0x172	0x20	I32AtomicRmw8AddU	i32.atomic.rmw8.add_u
+0x173	0x21	I32AtomicRmw16AddU	i32.atomic.rmw16.add_u
+0x174	0x22	I64AtomicRmw8AddU	i64.atomic.rmw8.add_u
+0x175	0x23	I64AtomicRmw16AddU	i64.atomic.rmw16.add_u
+0x176	0x24	I64AtomicRmw32AddU	i64.atomic.rmw32.add_u
+0x177	0x25	I32AtomicRmwSub	i32.atomic.rmw.sub
+0x178	0x26	I64AtomicRmwSub	i64.atomic.rmw.sub
+0x179	0x27	I32AtomicRmw8SubU	i32.atomic.rmw8.sub_u
+0x17a	0x28	I32AtomicRmw16SubU	i32.atomic.rmw16.sub_u
+0x17b	0x29	I64AtomicRmw8SubU	i64.atomic.rmw8.sub_u
+0x17c	0x2a	I64AtomicRmw16SubU	i64.atomic.rmw16.sub_u
+0x17d	0x2b	I64AtomicRmw32SubU	i64.atomic.rmw32.sub_u
+0x17e	0x2c	I32AtomicRmwAnd	i32.atomic.rmw.and
+0x17f	0x2d	I64AtomicRmwAnd	i64.atomic.rmw.and
+0x180	0x2e	I32AtomicRmw8AndU	i32.atomic.rmw8.and_u
+0x181	0x2f	I32AtomicRmw16AndU	i32.atomic.rmw16.and_u
+0x182	0x30	I64AtomicRmw8AndU	i64.atomic.rmw8.and_u
+0x183	0x31	I64AtomicRmw16AndU	i64.atomic.rmw16.and_u
+0x184	0x32	I64AtomicRmw32AndU	i64.atomic.rmw32.and_u
+0x185	0x33	I32AtomicRmwOr	i32.atomic.rmw.or
+0x186	0x34	I64AtomicRmwOr	i64.atomic.rmw.or
+0x187	0x35	I32AtomicRmw8OrU	i32.atomic.rmw8.or_u
+0x188	0x36	I32AtomicRmw16OrU	i32.atomic.rmw16.or_u
+0x189	0x37	I64AtomicRmw8OrU	i64.atomic.rmw8.or_u
+0x18a	0x38	I64AtomicRmw16OrU	i64.atomic.rmw16.or_u
+0x18b	0x39	I64AtomicRmw32OrU	i64.atomic.rmw32.or_u
+0x18c	0x3a	I32AtomicRmwXor	i32.atomic.rmw.xor
+0x18d	0x3b	I64AtomicRmwXor	i64.atomic.rmw.xor
+0x18e	0x3c	I32AtomicRmw8XorU	i32.atomic.rmw8.xor_u
+0x18f	0x3d	I32AtomicRmw16XorU	i32.atomic.rmw16.xor_u
+0x190	0x3e	I64AtomicRmw8XorU	i64.atomic.rmw8.xor_u
+0x191	0x3f	I64AtomicRmw16XorU	i64.atomic.rmw16.xor_u
+0x192	0x40	I64AtomicRmw32XorU	i64.atomic.rmw32.xor_u
+0x193	0x41	I32AtomicRmwXchg	i32.atomic.rmw.xchg
+0x194	0x42	I64AtomicRmwXchg	i64.atomic.rmw.xchg
+0x195	0x43	I32AtomicRmw8XchgU	i32.atomic.rmw8.xchg_u
+0x196	0x44	I32AtomicRmw16XchgU	i32.atomic.rmw16.xchg_u
+0x197	0x45	I64AtomicRmw8XchgU	i64.atomic.rmw8.xchg_u
+0x198	0x46	I64AtomicRmw16XchgU	i64.atomic.rmw16.xchg_u
+0x199	0x47	I64AtomicRmw32XchgU	i64.atomic.rmw32.xchg_u
+0x19a	0x48	I32AtomicRmwCmpxchg	i32.atomic.rmw.cmpxchg
+0x19b	0x49	I64AtomicRmwCmpxchg	i64.atomic.rmw.cmpxchg
+0x19c	0x4a	I32AtomicRmw8CmpxchgU	i32.atomic.rmw8.cmpxchg_u
+0x19d	0x4b	I32AtomicRmw16CmpxchgU	i32.atomic.rmw16.cmpxchg_u
+0x19e	0x4c	I64AtomicRmw8CmpxchgU	i64.atomic.rmw8.cmpxchg_u
+0x19f	0x4d	I64AtomicRmw16CmpxchgU	i64.atomic.rmw16.cmpxchg_u
+0x1a0	0x4e	I64AtomicRmw32CmpxchgU	i64.atomic.rmw32.cmpxchg_u
