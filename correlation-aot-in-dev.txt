@@ -1,0 +1,174 @@
+=thread-group-added,id="i1"
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+Warning: Debuggee TargetArchitecture not detected, assuming x86_64.
+=cmd-param-changed,param="pagination",value="off"
+Stopped due to shared library event (no libraries added or removed)
+Loaded '/lib64/ld-linux-x86-64.so.2'. Symbols loaded.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=21845, argv=0x7ffff7c37fc8 <__exit_funcs_lock>) at /local_scratch/wasmjitwithomr/em-interp/em-interp.cpp:282
+282	int main(int argc, char** argv) {
+Loaded '/lib/x86_64-linux-gnu/libdl.so.2'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libstdc++.so.6'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libm.so.6'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libgcc_s.so.1'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libpthread.so.0'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libc.so.6'. Symbols loaded.
+Execute debugger commands using "-exec <command>", for example "-exec info registers" will list registers in use (when GDB is the debugger)
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 184
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 4
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 25
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 0
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 24
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 5
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 23
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 3
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 1
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 185
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 17032
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 12
+=memory-changed,thread-group="i1",addr="0x00007fffffffc94c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4d0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1856
+1856	        GOTO(ReadU32(&pc));
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 17100
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 2276
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 2280
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 16
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 0
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 3920
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 15
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 185
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 17140
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 12
+=memory-changed,thread-group="i1",addr="0x00007fffffffc94c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4d0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1856
+1856	        GOTO(ReadU32(&pc));
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 17560
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 71
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 16
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 2
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1c0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 256901120
+
+Program received signal SIGABRT, Aborted.
+__GI_raise (sig=sig@entry=6) at ../sysdeps/unix/sysv/linux/raise.c:50
+Kill the program being debugged? (y or n) [answered Y; input not from terminal]
+[Inferior 1 (process 355329) killed]
+The program '/local_scratch/wasmjitwithomr/build-em/em-interp' has exited with code 0 (0x00000000).
