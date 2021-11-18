@@ -78,16 +78,16 @@
     "location": "/src/interp/interp.cc",
     "line": [
       {
-        "line": 1786,
+        "line": 1785,
         "character": 0
       },
       {
-        "line": 1786,
+        "line": 1785,
         "character": 0
       }
     ],
     "enabled": true,
-    "logMessage": "Opcode:I32Const {debug}"
+    "logMessage": "Opcode:I32Const"
   },
   {
     "location": "/src/interp/interp.cc",
@@ -116,7 +116,7 @@
         "character": 0
       }
     ],
-    "enabled": true,
+    "enabled": false,
     "logMessage": "Opcode:GetGlobal {index}"
   },
   {
@@ -153,16 +153,16 @@
     "location": "/src/interp/interp.cc",
     "line": [
       {
-        "line": 1829,
+        "line": 1828,
         "character": 0
       },
       {
-        "line": 1829,
+        "line": 1828,
         "character": 0
       }
     ],
     "enabled": true,
-    "logMessage": "Opcode:LocalTee {thingy}"
+    "logMessage": "Opcode:LocalTee"
   },
   {
     "location": "/src/interp/interp.cc",
@@ -228,16 +228,16 @@
     "location": "/src/interp/interp.cc",
     "line": [
       {
-        "line": 2747,
+        "line": 2745,
         "character": 0
       },
       {
-        "line": 2747,
+        "line": 2745,
         "character": 0
       }
     ],
     "enabled": true,
-    "logMessage": "Opcode:InterpAlloca count{count}"
+    "logMessage": "Opcode:InterpAlloca"
   },
   {
     "location": "/src/interp/interp.cc",

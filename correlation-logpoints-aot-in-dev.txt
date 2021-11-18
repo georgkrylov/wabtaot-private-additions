@@ -1,0 +1,435 @@
+=thread-group-added,id="i1"
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+Warning: Debuggee TargetArchitecture not detected, assuming x86_64.
+=cmd-param-changed,param="pagination",value="off"
+Stopped due to shared library event (no libraries added or removed)
+Loaded '/lib64/ld-linux-x86-64.so.2'. Symbols loaded.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=21845, argv=0x7ffff7c37fc8 <__exit_funcs_lock>) at /local_scratch/wasmjitwithomr/em-interp/em-interp.cpp:282
+282	int main(int argc, char** argv) {
+Loaded '/lib/x86_64-linux-gnu/libdl.so.2'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libstdc++.so.6'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libm.so.6'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libgcc_s.so.1'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libpthread.so.0'. Symbols loaded.
+Loaded '/lib/x86_64-linux-gnu/libc.so.6'. Symbols loaded.
+Execute debugger commands using "-exec <command>", for example "-exec info registers" will list registers in use (when GDB is the debugger)
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 184
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 15, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:2962
+2962	        uint32_t old_value_stack_top = value_stack_top_;
+Opcode:InterpAlloca
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 4
+
+Breakpoint 16, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:2966
+2966	        memset(&value_stack_[old_value_stack_top], 0, count * sizeof(Value));
+Memory contents: 
+0x19 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0x18 0x0 0x0 0x0
+0x5 0x0 0x0 0x0
+0x17 0x0 0x0 0x0
+0x3 0x0 0x0 0x0
+0x34 0x0 0x0 0x0
+0x1 0x0 0x0 0x0
+0xb9 0x0 0x0 0x0
+0x88 0x42 0x0 0x0
+0xc 0x0 0x0 0x0
+0xcc 0x42 0x0 0x0
+0x34 0x0 0x0 0x0
+0x2 0x0 0x0 0x0
+0x38 0x0 0x0 0x0
+0xb9 0x0 0x0 0x0
+0xa4 0x42 0x0 0x0
+0xc 0x0 0x0 0x0
+0x78 0x44 0x0 0x0
+0x10 0x0 0x0 0x0
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 25
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 10, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1914
+1914	        Index index = ReadU32(&pc);
+Opcode:GlobalGet
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 0
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 24
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 12, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1940
+1940	        uint32_t thingy = ReadU32(&pc);
+Opcode:LocalTee
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 5
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 23
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 11, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1934
+1934	        Value value = Pop();
+Opcode:LocalSet
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 3
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 9, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1896
+1896	        uint32_t  const_value = ReadU32(&pc);
+Opcode:I32Const
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 1
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 185
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 17, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:2971
+2971	        IstreamOffset new_pc = ReadU32(&pc);
+Opcode:InterpBrUnless
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 17032
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 12
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 4, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1856
+1856	        GOTO(ReadU32(&pc));
+Opcode:Br
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 17100
+
+Breakpoint 5, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1857
+1857	        break;
+Memory contents: 
+0x34 0x0 0x0 0x0
+0xe4 0x8 0x0 0x0
+0x34 0x0 0x0 0x0
+0xe8 0x8 0x0 0x0
+0x10 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0xb9 0x0 0x0 0x0
+0xf4 0x42 0x0 0x0
+0xc 0x0 0x0 0x0
+0x98 0x44 0x0 0x0
+0x34 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0x1b 0x0 0x0 0x0
+0x1 0x0 0x0 0x0
+0xe4 0x8 0x0 0x0
+0x18 0x0 0x0 0x0
+0x3 0x0 0x0 0x0
+0xb9 0x0 0x0 0x0
+0x20 0x43 0x0 0x0
+0xc 0x0 0x0 0x0
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 9, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1896
+1896	        uint32_t  const_value = ReadU32(&pc);
+Opcode:I32Const
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 2276
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 9, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1896
+1896	        uint32_t  const_value = ReadU32(&pc);
+Opcode:I32Const
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 2280
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 16
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 13, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1945
+1945	        IstreamOffset offset = ReadU32(&pc);
+Opcode:Call
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 0
+
+Breakpoint 14, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1949
+1949	        if (env_->TryJit(this, offset, &jit_fn,df)) {
+Memory contents: 
+0xb9 0x0 0x0 0x0
+0xf4 0x42 0x0 0x0
+0xc 0x0 0x0 0x0
+0x98 0x44 0x0 0x0
+0x34 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0x1b 0x0 0x0 0x0
+0x1 0x0 0x0 0x0
+0xe4 0x8 0x0 0x0
+0x18 0x0 0x0 0x0
+0x3 0x0 0x0 0x0
+0xb9 0x0 0x0 0x0
+0x20 0x43 0x0 0x0
+0xc 0x0 0x0 0x0
+0x28 0x43 0x0 0x0
+0xc 0x0 0x0 0x0
+0x18 0x44 0x0 0x0
+0x16 0x0 0x0 0x0
+0x4 0x0 0x0 0x0
+0x16 0x0 0x0 0x0
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 9, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1896
+1896	        uint32_t  const_value = ReadU32(&pc);
+Opcode:I32Const
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 3920
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 15
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 6, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1884
+1884	        if (call_stack_top_ == 0 || call_stack_top_ == last_jit_frame_) {
+Opcode:Return
+
+Breakpoint 8, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1889
+1889	        break;
+Memory contents: 
+0xb9 0x0 0x0 0x0
+0xf4 0x42 0x0 0x0
+0xc 0x0 0x0 0x0
+0x98 0x44 0x0 0x0
+0x34 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0x1b 0x0 0x0 0x0
+0x1 0x0 0x0 0x0
+0xe4 0x8 0x0 0x0
+0x18 0x0 0x0 0x0
+0x3 0x0 0x0 0x0
+0xb9 0x0 0x0 0x0
+0x20 0x43 0x0 0x0
+0xc 0x0 0x0 0x0
+0x28 0x43 0x0 0x0
+0xc 0x0 0x0 0x0
+0x18 0x44 0x0 0x0
+0x16 0x0 0x0 0x0
+0x4 0x0 0x0 0x0
+0x16 0x0 0x0 0x0
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 185
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 17, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:2971
+2971	        IstreamOffset new_pc = ReadU32(&pc);
+Opcode:InterpBrUnless
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 17140
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 12
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 4, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1856
+1856	        GOTO(ReadU32(&pc));
+Opcode:Br
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 17560
+
+Breakpoint 5, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1857
+1857	        break;
+Memory contents: 
+0x34 0x0 0x0 0x0
+0x47 0x0 0x0 0x0
+0x10 0x0 0x0 0x0
+0x2 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0x34 0x0 0x0 0x0
+0x47 0x0 0x0 0x0
+0x10 0x0 0x0 0x0
+0x2 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0x16 0x0 0x0 0x0
+0x4 0x0 0x0 0x0
+0x10 0x0 0x0 0x0
+0x2 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0xbc 0x0 0x0 0x0
+0x4 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0xf 0x0 0x0 0x0
+0x34 0x0 0x0 0x0
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 52
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 9, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1896
+1896	        uint32_t  const_value = ReadU32(&pc);
+Opcode:I32Const
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 71
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 16
+=memory-changed,thread-group="i1",addr="0x00007fffffffc93c",len="0x4"
+
+Breakpoint 3, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1846
+1846	    switch (opcode) {
+
+Breakpoint 13, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1945
+1945	        IstreamOffset offset = ReadU32(&pc);
+Opcode:Call
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 2
+
+Breakpoint 14, wabt::interp::Thread::Run (this=0x7fffffffd4c0, num_instructions=1000) at /local_scratch/wasmjitwithomr/src/interp/interp.cc:1949
+1949	        if (env_->TryJit(this, offset, &jit_fn,df)) {
+Memory contents: 
+0x0 0x0 0x0 0x0
+0x34 0x0 0x0 0x0
+0x47 0x0 0x0 0x0
+0x10 0x0 0x0 0x0
+0x2 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0x16 0x0 0x0 0x0
+0x4 0x0 0x0 0x0
+0x10 0x0 0x0 0x0
+0x2 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0xbc 0x0 0x0 0x0
+0x4 0x0 0x0 0x0
+0x0 0x0 0x0 0x0
+0xf 0x0 0x0 0x0
+0x34 0x0 0x0 0x0
+0x1 0x0 0x0 0x0
+0xbc 0x0 0x0 0x0
+0x1 0x0 0x0 0x0
+0x1 0x0 0x0 0x0
+
+Breakpoint 2, wabt::interp::ReadUx<unsigned int> (pc=0x7fffffffd1b0) at /local_scratch/wasmjitwithomr/src/interp/interp-internal.h:43
+43	  *pc += sizeof(T);
+value is 256901120
+
+Program received signal SIGABRT, Aborted.
+__GI_raise (sig=sig@entry=6) at ../sysdeps/unix/sysv/linux/raise.c:50
