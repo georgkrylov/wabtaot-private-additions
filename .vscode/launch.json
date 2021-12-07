@@ -13,6 +13,24 @@
             ],
         },
         {
+            "name": "(gdb) C Polybench Correlation Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/polybench/polybench-c-4.2/build/a.out",
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "(gdb) AOT Launch",
             "type": "cppdbg",
             "request": "launch",
