@@ -1,0 +1,572 @@
+[
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1732,
+        "character": 0
+      },
+      {
+        "line": 1732,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "condition": "i=16"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1803,
+        "character": 0
+      },
+      {
+        "line": 1803,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:GetGlobal {index}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1823,
+        "character": 0
+      },
+      {
+        "line": 1823,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalSet {value}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1829,
+        "character": 0
+      },
+      {
+        "line": 1829,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalTee {thingy}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1786,
+        "character": 0
+      },
+      {
+        "line": 1786,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:I32Const {debug}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2755,
+        "character": 0
+      },
+      {
+        "line": 2755,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "condition": "",
+    "logMessage": "Opcode:InterpBrUnless {new_pc}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1745,
+        "character": 0
+      },
+      {
+        "line": 1745,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:Br {debug}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1989,
+        "character": 0
+      },
+      {
+        "line": 1989,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:I32Load {pc}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1817,
+        "character": 0
+      },
+      {
+        "line": 1817,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalGet {value}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2218,
+        "character": 0
+      },
+      {
+        "line": 2218,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:I32Shl"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2747,
+        "character": 0
+      },
+      {
+        "line": 2747,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:InterpAlloca count{count}"
+  },
+  {
+    "location": "/src/interp/interp-internal.h",
+    "line": [
+      {
+        "line": 42,
+        "character": 0
+      },
+      {
+        "line": 42,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "value is {(uint32_t)result}"
+  },
+  {
+    "location": "/src/interp/interp-internal.h",
+    "line": [
+      {
+        "line": 42,
+        "character": 0
+      },
+      {
+        "line": 42,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "value is {(uint32_t)result}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 4065,
+        "character": 0
+      },
+      {
+        "line": 4065,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Memory contents: \n{(void*)pc[0]} {(void*)pc[1]} {(void*)pc[2]} {(void*)pc[3]}\n{(void*)pc[4]} {(void*)pc[5]} {(void*)pc[6]} {(void*)pc[7]}\n{(void*)pc[8]} {(void*)pc[9]} {(void*)pc[10]} {(void*)pc[11]}\n{(void*)pc[12]} {(void*)pc[13]} {(void*)pc[14]} {(void*)pc[15]}\n{(void*)pc[16]} {(void*)pc[17]} {(void*)pc[18]} {(void*)pc[19]}\n{(void*)pc[20]} {(void*)pc[21]} {(void*)pc[22]} {(void*)pc[23]}\n{(void*)pc[24]} {(void*)pc[25]} {(void*)pc[26]} {(void*)pc[27]}\n{(void*)pc[28]} {(void*)pc[29]} {(void*)pc[30]} {(void*)pc[31]}\n{(void*)pc[32]} {(void*)pc[33]} {(void*)pc[34]} {(void*)pc[35]}\n{(void*)pc[36]} {(void*)pc[37]} {(void*)pc[38]} {(void*)pc[39]}\n{(void*)pc[40]} {(void*)pc[41]} {(void*)pc[42]} {(void*)pc[43]}\n{(void*)pc[44]} {(void*)pc[45]} {(void*)pc[46]} {(void*)pc[47]}\n{(void*)pc[48]} {(void*)pc[49]} {(void*)pc[50]} {(void*)pc[51]}\n{(void*)pc[52]} {(void*)pc[53]} {(void*)pc[54]} {(void*)pc[55]}\n{(void*)pc[56]} {(void*)pc[57]} {(void*)pc[58]} {(void*)pc[59]}\n{(void*)pc[60]} {(void*)pc[61]} {(void*)pc[62]} {(void*)pc[63]}\n{(void*)pc[64]} {(void*)pc[65]} {(void*)pc[66]} {(void*)pc[67]}\n{(void*)pc[68]} {(void*)pc[69]} {(void*)pc[70]} {(void*)pc[71]}\n{(void*)pc[72]} {(void*)pc[73]} {(void*)pc[74]} {(void*)pc[75]}\n{(void*)pc[76]} {(void*)pc[77]} {(void*)pc[78]} {(void*)pc[79]}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 4065,
+        "character": 0
+      },
+      {
+        "line": 4065,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:Br"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 4065,
+        "character": 0
+      },
+      {
+        "line": 4065,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Memory contents: \n{(void*)pc[0]} {(void*)pc[1]} {(void*)pc[2]} {(void*)pc[3]}\n{(void*)pc[4]} {(void*)pc[5]} {(void*)pc[6]} {(void*)pc[7]}\n{(void*)pc[8]} {(void*)pc[9]} {(void*)pc[10]} {(void*)pc[11]}\n{(void*)pc[12]} {(void*)pc[13]} {(void*)pc[14]} {(void*)pc[15]}\n{(void*)pc[16]} {(void*)pc[17]} {(void*)pc[18]} {(void*)pc[19]}\n{(void*)pc[20]} {(void*)pc[21]} {(void*)pc[22]} {(void*)pc[23]}\n{(void*)pc[24]} {(void*)pc[25]} {(void*)pc[26]} {(void*)pc[27]}\n{(void*)pc[28]} {(void*)pc[29]} {(void*)pc[30]} {(void*)pc[31]}\n{(void*)pc[32]} {(void*)pc[33]} {(void*)pc[34]} {(void*)pc[35]}\n{(void*)pc[36]} {(void*)pc[37]} {(void*)pc[38]} {(void*)pc[39]}\n{(void*)pc[40]} {(void*)pc[41]} {(void*)pc[42]} {(void*)pc[43]}\n{(void*)pc[44]} {(void*)pc[45]} {(void*)pc[46]} {(void*)pc[47]}\n{(void*)pc[48]} {(void*)pc[49]} {(void*)pc[50]} {(void*)pc[51]}\n{(void*)pc[52]} {(void*)pc[53]} {(void*)pc[54]} {(void*)pc[55]}\n{(void*)pc[56]} {(void*)pc[57]} {(void*)pc[58]} {(void*)pc[59]}\n{(void*)pc[60]} {(void*)pc[61]} {(void*)pc[62]} {(void*)pc[63]}\n{(void*)pc[64]} {(void*)pc[65]} {(void*)pc[66]} {(void*)pc[67]}\n{(void*)pc[68]} {(void*)pc[69]} {(void*)pc[70]} {(void*)pc[71]}\n{(void*)pc[72]} {(void*)pc[73]} {(void*)pc[74]} {(void*)pc[75]}\n{(void*)pc[76]} {(void*)pc[77]} {(void*)pc[78]} {(void*)pc[79]}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 4065,
+        "character": 0
+      },
+      {
+        "line": 4065,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Memory contents: \n{(void*)pc[0]} {(void*)pc[1]} {(void*)pc[2]} {(void*)pc[3]}\n{(void*)pc[4]} {(void*)pc[5]} {(void*)pc[6]} {(void*)pc[7]}\n{(void*)pc[8]} {(void*)pc[9]} {(void*)pc[10]} {(void*)pc[11]}\n{(void*)pc[12]} {(void*)pc[13]} {(void*)pc[14]} {(void*)pc[15]}\n{(void*)pc[16]} {(void*)pc[17]} {(void*)pc[18]} {(void*)pc[19]}\n{(void*)pc[20]} {(void*)pc[21]} {(void*)pc[22]} {(void*)pc[23]}\n{(void*)pc[24]} {(void*)pc[25]} {(void*)pc[26]} {(void*)pc[27]}\n{(void*)pc[28]} {(void*)pc[29]} {(void*)pc[30]} {(void*)pc[31]}\n{(void*)pc[32]} {(void*)pc[33]} {(void*)pc[34]} {(void*)pc[35]}\n{(void*)pc[36]} {(void*)pc[37]} {(void*)pc[38]} {(void*)pc[39]}\n{(void*)pc[40]} {(void*)pc[41]} {(void*)pc[42]} {(void*)pc[43]}\n{(void*)pc[44]} {(void*)pc[45]} {(void*)pc[46]} {(void*)pc[47]}\n{(void*)pc[48]} {(void*)pc[49]} {(void*)pc[50]} {(void*)pc[51]}\n{(void*)pc[52]} {(void*)pc[53]} {(void*)pc[54]} {(void*)pc[55]}\n{(void*)pc[56]} {(void*)pc[57]} {(void*)pc[58]} {(void*)pc[59]}\n{(void*)pc[60]} {(void*)pc[61]} {(void*)pc[62]} {(void*)pc[63]}\n{(void*)pc[64]} {(void*)pc[65]} {(void*)pc[66]} {(void*)pc[67]}\n{(void*)pc[68]} {(void*)pc[69]} {(void*)pc[70]} {(void*)pc[71]}\n{(void*)pc[72]} {(void*)pc[73]} {(void*)pc[74]} {(void*)pc[75]}\n{(void*)pc[76]} {(void*)pc[77]} {(void*)pc[78]} {(void*)pc[79]}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 4065,
+        "character": 0
+      },
+      {
+        "line": 4065,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:GlobalGet"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 4065,
+        "character": 0
+      },
+      {
+        "line": 4065,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Memory contents: \n{(void*)pc[0]} {(void*)pc[1]} {(void*)pc[2]} {(void*)pc[3]}\n{(void*)pc[4]} {(void*)pc[5]} {(void*)pc[6]} {(void*)pc[7]}\n{(void*)pc[8]} {(void*)pc[9]} {(void*)pc[10]} {(void*)pc[11]}\n{(void*)pc[12]} {(void*)pc[13]} {(void*)pc[14]} {(void*)pc[15]}\n{(void*)pc[16]} {(void*)pc[17]} {(void*)pc[18]} {(void*)pc[19]}\n{(void*)pc[20]} {(void*)pc[21]} {(void*)pc[22]} {(void*)pc[23]}\n{(void*)pc[24]} {(void*)pc[25]} {(void*)pc[26]} {(void*)pc[27]}\n{(void*)pc[28]} {(void*)pc[29]} {(void*)pc[30]} {(void*)pc[31]}\n{(void*)pc[32]} {(void*)pc[33]} {(void*)pc[34]} {(void*)pc[35]}\n{(void*)pc[36]} {(void*)pc[37]} {(void*)pc[38]} {(void*)pc[39]}\n{(void*)pc[40]} {(void*)pc[41]} {(void*)pc[42]} {(void*)pc[43]}\n{(void*)pc[44]} {(void*)pc[45]} {(void*)pc[46]} {(void*)pc[47]}\n{(void*)pc[48]} {(void*)pc[49]} {(void*)pc[50]} {(void*)pc[51]}\n{(void*)pc[52]} {(void*)pc[53]} {(void*)pc[54]} {(void*)pc[55]}\n{(void*)pc[56]} {(void*)pc[57]} {(void*)pc[58]} {(void*)pc[59]}\n{(void*)pc[60]} {(void*)pc[61]} {(void*)pc[62]} {(void*)pc[63]}\n{(void*)pc[64]} {(void*)pc[65]} {(void*)pc[66]} {(void*)pc[67]}\n{(void*)pc[68]} {(void*)pc[69]} {(void*)pc[70]} {(void*)pc[71]}\n{(void*)pc[72]} {(void*)pc[73]} {(void*)pc[74]} {(void*)pc[75]}\n{(void*)pc[76]} {(void*)pc[77]} {(void*)pc[78]} {(void*)pc[79]}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 4065,
+        "character": 0
+      },
+      {
+        "line": 4065,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:I32Shl"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1732,
+        "character": 0
+      },
+      {
+        "line": 1732,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "condition": "i=15"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1845,
+        "character": 0
+      },
+      {
+        "line": 1845,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "condition": "i=16"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1939,
+        "character": 0
+      },
+      {
+        "line": 1939,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalTee"
+  },
+  {
+    "location": "/test/run-tests.py",
+    "line": [
+      {
+        "line": 917,
+        "character": 0
+      },
+      {
+        "line": 917,
+        "character": 0
+      }
+    ],
+    "enabled": true
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2961,
+        "character": 0
+      },
+      {
+        "line": 2961,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:InterpAlloca"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2970,
+        "character": 0
+      },
+      {
+        "line": 2970,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:InterpBrUnless"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1913,
+        "character": 0
+      },
+      {
+        "line": 1913,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:GlobalGet"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1933,
+        "character": 0
+      },
+      {
+        "line": 1933,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:LocalSet"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1895,
+        "character": 0
+      },
+      {
+        "line": 1895,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:I32Const"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2965,
+        "character": 0
+      },
+      {
+        "line": 2965,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Memory contents: \n{(void*)pc[0]} {(void*)pc[1]} {(void*)pc[2]} {(void*)pc[3]}\n{(void*)pc[4]} {(void*)pc[5]} {(void*)pc[6]} {(void*)pc[7]}\n{(void*)pc[8]} {(void*)pc[9]} {(void*)pc[10]} {(void*)pc[11]}\n{(void*)pc[12]} {(void*)pc[13]} {(void*)pc[14]} {(void*)pc[15]}\n{(void*)pc[16]} {(void*)pc[17]} {(void*)pc[18]} {(void*)pc[19]}\n{(void*)pc[20]} {(void*)pc[21]} {(void*)pc[22]} {(void*)pc[23]}\n{(void*)pc[24]} {(void*)pc[25]} {(void*)pc[26]} {(void*)pc[27]}\n{(void*)pc[28]} {(void*)pc[29]} {(void*)pc[30]} {(void*)pc[31]}\n{(void*)pc[32]} {(void*)pc[33]} {(void*)pc[34]} {(void*)pc[35]}\n{(void*)pc[36]} {(void*)pc[37]} {(void*)pc[38]} {(void*)pc[39]}\n{(void*)pc[40]} {(void*)pc[41]} {(void*)pc[42]} {(void*)pc[43]}\n{(void*)pc[44]} {(void*)pc[45]} {(void*)pc[46]} {(void*)pc[47]}\n{(void*)pc[48]} {(void*)pc[49]} {(void*)pc[50]} {(void*)pc[51]}\n{(void*)pc[52]} {(void*)pc[53]} {(void*)pc[54]} {(void*)pc[55]}\n{(void*)pc[56]} {(void*)pc[57]} {(void*)pc[58]} {(void*)pc[59]}\n{(void*)pc[60]} {(void*)pc[61]} {(void*)pc[62]} {(void*)pc[63]}\n{(void*)pc[64]} {(void*)pc[65]} {(void*)pc[66]} {(void*)pc[67]}\n{(void*)pc[68]} {(void*)pc[69]} {(void*)pc[70]} {(void*)pc[71]}\n{(void*)pc[72]} {(void*)pc[73]} {(void*)pc[74]} {(void*)pc[75]}\n{(void*)pc[76]} {(void*)pc[77]} {(void*)pc[78]} {(void*)pc[79]}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 2973,
+        "character": 0
+      },
+      {
+        "line": 2973,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Memory contents: \n{(void*)pc[0]} {(void*)pc[1]} {(void*)pc[2]} {(void*)pc[3]}\n{(void*)pc[4]} {(void*)pc[5]} {(void*)pc[6]} {(void*)pc[7]}\n{(void*)pc[8]} {(void*)pc[9]} {(void*)pc[10]} {(void*)pc[11]}\n{(void*)pc[12]} {(void*)pc[13]} {(void*)pc[14]} {(void*)pc[15]}\n{(void*)pc[16]} {(void*)pc[17]} {(void*)pc[18]} {(void*)pc[19]}\n{(void*)pc[20]} {(void*)pc[21]} {(void*)pc[22]} {(void*)pc[23]}\n{(void*)pc[24]} {(void*)pc[25]} {(void*)pc[26]} {(void*)pc[27]}\n{(void*)pc[28]} {(void*)pc[29]} {(void*)pc[30]} {(void*)pc[31]}\n{(void*)pc[32]} {(void*)pc[33]} {(void*)pc[34]} {(void*)pc[35]}\n{(void*)pc[36]} {(void*)pc[37]} {(void*)pc[38]} {(void*)pc[39]}\n{(void*)pc[40]} {(void*)pc[41]} {(void*)pc[42]} {(void*)pc[43]}\n{(void*)pc[44]} {(void*)pc[45]} {(void*)pc[46]} {(void*)pc[47]}\n{(void*)pc[48]} {(void*)pc[49]} {(void*)pc[50]} {(void*)pc[51]}\n{(void*)pc[52]} {(void*)pc[53]} {(void*)pc[54]} {(void*)pc[55]}\n{(void*)pc[56]} {(void*)pc[57]} {(void*)pc[58]} {(void*)pc[59]}\n{(void*)pc[60]} {(void*)pc[61]} {(void*)pc[62]} {(void*)pc[63]}\n{(void*)pc[64]} {(void*)pc[65]} {(void*)pc[66]} {(void*)pc[67]}\n{(void*)pc[68]} {(void*)pc[69]} {(void*)pc[70]} {(void*)pc[71]}\n{(void*)pc[72]} {(void*)pc[73]} {(void*)pc[74]} {(void*)pc[75]}\n{(void*)pc[76]} {(void*)pc[77]} {(void*)pc[78]} {(void*)pc[79]}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1856,
+        "character": 0
+      },
+      {
+        "line": 1856,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Memory contents: \n{(void*)pc[0]} {(void*)pc[1]} {(void*)pc[2]} {(void*)pc[3]}\n{(void*)pc[4]} {(void*)pc[5]} {(void*)pc[6]} {(void*)pc[7]}\n{(void*)pc[8]} {(void*)pc[9]} {(void*)pc[10]} {(void*)pc[11]}\n{(void*)pc[12]} {(void*)pc[13]} {(void*)pc[14]} {(void*)pc[15]}\n{(void*)pc[16]} {(void*)pc[17]} {(void*)pc[18]} {(void*)pc[19]}\n{(void*)pc[20]} {(void*)pc[21]} {(void*)pc[22]} {(void*)pc[23]}\n{(void*)pc[24]} {(void*)pc[25]} {(void*)pc[26]} {(void*)pc[27]}\n{(void*)pc[28]} {(void*)pc[29]} {(void*)pc[30]} {(void*)pc[31]}\n{(void*)pc[32]} {(void*)pc[33]} {(void*)pc[34]} {(void*)pc[35]}\n{(void*)pc[36]} {(void*)pc[37]} {(void*)pc[38]} {(void*)pc[39]}\n{(void*)pc[40]} {(void*)pc[41]} {(void*)pc[42]} {(void*)pc[43]}\n{(void*)pc[44]} {(void*)pc[45]} {(void*)pc[46]} {(void*)pc[47]}\n{(void*)pc[48]} {(void*)pc[49]} {(void*)pc[50]} {(void*)pc[51]}\n{(void*)pc[52]} {(void*)pc[53]} {(void*)pc[54]} {(void*)pc[55]}\n{(void*)pc[56]} {(void*)pc[57]} {(void*)pc[58]} {(void*)pc[59]}\n{(void*)pc[60]} {(void*)pc[61]} {(void*)pc[62]} {(void*)pc[63]}\n{(void*)pc[64]} {(void*)pc[65]} {(void*)pc[66]} {(void*)pc[67]}\n{(void*)pc[68]} {(void*)pc[69]} {(void*)pc[70]} {(void*)pc[71]}\n{(void*)pc[72]} {(void*)pc[73]} {(void*)pc[74]} {(void*)pc[75]}\n{(void*)pc[76]} {(void*)pc[77]} {(void*)pc[78]} {(void*)pc[79]}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1855,
+        "character": 0
+      },
+      {
+        "line": 1855,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:Br"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1945,
+        "character": 0
+      },
+      {
+        "line": 1945,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Memory contents: \n{(void*)pc[0]} {(void*)pc[1]} {(void*)pc[2]} {(void*)pc[3]}\n{(void*)pc[4]} {(void*)pc[5]} {(void*)pc[6]} {(void*)pc[7]}\n{(void*)pc[8]} {(void*)pc[9]} {(void*)pc[10]} {(void*)pc[11]}\n{(void*)pc[12]} {(void*)pc[13]} {(void*)pc[14]} {(void*)pc[15]}\n{(void*)pc[16]} {(void*)pc[17]} {(void*)pc[18]} {(void*)pc[19]}\n{(void*)pc[20]} {(void*)pc[21]} {(void*)pc[22]} {(void*)pc[23]}\n{(void*)pc[24]} {(void*)pc[25]} {(void*)pc[26]} {(void*)pc[27]}\n{(void*)pc[28]} {(void*)pc[29]} {(void*)pc[30]} {(void*)pc[31]}\n{(void*)pc[32]} {(void*)pc[33]} {(void*)pc[34]} {(void*)pc[35]}\n{(void*)pc[36]} {(void*)pc[37]} {(void*)pc[38]} {(void*)pc[39]}\n{(void*)pc[40]} {(void*)pc[41]} {(void*)pc[42]} {(void*)pc[43]}\n{(void*)pc[44]} {(void*)pc[45]} {(void*)pc[46]} {(void*)pc[47]}\n{(void*)pc[48]} {(void*)pc[49]} {(void*)pc[50]} {(void*)pc[51]}\n{(void*)pc[52]} {(void*)pc[53]} {(void*)pc[54]} {(void*)pc[55]}\n{(void*)pc[56]} {(void*)pc[57]} {(void*)pc[58]} {(void*)pc[59]}\n{(void*)pc[60]} {(void*)pc[61]} {(void*)pc[62]} {(void*)pc[63]}\n{(void*)pc[64]} {(void*)pc[65]} {(void*)pc[66]} {(void*)pc[67]}\n{(void*)pc[68]} {(void*)pc[69]} {(void*)pc[70]} {(void*)pc[71]}\n{(void*)pc[72]} {(void*)pc[73]} {(void*)pc[74]} {(void*)pc[75]}\n{(void*)pc[76]} {(void*)pc[77]} {(void*)pc[78]} {(void*)pc[79]}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1944,
+        "character": 0
+      },
+      {
+        "line": 1944,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:Call"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1883,
+        "character": 0
+      },
+      {
+        "line": 1883,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Opcode:Return"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1888,
+        "character": 0
+      },
+      {
+        "line": 1888,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "Memory contents: \n{(void*)pc[0]} {(void*)pc[1]} {(void*)pc[2]} {(void*)pc[3]}\n{(void*)pc[4]} {(void*)pc[5]} {(void*)pc[6]} {(void*)pc[7]}\n{(void*)pc[8]} {(void*)pc[9]} {(void*)pc[10]} {(void*)pc[11]}\n{(void*)pc[12]} {(void*)pc[13]} {(void*)pc[14]} {(void*)pc[15]}\n{(void*)pc[16]} {(void*)pc[17]} {(void*)pc[18]} {(void*)pc[19]}\n{(void*)pc[20]} {(void*)pc[21]} {(void*)pc[22]} {(void*)pc[23]}\n{(void*)pc[24]} {(void*)pc[25]} {(void*)pc[26]} {(void*)pc[27]}\n{(void*)pc[28]} {(void*)pc[29]} {(void*)pc[30]} {(void*)pc[31]}\n{(void*)pc[32]} {(void*)pc[33]} {(void*)pc[34]} {(void*)pc[35]}\n{(void*)pc[36]} {(void*)pc[37]} {(void*)pc[38]} {(void*)pc[39]}\n{(void*)pc[40]} {(void*)pc[41]} {(void*)pc[42]} {(void*)pc[43]}\n{(void*)pc[44]} {(void*)pc[45]} {(void*)pc[46]} {(void*)pc[47]}\n{(void*)pc[48]} {(void*)pc[49]} {(void*)pc[50]} {(void*)pc[51]}\n{(void*)pc[52]} {(void*)pc[53]} {(void*)pc[54]} {(void*)pc[55]}\n{(void*)pc[56]} {(void*)pc[57]} {(void*)pc[58]} {(void*)pc[59]}\n{(void*)pc[60]} {(void*)pc[61]} {(void*)pc[62]} {(void*)pc[63]}\n{(void*)pc[64]} {(void*)pc[65]} {(void*)pc[66]} {(void*)pc[67]}\n{(void*)pc[68]} {(void*)pc[69]} {(void*)pc[70]} {(void*)pc[71]}\n{(void*)pc[72]} {(void*)pc[73]} {(void*)pc[74]} {(void*)pc[75]}\n{(void*)pc[76]} {(void*)pc[77]} {(void*)pc[78]} {(void*)pc[79]}"
+  },
+  {
+    "location": "/src/interp/interp.cc",
+    "line": [
+      {
+        "line": 1885,
+        "character": 0
+      },
+      {
+        "line": 1885,
+        "character": 0
+      }
+    ],
+    "enabled": true,
+    "logMessage": "call_stack_top was 0 or last jit frame"
+  }
+]

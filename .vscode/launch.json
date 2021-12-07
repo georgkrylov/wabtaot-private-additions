@@ -1,0 +1,169 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "-v",
+                "bad-logging-basic"
+            ],
+        },
+        {
+            "name": "(gdb) AOT Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/src/aot/wabtaot",
+            "args": [
+                "${workspaceFolder}/${input:filename-for-wasm}",
+                "--run-all-exports"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "preLaunchTask": "Incremental Build WABTAOT",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Launch Polybench two",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/src/aot/wabtaot",
+            "args": [
+                "${workspaceFolder}/polybench/output/atax.wasm"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "preLaunchTask": "Clean Shared Cache",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Interpreter Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/wasm-interp",
+            "args": [
+                "--run-all-exports",
+                "--jit-threshold=1000",
+                "${workspaceFolder}/${input:filename-for-wasm}",
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Em Interpreter Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-em/em-interp",
+            "args": [
+                "${workspaceFolder}/${input:filename-for-wasm}",
+                "--run-all-exports",
+                "--jit-threshold=1000",
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Incremental Build EM-Interp",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Polybench Em Interpreter Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-em/em-interp",
+            "args": [
+                "${workspaceFolder}/${input:filename-for-polybench}",
+                "--jit-threshold=1000",
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) JIT Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/wasm-interp",
+            "args": [
+                "--run-all-exports",
+                "--jit-threshold=0",
+                "${workspaceFolder}/${input:filename-for-wasm}",
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "filename-for-wasm",
+            "type": "promptString",
+            "description": "Used for debugging. Print the filename",
+            "default": "test_results/float_convert.wasm"
+            // type specific configuration attributes
+        },
+        {
+            "id": "filename-for-polybench",
+            "type": "promptString",
+            "description": "Used for debugging. Print the filename",
+            "default": "polybench/mini_output/correlation.wasm"
+            // type specific configuration attributes
+        },
+    ]
+}
