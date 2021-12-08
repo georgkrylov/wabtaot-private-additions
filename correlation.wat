@@ -2180,7 +2180,7 @@
               br_if 0 (;@5;)
               i32.const 2
               i32.eqz
-              br_if 1 (;@4;)
+              br_if 1 (;@4;) // 2247
               call 8
               local.get 1
               global.set 0
