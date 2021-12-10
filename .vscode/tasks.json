@@ -13,7 +13,7 @@
         },
         {
             "label": "Clean Build EM",
-            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build-em &&            mkdir build-em &&         cd build-em &&    cmake -DWASMJIT_OMR_LOCATION=.. -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF -DCMAKE_BUILD_TYPE=Debug ../em-interp  && make -j12",
+            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build-em &&            mkdir build-em &&         cd build-em &&    cmake -DWASMJIT_OMR_LOCATION=..  -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF -DEMSCRIPTEN_INTERP_DEBUG=ON -DCMAKE_BUILD_TYPE=Debug ../em-interp  && make -j12",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -41,7 +41,7 @@
         },
         {
             "label": "Test WABTAOT",
-            "command": "bash scripts/gitlab-aot-jit-test.sh",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -273,7 +273,7 @@
         },
         {
             "label": "test-aot-elf",
-            "command": "bash scripts/gitlab-aot-jit-test.sh && rm -f *.so",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh && rm -f *.so",
             "type": "shell",
             "group": {
                 "kind": "test",
@@ -283,7 +283,7 @@
         },
         {
             "label": "test-aot-sc",
-            "command": "bash scripts/gitlab-aot-jit-test.sh ",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh ",
             "type": "shell",
             "group": {
                 "kind": "test",
