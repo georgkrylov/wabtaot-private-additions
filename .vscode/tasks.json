@@ -140,7 +140,8 @@
             "options": {
                 "env": {"RESULTS_FOLDER":"testing-results/results-em-interp"},
             },
-            "problemMatcher": []
+            "problemMatcher": [],
+            "dependsOn": ["Clean Build EM"]
         },
         {
             "label": "Diff node and ELF",
