@@ -12,6 +12,15 @@
             "dependsOn":["Generate branch for WABT with Final Changes from Damian"]
         },
         {
+            "label": "Clean Build WABTAOT no rebase",
+            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build &&            mkdir build &&         cd build &&    cmake -DBUILD_TOOLS=ON -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF ..  && make -j12",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "Clean Build EM",
             "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build-em &&            mkdir build-em &&         cd build-em &&    cmake -DWASMJIT_OMR_LOCATION=..  -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF -DEMSCRIPTEN_INTERP_DEBUG=ON -DCMAKE_BUILD_TYPE=Debug ../em-interp  && make -j12",
             "type": "shell",
