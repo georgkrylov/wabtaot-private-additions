@@ -22,6 +22,15 @@
         },
         {
             "label": "Clean Build EM",
+            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build-em &&            mkdir build-em &&         cd build-em &&    cmake -DWASMJIT_OMR_LOCATION=..  -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF ../em-interp  && make -j12",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "Clean Build EM Debug",
             "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build-em &&            mkdir build-em &&         cd build-em &&    cmake -DWASMJIT_OMR_LOCATION=..  -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF -DEMSCRIPTEN_INTERP_DEBUG=ON -DCMAKE_BUILD_TYPE=Debug ../em-interp  && make -j12",
             "type": "shell",
             "group": {
@@ -167,6 +176,20 @@
             "dependsOn": ["Test polybench node", "Test polybench ELF"]
         },
         {
+            "label": "Diff node and em-interp",
+            "command": "cd ${workspaceFolder}/polybench && mkdir -p testing-results/diffs-node-em-interp &&  cp testing-results/results-node/* testing-results/diffs-node-em-interp && cp testing-results/results-em-interp/* testing-results/diffs-node-em-interp   && bash ./ci-tests-internal/ci-diffs.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {"RESULTS_FOLDER":"testing-results/diffs-node-em-interp"},
+            },
+            "problemMatcher": [],
+            "dependsOn": ["Test polybench node", "Test polybench em-interp"]
+        },
+        {
             "label": "Successful testing",
             "command": "echo Testing was Successfull && rm -rf polybench/testing-results",
             "type": "shell",
@@ -175,7 +198,7 @@
                 "isDefault": true
             },
             "problemMatcher": [],
-            "dependsOn": ["Diff node and Shared Cache", "Diff node and ELF"],
+            "dependsOn": ["Diff node and Shared Cache","Diff node and em-interp", "Diff node and ELF"],
             "dependsOrder": "sequence",
         },
         {
