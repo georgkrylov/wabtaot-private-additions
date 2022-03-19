@@ -21,8 +21,17 @@
             }
         },
         {
-            "label": "Clean Build EM",
-            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build-em &&            mkdir build-em &&         cd build-em &&    cmake -DWASMJIT_OMR_LOCATION=..  -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF ../em-interp  && make -j12",
+            "label": "Clean Build EM + WABT",
+            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build &&  mkdir build &&         cd build && cmake -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF .. && make -j12",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "Clean Build EM + ELF",
+            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build &&  mkdir build &&         cd build && cmake -DWASM_SHARED_CACHE=OFF -DOMR_ELF_SHARED_OBJECT=ON .. && make -j12",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -40,7 +49,7 @@
         },
         {
             "label": "Incremental Build EM-Interp",
-            "command": "cd build-em  && make -j12",
+            "command": "cd build  && make -j12",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -56,6 +65,15 @@
                 "isDefault": true
             },
             "dependsOn": ["Generate branch for WABT with Final Changes from Damian"]
+        },
+        {
+            "label": "Clean Build WABTAOT+ELF no rebase",
+            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build &&            mkdir build &&         cd build && cmake -DBUILD_TOOLS=ON  -DOMR_TEST_COMPILER=ON -DOMR_JITBUILDER=ON -DOMR_COMPILER=ON -DOMR_AOT=ON -DWASM_SHARED_CACHE=OFF -DOMR_ELF_SHARED_OBJECT=ON -DCMAKE_BUILD_TOOLS=ON ..  && make -j12",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+                }
         },
         {
             "label": "Clean Build Interp",
@@ -87,6 +105,36 @@
             "dependsOn": ["Incremental Build WABTAOT"]
         },
         {
+            "label": "Test WABTAOT em-Interp",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "EXEC": "./build/em-interp/em-interp"
+                }
+            },
+            "dependsOn": ["Incremental Build WABTAOT"]
+        },
+        {
+            "label": "Test WABTAOT Interp",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "EXEC": "./bin/wasm-interp"
+                }
+            },
+            "dependsOn": ["Incremental Build WABTAOT"]
+        },
+        {
             "label": "Push OMR to test with aot-in-dev",
             "command": "CWD=`pwd` && cd ${workspaceFolder}/third_party/omr && git push -o ci.variable=\"USE_WABT_BRANCH=aot-in-dev\" && cd $CWD",
             "type": "shell",
@@ -94,8 +142,8 @@
 
         },
         {
-            "label": "Clean Shared Cache",
-            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache",
+            "label": "Clean Shared Cache And ELF",
+            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && rm -rf *.so",
             "type": "shell",
             "group": "build",
             "problemMatcher": []
@@ -123,7 +171,7 @@
                 "isDefault": true
             },
             "problemMatcher": [],
-            "dependsOn": ["Clean Shared Cache"]
+            "dependsOn": ["Clean Shared Cache And ELF"]
         },
         {
             "label": "Test polybench ELF",
@@ -193,6 +241,20 @@
             },
             "problemMatcher": [],
             "dependsOn": ["Clean Build EM"]
+        },
+        {
+            "label": "Incremental Test polybench em-interp",
+            "command": "cd ${workspaceFolder}/polybench && bash ./ci-tests-internal/ci-polybench-interp-test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {"RESULTS_FOLDER":"testing-results/results-em-interp"},
+            },
+            "problemMatcher": [],
+            "dependsOn": ["Incremental Build EM-Interp"]
         },
         {
             "label": "Diff node and ELF",

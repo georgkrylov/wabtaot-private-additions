@@ -4,7 +4,10 @@ TESTS_DIR="./test/jit"
 GOLDEN_DIR="$TESTS_DIR/golden_results"
 
 #This could be extracted from artifact name???
-EXEC="./build/src/aot/wabtaot"
+if [ $EXEC"X" == "X" ] ; then
+    echo "Executable is unset, using ./build/src/aot/wabtaot"
+	EXEC="./build/src/aot/wabtaot"
+fi
 WAT2WASM="wat2wasm"
 
 RESULTS_FOLDER="test_results"

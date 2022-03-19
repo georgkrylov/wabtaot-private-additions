@@ -3,6 +3,7 @@
     "cmake.sourceDirectory": "${workspaceFolder}",
     "search.useIgnoreFiles": false,
     "search.exclude": {
+        "**/build_interp/**": true,
         "**/build-em/**": true,
         "**/build/**": true,
         "**/leo-main-exe": true,
@@ -70,9 +71,11 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "typeinfo": "cpp",
-        "bit": "cpp"
+        "bit": "cpp",
+        "*.enum": "cpp"
     },
     "files.watcherExclude": {
+        "**/build_interp/": true,
         "**/build-em/**": true,
         "**/build/**": true,
         "**/leo-main-exe/**": true,
