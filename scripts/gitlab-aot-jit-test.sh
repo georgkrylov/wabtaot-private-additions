@@ -7,6 +7,8 @@ GOLDEN_DIR="$TESTS_DIR/golden_results"
 if [ $EXEC"X" == "X" ] ; then
     echo "Executable is unset, using ./build/src/aot/wabtaot"
 	EXEC="./build/src/aot/wabtaot"
+else
+	echo "Executable is set to ${EXEC}"
 fi
 WAT2WASM="wat2wasm"
 
