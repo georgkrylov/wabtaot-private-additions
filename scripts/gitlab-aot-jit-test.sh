@@ -76,7 +76,7 @@ echo $FILE_NAME "is in interpreter skip list, not doing any tests further"
 continue
 fi
 ## Generate a WASM file
-WASM=$RESULTS_FOLDER"/"$FILE_NAME".wasm"
+WASM=$RESULTS_FOLDER"/"$FILE_NAME_NOEXT".wasm"
 
 TEST_RESULT=0
 $WAT2WASM $TEST_NAME -o $WASM || TEST_RESULT=$?
