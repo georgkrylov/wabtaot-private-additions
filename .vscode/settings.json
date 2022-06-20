@@ -72,7 +72,8 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "bit": "cpp",
-        "*.enum": "cpp"
+        "*.enum": "cpp",
+        "regex": "cpp"
     },
     "files.watcherExclude": {
         "**/build_interp/": true,

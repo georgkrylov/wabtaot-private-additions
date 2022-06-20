@@ -170,8 +170,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": [],
-            "dependsOn": ["Clean Shared Cache And ELF"]
+            "problemMatcher": []
         },
         {
             "label": "Test polybench ELF",

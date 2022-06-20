@@ -31,7 +31,7 @@
             ]
         },
         {
-            "name": "(gdb) AOT Launch",
+            "name": "(gdb) WABTAOT Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/src/aot/wabtaot",
@@ -55,7 +55,7 @@
             ]
         },
         {
-            "name": "(gdb) AOT Launch all exports",
+            "name": "(gdb) WABTAOT Launch all exports",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/src/aot/wabtaot",
@@ -151,14 +151,15 @@
             "name": "(gdb) Polybench Em Interpreter Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build-em/em-interp",
+            "program": "${workspaceFolder}/build/em-interp/em-interp",
             "args": [
                 "${workspaceFolder}/${input:filename-for-polybench}",
-                "--jit-threshold=1",
+                "--jit-threshold=${input:jit-threshold}",
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
+            "preLaunchTask": "Incremental Build EM-Interp",
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
@@ -176,7 +177,7 @@
             "program": "${workspaceFolder}/build/em-interp/em-interp",
             "args": [
                 "--run-all-exports",
-                "--jit-threshold=0",
+                "--jit-threshold=${input:jit-threshold}",
                 "${workspaceFolder}/${input:filename-for-wasm}",
             ],
             "stopAtEntry": true,
@@ -200,7 +201,7 @@
             "program": "${workspaceFolder}/bin/wasm-interp",
             "args": [
                 "--run-all-exports",
-                "--jit-threshold=1",
+                "--jit-threshold=0",
                 "${workspaceFolder}/${input:filename-for-wasm}",
             ],
             "stopAtEntry": true,
@@ -222,7 +223,14 @@
             "id": "filename-for-wasm",
             "type": "promptString",
             "description": "Used for debugging. Print the filename",
-            "default": "test_results/return_three.wasm"
+            "default": "test_results/call.wasm"
+            // type specific configuration attributes
+        },
+        {
+            "id": "jit-threshold",
+            "type": "promptString",
+            "description": "Used for debugging. Set JIT threshold",
+            "default": "1"
             // type specific configuration attributes
         },
         {
