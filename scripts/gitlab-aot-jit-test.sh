@@ -16,6 +16,12 @@ if [ $EXEC"X" == "X" ] ; then
 else
 	echo "Executable is set to ${EXEC}"
 fi
+EXEC_FOUND=`find . -iwholename $EXEC`
+if [ $EXEC_FOUND"X"=="X" ] ; then
+	echo "Executable"$EXEC"is not found, exiting with an error"
+	exit 1 
+fi
+
 WAT2WASM="wat2wasm"
 
 RESULTS_FOLDER="test_results"
