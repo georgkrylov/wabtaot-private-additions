@@ -1,0 +1,3 @@
+f32_min_max.txt
+f64_min_max.txt
+truncation.txt
