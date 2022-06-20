@@ -1,7 +1,13 @@
 #!/bin/bash
 
-TESTS_DIR="./test/jit"
+if [ $TESTS_DIR"X" == "X" ] ; then
+	TESTS_DIR="./test/jit"
+	echo TESTS_DIR is unset, using $TESTS_DIR
+else
+	echo "TESTS_DIR is "$TESTS_DIR
+fi
 GOLDEN_DIR="$TESTS_DIR/golden_results"
+echo GOLDEN_DIR is $GOLDEN_DIR
 
 #This could be extracted from artifact name???
 if [ $EXEC"X" == "X" ] ; then
