@@ -1,0 +1,17 @@
+wrap_store.txt
+ext_load.txt
+sign_ext.txt
+stack_trace.txt
+store.txt
+int_convert.txt
+stack_trace_comp_fail.txt
+truncation.txt
+truncation_saturating.txt
+get_set_tee_local.txt
+alloca_dropkeep.txt
+load.txt
+multi_value.txt
+callindirect.txt
+i64_arithmetic.txt
+f32_arithmetic.txt
+i32_arithmetic.txt

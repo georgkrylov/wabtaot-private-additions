@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $TESTS_DIR"X" == "X" ] ; then
-	TESTS_DIR="./test/jit"
+	TESTS_DIR="./test/jit/"
 	echo TESTS_DIR is unset, using $TESTS_DIR
 else
 	echo "TESTS_DIR is "$TESTS_DIR
@@ -16,8 +16,9 @@ if [ $EXEC"X" == "X" ] ; then
 else
 	echo "Executable is set to ${EXEC}"
 fi
-EXEC_FOUND=`find . -iwholename $EXEC`
-if [ $EXEC_FOUND"X"=="X" ] ; then
+EXEC_FOUND=`find . -iwholename $EXEC `
+if [ $EXEC_FOUND"X" == "X" ] ; then
+	echo "exec found is :$EXEC_FOUND"
 	echo "Executable"$EXEC"is not found, exiting with an error"
 	exit 1 
 fi
@@ -43,7 +44,6 @@ COMPILE_SKIP_LIST=$GOLDEN_DIR"/skip/compile_skip_list.txt"
 LOAD_SKIP_LIST=$GOLDEN_DIR"/skip/load_skip_list.txt"
 LOADED_GOLDEN_SKIP_LIST=$GOLDEN_DIR"/skip/loaded_golden_skip_list.txt"
 
-
 # a custom function to find if the filename is in a certain skip list
 # Should have probably been just grep
 function find_item()
@@ -61,21 +61,22 @@ function find_item()
 
 for TEST_NAME in $FILES_LIST
 do
-
 ## SUPER IMPORTANT DUE TO PROBLEMS WITH DEBUG NAME
 rm -rf /tmp/omrsharedresources
 
-FILE_NAME=`echo $TEST_NAME | awk -F"/" '{print $4}' |  awk -F"." '{print $1}' `
+FILE_NAME=${TEST_NAME#"$TESTS_DIR"}
+FILE_NAME_NOEXT=${FILE_NAME%".txt"}
+echo $FILE_NAME_NOEXT
 echo $TEST_NAME
 
-SEARCH=$(find_item $TEST_NAME $INTERPRETER_SKIP_LIST)
+SEARCH=$(find_item $FILE_NAME $INTERPRETER_SKIP_LIST)
 if  test $SEARCH -eq 0 
 then
 echo $FILE_NAME "is in interpreter skip list, not doing any tests further"
 continue
 fi
 ## Generate a WASM file
-WASM=$RESULTS_FOLDER"/"$FILE_NAME".wasm"
+WASM=$RESULTS_FOLDER"/"$FILE_NAME_NOEXT".wasm"
 
 TEST_RESULT=0
 $WAT2WASM $TEST_NAME -o $WASM || TEST_RESULT=$?
@@ -88,13 +89,12 @@ else
 	continue
 fi
 
+COMPILED=$RESULTS_FOLDER/$FILE_NAME_NOEXT"_compile.out"
+LOADED=$RESULTS_FOLDER/$FILE_NAME_NOEXT"_load.out"
+GOLDEN=$GOLDEN_DIR/$FILE_NAME_NOEXT"_interp_golden.out"
+cat $GOLDEN > $RESULTS_FOLDER"/"$FILE_NAME_NOEXT"_interp_golden.out"
 
-COMPILED=$RESULTS_FOLDER/$FILE_NAME"_compile.out"
-LOADED=$RESULTS_FOLDER/$FILE_NAME"_load.out"
-GOLDEN=$GOLDEN_DIR/$FILE_NAME"_interp_golden.out"
-cat $GOLDEN > $RESULTS_FOLDER"/"$FILE_NAME"_interp_golden.out"
-
-SEARCH=$(find_item $TEST_NAME $COMPILE_SKIP_LIST)
+SEARCH=$(find_item $FILE_NAME $COMPILE_SKIP_LIST)
 if  test $SEARCH -eq 0 
 then
 echo $FILE_NAME "is in compile skip list, not doing any tests further"
@@ -113,7 +113,7 @@ else
 	continue
 fi
 
-SEARCH=$(find_item $TEST_NAME $LOAD_SKIP_LIST)
+SEARCH=$(find_item $FILE_NAME $LOAD_SKIP_LIST)
 if  test $SEARCH -eq 0 
 then
 echo $FILE_NAME "is in load skip list, not doing any tests further"
@@ -140,7 +140,7 @@ else
 	continue
 fi
 
-SEARCH=$(find_item $TEST_NAME $LOADED_GOLDEN_SKIP_LIST)
+SEARCH=$(find_item $FILE_NAME $LOADED_GOLDEN_SKIP_LIST)
 if  test $SEARCH -eq 0 
 then
 echo $FILE_NAME "is in loaded golden skip list, not doing any tests further"
