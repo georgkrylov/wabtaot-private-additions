@@ -1,2 +1,2 @@
-brif_brunless.txt
-truncation.txt
+brif_brunless
+truncation

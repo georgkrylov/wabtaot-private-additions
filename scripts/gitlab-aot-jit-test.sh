@@ -69,8 +69,8 @@ FILE_NAME_NOEXT=${FILE_NAME%".txt"}
 echo $FILE_NAME_NOEXT
 echo $TEST_NAME
 
-SEARCH=$(find_item $FILE_NAME $INTERPRETER_SKIP_LIST)
-if  test $SEARCH -eq 0 
+SEARCH=$(find_item $FILE_NAME_NOEXT $INTERPRETER_SKIP_LIST)
+if  test $SEARCH -eq 0
 then
 echo $FILE_NAME "is in interpreter skip list, not doing any tests further"
 continue
@@ -94,7 +94,7 @@ LOADED=$RESULTS_FOLDER/$FILE_NAME_NOEXT"_load.out"
 GOLDEN=$GOLDEN_DIR/$FILE_NAME_NOEXT"_interp_golden.out"
 cat $GOLDEN > $RESULTS_FOLDER"/"$FILE_NAME_NOEXT"_interp_golden.out"
 
-SEARCH=$(find_item $FILE_NAME $COMPILE_SKIP_LIST)
+SEARCH=$(find_item $FILE_NAME_NOEXT $COMPILE_SKIP_LIST)
 if  test $SEARCH -eq 0 
 then
 echo $FILE_NAME "is in compile skip list, not doing any tests further"
@@ -113,7 +113,7 @@ else
 	continue
 fi
 
-SEARCH=$(find_item $FILE_NAME $LOAD_SKIP_LIST)
+SEARCH=$(find_item $FILE_NAME_NOEXT $LOAD_SKIP_LIST)
 if  test $SEARCH -eq 0 
 then
 echo $FILE_NAME "is in load skip list, not doing any tests further"
@@ -140,7 +140,7 @@ else
 	continue
 fi
 
-SEARCH=$(find_item $FILE_NAME $LOADED_GOLDEN_SKIP_LIST)
+SEARCH=$(find_item $FILE_NAME_NOEXT $LOADED_GOLDEN_SKIP_LIST)
 if  test $SEARCH -eq 0 
 then
 echo $FILE_NAME "is in loaded golden skip list, not doing any tests further"

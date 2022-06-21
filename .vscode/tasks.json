@@ -96,7 +96,7 @@
         },
         {
             "label": "Test WABTAOT",
-            "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
+            "command": " TESTS_DIR='wabtaot-private-additions/jit/'  bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
             "type": "shell",
             "group": {
                 "kind": "build",
