@@ -223,7 +223,7 @@
             "id": "filename-for-wasm",
             "type": "promptString",
             "description": "Used for debugging. Print the filename",
-            "default": "test_results/call.wasm"
+            "default": "test_results/return_three.wasm"
             // type specific configuration attributes
         },
         {

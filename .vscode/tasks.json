@@ -105,6 +105,16 @@
             "dependsOn": ["Incremental Build WABTAOT"]
         },
         {
+            "label": "Clean Test WABTAOT",
+            "command": " TESTS_DIR='wabtaot-private-additions/jit/'  bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": ["Incremental Build WABTAOT","Clean Shared Cache And ELF"]
+        },
+        {
             "label": "Test WABTAOT em-Interp",
             "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
             "type": "shell",
@@ -140,6 +150,13 @@
             "type": "shell",
             "group": "none"
 
+        },
+        {
+            "label": "Clean Shared Cache",
+            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache",
+            "type": "shell",
+            "group": "build",
+            "problemMatcher": []
         },
         {
             "label": "Clean Shared Cache And ELF",

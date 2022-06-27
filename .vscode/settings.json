@@ -73,7 +73,10 @@
         "typeinfo": "cpp",
         "bit": "cpp",
         "*.enum": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "bitset": "cpp",
+        "condition_variable": "cpp",
+        "shared_mutex": "cpp"
     },
     "files.watcherExclude": {
         "**/build_interp/": true,
@@ -89,8 +92,10 @@
         "/tmp/*": true
     },
     "files.exclude": {
+        "**/build": true,
         "**/leo-main-exe/**": true,
         "/tmp/**": true
     },
-    "C_Cpp.exclusionPolicy": "checkFilesAndFolders"
+    "C_Cpp.exclusionPolicy": "checkFilesAndFolders",
+    "C_Cpp.clang_format_style": "{UseTab: Never, IndentWidth: 3, BreakBeforeBraces: Whitesmiths, PointerAlignment : Right, ColumnLimit: 0, PackConstructorInitializers : Never}"
 }
