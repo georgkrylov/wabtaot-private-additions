@@ -1,0 +1,6 @@
+  (func (export "test_return_3_i32") (result i32)
+    call $return_3_i32)
+
+  (func $return_3_i32 (result i32)
+    i32.const 3
+    return)
