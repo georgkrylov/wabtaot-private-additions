@@ -84,12 +84,12 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/src/aot/wabtaot",
             "args": [
-                "${workspaceFolder}/polybench/large_output/atax.wasm"
+                "${workspaceFolder}/polybench/mini_output/atax.wasm"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "preLaunchTask": "Clean Shared Cache",
+            "preLaunchTask": "Incremental Build WABTAOT",
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
