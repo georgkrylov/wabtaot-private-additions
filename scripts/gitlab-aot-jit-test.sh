@@ -9,6 +9,17 @@ fi
 GOLDEN_DIR="$TESTS_DIR/golden_results"
 echo GOLDEN_DIR is $GOLDEN_DIR
 
+
+if [ $DISABLE_AOT"X" != "X" ] ; then
+    echo "AOT was disabled"
+    DISABLE_AOT="--disable-aot"
+fi
+
+
+if [ $DISABLE_JIT"X" != "X" ] ; then
+    echo "JIT was disabled"
+    DISABLE_JIT="--disable-jit"
+fi
 #This could be extracted from artifact name???
 if [ $EXEC"X" == "X" ] ; then
     echo "Executable is unset, using ./build/src/aot/wabtaot"
@@ -20,7 +31,7 @@ EXEC_FOUND=`find . -iwholename $EXEC `
 if [ $EXEC_FOUND"X" == "X" ] ; then
 	echo "exec found is :$EXEC_FOUND"
 	echo "Executable"$EXEC"is not found, exiting with an error"
-	exit 1 
+	exit 1
 fi
 
 WAT2WASM="wat2wasm"
@@ -59,6 +70,13 @@ function find_item()
 	echo "1"
 }
 
+if [ "$FILES_LIST""X" == "X" ] ; then
+	echo NO tests found, exiting
+	exit 200
+else
+	echo "Found tests "$FILES_LIST
+fi
+
 for TEST_NAME in $FILES_LIST
 do
 ## SUPER IMPORTANT DUE TO PROBLEMS WITH DEBUG NAME
@@ -95,7 +113,7 @@ GOLDEN=$GOLDEN_DIR/$FILE_NAME_NOEXT"_interp_golden.out"
 cat $GOLDEN > $RESULTS_FOLDER"/"$FILE_NAME_NOEXT"_interp_golden.out"
 
 SEARCH=$(find_item $FILE_NAME_NOEXT $COMPILE_SKIP_LIST)
-if  test $SEARCH -eq 0 
+if  test $SEARCH -eq 0
 then
 echo $FILE_NAME "is in compile skip list, not doing any tests further"
 continue
@@ -103,7 +121,7 @@ fi
 
 TEST_RESULT=0
 
-$EXEC $WASM --run-all-exports &> $COMPILED || TEST_RESULT=$?
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT  &> $COMPILED || TEST_RESULT=$?
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME compiled
@@ -114,13 +132,13 @@ else
 fi
 
 SEARCH=$(find_item $FILE_NAME_NOEXT $LOAD_SKIP_LIST)
-if  test $SEARCH -eq 0 
+if  test $SEARCH -eq 0
 then
 echo $FILE_NAME "is in load skip list, not doing any tests further"
 continue
 fi
 
-$EXEC $WASM --run-all-exports  &> $LOADED || TEST_RESULT=$?
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT  &> $LOADED || TEST_RESULT=$?
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME loaded
@@ -141,7 +159,7 @@ else
 fi
 
 SEARCH=$(find_item $FILE_NAME_NOEXT $LOADED_GOLDEN_SKIP_LIST)
-if  test $SEARCH -eq 0 
+if  test $SEARCH -eq 0
 then
 echo $FILE_NAME "is in loaded golden skip list, not doing any tests further"
 continue
@@ -160,7 +178,7 @@ fi
 done
 echo "Testing finished to completion"
 
-if test $GLOBAL_RESULT -eq 0 ; 
+if test $GLOBAL_RESULT -eq 0 ;
 then
 	echo "None of the tests that are not in the skip lists have failed"
 else
