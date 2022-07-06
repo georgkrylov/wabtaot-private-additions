@@ -34,9 +34,10 @@
     f64.const nan
     call $f32_demote_f64)
 
-  (func (export "test_f32_demote_f64_7") (result f32)
-    f64.const -nan
-    call $f32_demote_f64)
+;; Removed to not confuse interpreter
+;;  (func (export "test_f32_demote_f64_7") (result f32)
+;;   f64.const -nan
+;;    call $f32_demote_f64)
 
   (func (export "test_f32_demote_f64_8") (result f32)
     f64.const 0
@@ -78,9 +79,10 @@
     f32.const nan
     call $f64_promote_f32)
 
-  (func (export "test_f64_promote_f32_7") (result f64)
-    f32.const -nan
-    call $f64_promote_f32)
+;; Removed to not confuse interpreter
+;;  (func (export "test_f64_promote_f32_7") (result f64)
+;;    f32.const -nan
+;;    call $f64_promote_f32)
 
   (func (export "test_f64_promote_f32_8") (result f64)
     f32.const 0
