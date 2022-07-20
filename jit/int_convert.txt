@@ -40,6 +40,10 @@
     i32.const 0x80000000
     call $i64_extend_u_i32)
 
+  (func (export "test_i64_extend_u_i32_22") (result i64)
+    i32.const 0x80000001
+    call $i64_extend_u_i32)
+
   (func (export "test_i64_extend_u_i32_3") (result i64)
     i32.const 0xffffffff
     call $i64_extend_u_i32)
@@ -63,6 +67,11 @@
   (func (export "test_i64_extend_s_i32_3") (result i64)
     i32.const 0xffffffff
     call $i64_extend_s_i32)
+
+  (func (export "test_i64_extend_s_i32_4") (result i64)
+    i32.const 0x80000001
+    call $i64_extend_s_i32)
+
 )
 (;; STDOUT ;;;
 test_i32_wrap_i64_0() => i32:0

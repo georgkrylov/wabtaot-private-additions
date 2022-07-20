@@ -21,42 +21,6 @@
             }
         },
         {
-            "label": "Clean Build EM + WABT",
-            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build &&  mkdir build &&         cd build && cmake -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF .. && make -j12",
-            "type": "shell",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-        },
-        {
-            "label": "Clean Build EM + ELF",
-            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build &&  mkdir build &&         cd build && cmake -DWASM_SHARED_CACHE=OFF -DOMR_ELF_SHARED_OBJECT=ON .. && make -j12",
-            "type": "shell",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-        },
-        {
-            "label": "Clean Build EM Debug",
-            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build-em &&            mkdir build-em &&         cd build-em &&    cmake -DWASMJIT_OMR_LOCATION=..  -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF -DEMSCRIPTEN_INTERP_DEBUG=ON -DCMAKE_BUILD_TYPE=Debug ../em-interp  && make -j12",
-            "type": "shell",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-        },
-        {
-            "label": "Incremental Build EM-Interp",
-            "command": "cd build  && make -j12",
-            "type": "shell",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-        },
-        {
             "label": "Clean Build WABTAOT+ELF",
             "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder} &&      rm -rf build &&            mkdir build &&         cd build && cmake -DBUILD_TOOLS=ON  -DOMR_TEST_COMPILER=ON -DOMR_JITBUILDER=ON -DOMR_COMPILER=ON -DOMR_AOT=ON -DWASM_SHARED_CACHE=OFF -DOMR_ELF_SHARED_OBJECT=ON -DCMAKE_BUILD_TOOLS=ON ..  && make -j12",
             "type": "shell",
@@ -124,7 +88,9 @@
             },
             "options": {
                 "env": {
-                    "EXEC": "./build/em-interp/em-interp"
+                    "EXEC": "./build/em-interp/em-interp",
+                    "TESTS_DIR": "wabtaot-private-additions/jit/",
+                    "DISABLE_JIT": "true"
                 }
             },
             "dependsOn": ["Incremental Build WABTAOT"]
@@ -191,6 +157,17 @@
             "dependsOn":["Clean Shared Cache And ELF"]
         },
         {
+            "label": "Incremental Build WABTAOT no clean",
+            "command": "cd ${workspaceFolder}/build && make -j12  && cd ${workspaceFolder}",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "dependsOn":[]
+        },
+        {
             "label": "Test polybench ELF",
             "command": "cd ${workspaceFolder}/polybench && bash ./ci-tests-internal/ci-polybench-aot-test.sh && rm -rf *.so",
             "type": "shell",
@@ -254,10 +231,10 @@
                 "isDefault": true
             },
             "options": {
-                "env": {"RESULTS_FOLDER":"testing-results/results-em-interp"},
+                "env": {"RESULTS_FOLDER":"testing-results/results-em-interp","DISABLE_AOT":"--disable-aot"},
             },
             "problemMatcher": [],
-            "dependsOn": ["Clean Build EM"]
+            "dependsOn": ["Incremental Build WABTAOT"]
         },
         {
             "label": "Incremental Test polybench em-interp",
@@ -268,7 +245,7 @@
                 "isDefault": true
             },
             "options": {
-                "env": {"RESULTS_FOLDER":"testing-results/results-em-interp"},
+                "env": {"RESULTS_FOLDER":"testing-results/results-em-interp","DISABLE_AOT":"--disable-aot"},
             },
             "problemMatcher": [],
             "dependsOn": ["Incremental Build EM-Interp"]
