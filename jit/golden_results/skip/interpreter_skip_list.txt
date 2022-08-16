@@ -3,7 +3,6 @@ stack_trace
 stack_trace_comp_fail
 truncation_saturating
 multi_value
-memory_grow
 call_complex
 callindirect
 truncation
