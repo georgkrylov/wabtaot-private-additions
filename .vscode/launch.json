@@ -250,7 +250,7 @@
             "id": "filename-for-wasm",
             "type": "promptString",
             "description": "Used for debugging. Print the filename",
-            "default": "test_results/call.wasm"
+            "default": "test_results/args_sizes_get.wasm"
             // type specific configuration attributes
         },
         {
