@@ -1,0 +1,34 @@
+;;; TOOL: run-interp-jit
+(module
+  (func $i32_callee (result i32)
+    i32.const 3)
+  (func $i32_caller (result i32)
+    call $i32_callee)
+  (func $i32_caller1 (result i32)
+    call $i32_caller)
+  (func $i32_caller2 (result i32)
+    call $i32_caller1)
+  (func $i32_caller3 (result i32)
+    call $i32_caller2)
+  (func $i32_caller4 (result i32)
+    call $i32_caller3)
+  (func $i32_caller5 (result i32)
+    call $i32_caller4)
+  (func $i32_caller6 (result i32)
+    call $i32_caller5)
+  (func $i32_caller7 (result i32)
+    call $i32_caller6)
+  (func $i32_caller8 (result i32)
+    call $i32_caller7)
+  (func $i32_caller9 (result i32)
+    call $i32_caller8)
+
+  (func (export "test_i32_call") (result i32)
+    call $i32_caller9)
+
+
+)
+(;; STDOUT ;;;
+test_i32_call() => i32:3
+;;; STDOUT ;;)
+

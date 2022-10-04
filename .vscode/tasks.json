@@ -96,6 +96,23 @@
             "dependsOn": ["Incremental Build WABTAOT"]
         },
         {
+            "label": "Test em-Interp AOT calls",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-mixed-aot-test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "EXEC": "./build/em-interp/em-interp",
+                    "TESTS_DIR": "wabtaot-private-additions/call-chains/",
+                    "DISABLE_JIT": "true"
+                }
+            },
+            "dependsOn": ["Incremental Build WABTAOT"]
+        },
+        {
             "label": "Test WABTAOT Interp",
             "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
             "type": "shell",
