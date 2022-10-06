@@ -80,6 +80,7 @@ fi
 FULL="./build/src/aot/wabtaot"
 MIXED="./build/em-interp/em-interp"
 rm -rf /tmp/omrsharedresources
+$FULL null.wasm --run-all-exports &> /dev/null;
 rm -rf *.so
 TEST_NAME=$TESTS_DIR"/cd10.txt"
 FILE_NAME="cd10.txt"
@@ -95,28 +96,33 @@ WASMF=$RESULTS_FOLDER"/"$FILE_NAME_NOEXT"F.wasm"
 TEST_RESULT=0
 $WAT2WASM $TEST_NAME -o $WASM || TEST_RESULT=$?
 $WAT2WASM $TEST_NAME -o $WASMF || TEST_RESULT=$?
-for i in {1..14}; do 
+rm -rf /tmp/omrsharedresources
+$FULL null.wasm --run-all-exports &> /dev/null;
+for i in {1..20}; do 
 	ts=$(date +%s%N) ;
 	$FULL $WASMF --run-all-exports &> /dev/null;
 	tt=$(($(date +%s%N) - $ts)) ;
 	echo $tt &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"FULL".txt
 done
-
-for i in {1..14}; do 
+rm -rf /tmp/omrsharedresources
+$FULL null.wasm --run-all-exports &> /dev/null;
+for i in {1..20}; do 
 	ts=$(date +%s%N) ;
 	$MIXED $WASM --run-all-exports --disable-jit  &> /dev/null;
 	tt=$(($(date +%s%N) - $ts)) ;
 	echo $tt &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"MIXED".txt
 done
-
-for i in {1..14}; do 
+rm -rf /tmp/omrsharedresources
+$FULL null.wasm --run-all-exports &> /dev/null;
+for i in {1..20}; do 
 	ts=$(date +%s%N) ;
 	$MIXED $WASM --run-all-exports --disable-jit --disable-aot &> /dev/null;
 	tt=$(($(date +%s%N) - $ts)) ;
 	echo $tt &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"INTERP".txt
 done
-
-for i in {1..14}; do 
+rm -rf /tmp/omrsharedresources
+$FULL null.wasm --run-all-exports &> /dev/null;
+for i in {1..20}; do 
 	ts=$(date +%s%N) ;
 	$MIXED $WASM --run-all-exports --disable-aot &> /dev/null;
 	tt=$(($(date +%s%N) - $ts)) ;
@@ -137,29 +143,34 @@ WASMF=$RESULTS_FOLDER"/"$FILE_NAME_NOEXT"F.wasm"
 TEST_RESULT=0
 $WAT2WASM $TEST_NAME -o $WASM || TEST_RESULT=$?
 $WAT2WASM $TEST_NAME -o $WASMF || TEST_RESULT=$?
-for i in {1..14}; do 
+rm -rf /tmp/omrsharedresources
+$FULL null.wasm --run-all-exports &> /dev/null;
+for i in {1..20}; do 
 	ts=$(date +%s%N) ;
 	$FULL $WASMF --run-all-exports &> /dev/null;
 	tt=$(($(date +%s%N) - $ts)) ;
 	echo $tt &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"FULL".txt
 done
-
-for i in {1..14}; do 
+rm -rf /tmp/omrsharedresources
+$FULL null.wasm --run-all-exports &> /dev/null;
+for i in {1..20}; do 
 	ts=$(date +%s%N) ;
 	$MIXED $WASM --run-all-exports --disable-jit &> /dev/null;
 	tt=$(($(date +%s%N) - $ts)) ;
 	echo $tt &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"MIXED".txt
 done
-
-for i in {1..14}; do 
+rm -rf /tmp/omrsharedresources
+$FULL null.wasm --run-all-exports &> /dev/null;
+for i in {1..20}; do 
 	ts=$(date +%s%N) ;
 	$MIXED $WASM --run-all-exports --disable-jit --disable-aot &> /dev/null;
 	tt=$(($(date +%s%N) - $ts)) ;
 	echo $tt &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"INTERP".txt
 done
+rm -rf /tmp/omrsharedresources
+$FULL null.wasm --run-all-exports &> /dev/null;
 
-
-for i in {1..14}; do 
+for i in {1..20}; do 
 	ts=$(date +%s%N) ;
 	$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null;
 	tt=$(($(date +%s%N) - $ts)) ;
