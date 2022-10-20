@@ -97,7 +97,7 @@
         },
         {
             "label": "Test em-Interp AOT calls",
-            "command": "bash wabtaot-private-additions/scripts/gitlab-mixed-aot-test.sh",
+            "command": "bash  wabtaot-private-additions/scripts/gitlab-mixed-aot-test.sh",
             "type": "shell",
             "group": {
                 "kind": "build",
