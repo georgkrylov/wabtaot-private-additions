@@ -79,69 +79,85 @@ fi
 
 FULL="./build/src/aot/wabtaot"
 MIXED="./build/em-interp/em-interp"
+INNERLOOP=20
+OUTERLOOP=20
+FILES_LIST="/local_scratch/wasmjitwithomr/wabtaot-private-additions/call-chains/fib_benchmark_loop.txt"
+for fil in $FILES_LIST; do
+	echo "FILO"
+	echo $fil
+	filo=${fil##*/}
+	FILE_NAME=$filo
+	TEST_NAME=${fil}
 
-for fil in call cd10 ; do
-	TEST_NAME=$TESTS_DIR$fil".txt"
-	FILE_NAME=$fil".txt"
-	FILE_NAME_NOEXT=${FILE_NAME%".txt"}
-	echo $FILE_NAME_NOEXT
-	echo $TEST_NAME
-
+	FILE_NAME_NOEXTEN=${FILE_NAME%".txt"}
+	REPORT="results"
+	echo  $FILE_NAME_NOEXTEN &>> $RESULTS_FOLDER/$REPORT.txt
 
 	## Generate a WASM file
-	WASM=$RESULTS_FOLDER"/"$FILE_NAME_NOEXT".wasm"
-	WASMF=$RESULTS_FOLDER"/"$FILE_NAME_NOEXT"F.wasm"
+	WASM=$RESULTS_FOLDER"/"$FILE_NAME_NOEXTEN".wasm"
+	WASMF=$RESULTS_FOLDER"/"$FILE_NAME_NOEXTEN"F.wasm"
 	TEST_RESULT=0
 	$WAT2WASM $TEST_NAME -o $WASM || TEST_RESULT=$?
 	$WAT2WASM $TEST_NAME -o $WASMF || TEST_RESULT=$?
-
-	for i in {1..20}; do 
-
+	
+	echo "FULL:," &>> $RESULTS_FOLDER/$REPORT.txt
+	for (( i=1; i<=$OUTERLOOP; i++ )); do 
 		rm -rf /tmp/omrsharedresources
 		$FULL null.wasm --run-all-exports &> /dev/null;
-		for i in {1..20}; do 
+		for (( j=1; j<=$INNERLOOP; j++ )); do 
 			ts=$(date +%s%N) ;
 			$FULL $WASMF --run-all-exports &> /dev/null;
 			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"FULL".txt
+			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
 		done
-		echo "," &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"FULL".txt
+		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
+	done
+	echo "MIXED:," &>> $RESULTS_FOLDER/$REPORT.txt
+	for (( i=1; i<=$OUTERLOOP; i++ )); do 
 		rm -rf /tmp/omrsharedresources
 		$FULL null.wasm --run-all-exports &> /dev/null;
-		for i in {1..20}; do 
+		for (( j=1; j<=$INNERLOOP; j++ )); do 
 			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-jit &> /dev/null;
+			$MIXED $WASM --run-all-exports --disable-jit  &> /dev/null;
 			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"MIXED".txt
+			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT"".txt
 		done
-		echo "," &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"MIXED".txt
-		rm -rf /tmp/omrsharedresources
-		$FULL null.wasm --run-all-exports &> /dev/null;
-		for i in {1..20}; do 
-			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-jit --disable-aot &> /dev/null;
-			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"INTERP".txt
-		done
-		echo "," &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"INTERP".txt
+		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
+	done
+	echo "INTERP:," &>> $RESULTS_FOLDER/$REPORT.txt
+
+	for (( i=1; i<=$OUTERLOOP; i++ )); do 
 		rm -rf /tmp/omrsharedresources
 		$FULL null.wasm --run-all-exports &> /dev/null;
 
-		for i in {1..20}; do 
+		for (( j=1; j<=$INNERLOOP; j++ )); do 
+			ts=$(date +%s%N) ;
+			$MIXED $WASM --run-all-exports --disable-jit --disable-aot &> /dev/null;
+			tt=$(($(date +%s%N) - $ts)) ;
+			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
+		done
+		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
+	done
+
+	echo "JIT:," &>> $RESULTS_FOLDER/$REPORT.txt
+	for (( i=1; i<=$OUTERLOOP; i++ )); do 
+		rm -rf /tmp/omrsharedresources
+		$FULL null.wasm --run-all-exports &> /dev/null;
+		for (( j=1; j<=$INNERLOOP; j++ )); do 
 			ts=$(date +%s%N) ;
 			$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null;
 			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"JIT".txt
+			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
 		done
-		echo "," &>> $RESULTS_FOLDER/$FILE_NAME_NOEXT"JIT".txt
+		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done
-	if test $GLOBAL_RESULT -eq 0 ;
-	then
-		echo "None of the tests that are not in the skip lists have failed"
-	else
-		echo "Some of the tests not in the skip lists have failed, see test_results/summary for details"
-	fi
 done
+if test $GLOBAL_RESULT -eq 0 ;
+then
+	echo "None of the tests that are not in the skip lists have failed"
+else
+	echo "Some of the tests not in the skip lists have failed, see test_results/summary for details"
+fi
 sed -i -e "s/\,/\\t/g" $RESULTS_FOLDER/*.txt
 sed -i -e "s/\t\t//g" $RESULTS_FOLDER/*.txt
 mv *.so $RESULTS_FOLDER

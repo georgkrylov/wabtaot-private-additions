@@ -1,0 +1,70 @@
+(module
+  ;; local 0 - p0
+  ;; local 1 - iterator
+  ;; local 2 - f(n-2)
+  ;; local 3 - n-1
+  ;; local 4 - n
+  ;; f(n-2) = 1
+  ;; f(n-1) = 1
+  ;;
+  ;; f(n) = f(n-1)+(f(n-2))
+  ;; f(n-2) = f(n-1)
+  ;; f(n -1) = f(n)
+ (func $fib_rec (param i32)(result i64) (local i32 i64 i64 i64)
+   i64.const 1
+   set_local 2
+   i64.const 1
+   set_local 3
+   i32.const 2
+   set_local 1
+   block $exit
+   loop $loop
+     get_local 0           ;; <p0>
+     get_local 1           ;; <p0, 2>
+     i32.eq
+     br_if $exit           ;; <>
+     get_local 2           ;; <1>
+     get_local 3           ;; <1,1>
+     i64.add               ;; <2>
+     set_local 4           ;; <>
+     get_local 3           ;; <1>
+     set_local 2           ;; <>
+     get_local 4           ;; <2>
+     set_local 3           ;; <>
+     get_local 1           ;; <2>
+     i32.const 1           ;; <2,1>
+     i32.add               ;; <3>
+     set_local 1           ;; <>
+
+     br $loop
+   end
+   end
+   get_local 2
+
+)
+
+  (func (export "test_fib_call")(result i64)
+
+    i32.const 6
+    call $fib_rec )
+
+  (func (export "test_fib_call2")(result i64)
+
+    i32.const 20
+    call $fib_rec )
+  (func (export "test_fib_call3")(result i64)
+
+    i32.const 24
+    call $fib_rec )
+  (func (export "test_fib_call4")(result i64)
+
+    i32.const 17
+    call $fib_rec )
+
+  (func (export "test_fib_call5")(result i64)
+
+    i32.const 19
+    call $fib_rec )
+
+
+ )
