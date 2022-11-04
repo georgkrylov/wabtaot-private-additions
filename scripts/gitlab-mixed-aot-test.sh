@@ -34,7 +34,7 @@ if [ $EXEC_FOUND"X" == "X" ] ; then
 	exit 1
 fi
 
-WAT2WASM="wat2wasm"
+WAT2WASM="./bin/wat2wasm"
 
 RESULTS_FOLDER="test_results"
 SUMMARY_FOLDER=$RESULTS_FOLDER"/summary"
@@ -81,7 +81,6 @@ FULL="./build/src/aot/wabtaot"
 MIXED="./build/em-interp/em-interp"
 INNERLOOP=20
 OUTERLOOP=20
-FILES_LIST="/local_scratch/wasmjitwithomr/wabtaot-private-additions/call-chains/fib_benchmark_loop.txt"
 for fil in $FILES_LIST; do
 	echo "FILO"
 	echo $fil
