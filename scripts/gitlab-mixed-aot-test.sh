@@ -105,7 +105,7 @@ for fil in $FILES_LIST; do
 		$FULL null.wasm --run-all-exports &> /dev/null;
 		for (( j=1; j<=$INNERLOOP; j++ )); do 
 			ts=$(date +%s%N) ;
-			$FULL $WASMF --run-all-exports &> /dev/null;
+			$FULL $WASMF --run-all-exports &> /dev/null || TEST_RESULT=$?
 			tt=$(($(date +%s%N) - $ts)) ;
 			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
 		done
@@ -117,7 +117,7 @@ for fil in $FILES_LIST; do
 		$FULL null.wasm --run-all-exports &> /dev/null;
 		for (( j=1; j<=$INNERLOOP; j++ )); do 
 			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-jit  &> /dev/null;
+			$MIXED $WASM --run-all-exports --disable-jit  &> /dev/null|| TEST_RESULT=$?
 			tt=$(($(date +%s%N) - $ts)) ;
 			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT"".txt
 		done
@@ -131,7 +131,7 @@ for fil in $FILES_LIST; do
 
 		for (( j=1; j<=$INNERLOOP; j++ )); do 
 			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-jit --disable-aot &> /dev/null;
+			$MIXED $WASM --run-all-exports --disable-jit --disable-aot &> /dev/null || TEST_RESULT=$?
 			tt=$(($(date +%s%N) - $ts)) ;
 			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
 		done
@@ -144,14 +144,14 @@ for fil in $FILES_LIST; do
 		$FULL null.wasm --run-all-exports &> /dev/null;
 		for (( j=1; j<=$INNERLOOP; j++ )); do 
 			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null;
+			$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
 			tt=$(($(date +%s%N) - $ts)) ;
 			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done
 done
-if test $GLOBAL_RESULT -eq 0 ;
+if test $TEST_RESULT -eq 0 ;
 then
 	echo "None of the tests that are not in the skip lists have failed"
 else
