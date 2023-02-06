@@ -157,7 +157,8 @@
             "args": [
                 "${workspaceFolder}/${input:filename-for-wasm}",
                 "--run-all-exports",
-                "--jit-threshold=100000",
+                "--jit-threshold=1000",
+                "${input:calling-method}"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -250,7 +251,7 @@
             "id": "filename-for-wasm",
             "type": "promptString",
             "description": "Used for debugging. Print the filename",
-            "default": "test_results/cd10.wasm"
+            "default": "test_results/memory_grow.wasm"
             // type specific configuration attributes
         },
         {
@@ -258,6 +259,13 @@
             "type": "promptString",
             "description": "Used for debugging. Set JIT threshold",
             "default": "1"
+            // type specific configuration attributes
+        },
+        {
+            "id": "calling-method",
+            "type": "promptString",
+            "description": "Used for debugging. Set JIT threshold",
+            "default": "--aot-hardcoded"
             // type specific configuration attributes
         },
         {

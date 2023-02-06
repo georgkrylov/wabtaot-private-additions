@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ $RUN_MODE"X" == "X" ] ; then
+	RUN_MODE="aot-entry"
+	echo RUN_MODE is unset, using $RUN_MODE
+else
+	echo " RUN_MODE is "$RUN_MODE
+fi
+
 if [ $TESTS_DIR"X" == "X" ] ; then
 	TESTS_DIR="./test/jit/"
 	echo TESTS_DIR is unset, using $TESTS_DIR
@@ -98,6 +105,7 @@ WASM=$RESULTS_FOLDER"/"$FILE_NAME_NOEXT".wasm"
 
 TEST_RESULT=0
 $WAT2WASM $TEST_NAME -o $WASM || TEST_RESULT=$?
+cp $TEST_NAME $RESULTS_FOLDER
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME generated wasm
@@ -121,7 +129,7 @@ fi
 
 TEST_RESULT=0
 
-$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT  &> $COMPILED || TEST_RESULT=$?
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE &> $COMPILED || TEST_RESULT=$?
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME compiled
@@ -138,7 +146,7 @@ echo $FILE_NAME "is in load skip list, not doing any tests further"
 continue
 fi
 
-$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT  &> $LOADED || TEST_RESULT=$?
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE &> $LOADED || TEST_RESULT=$?
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME loaded

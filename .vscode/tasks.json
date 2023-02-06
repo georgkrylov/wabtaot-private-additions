@@ -79,7 +79,7 @@
             "dependsOn": ["Incremental Build WABTAOT","Clean Shared Cache And ELF"]
         },
         {
-            "label": "Test WABTAOT em-Interp",
+            "label": "Test WABTAOT em-Interp hardcoded",
             "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
             "type": "shell",
             "group": {
@@ -90,14 +90,33 @@
                 "env": {
                     "EXEC": "./build/em-interp/em-interp",
                     "TESTS_DIR": "wabtaot-private-additions/jit/",
-                    "DISABLE_JIT": "true"
+                    "DISABLE_JIT": "true",
+                    "RUN_MODE": "${input:calling-method}"
+                }
+            },
+            "dependsOn": ["Incremental Build WABTAOT"]
+        },
+        {
+            "label": "Test WABTAOT em-Interp entry aot",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "EXEC": "./build/em-interp/em-interp",
+                    "TESTS_DIR": "wabtaot-private-additions/jit/",
+                    "DISABLE_JIT": "true",
+                    "RUN_MODE": "${input:calling-method}"
                 }
             },
             "dependsOn": ["Incremental Build WABTAOT"]
         },
         {
             "label": "Test em-Interp AOT calls",
-            "command": "bash  wabtaot-private-additions/scripts/gitlab-mixed-aot-test.sh",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-mixed-aot-test.sh",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -507,6 +526,13 @@
           "description": "Used for testing. Print something to see if it works",
           "default": "Hello world"
           // type specific configuration attributes
+        },
+        {
+            "id": "calling-method",
+            "type": "promptString",
+            "description": "Used for debugging. Set JIT threshold",
+            "default": "--aot-hardcoded"
+            // type specific configuration attributes
         },
         {
             "id": "USE_OMR_BRANCH",
