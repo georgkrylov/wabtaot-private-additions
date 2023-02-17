@@ -6,6 +6,13 @@ if [ $TESTS_DIR"X" == "X" ] ; then
 else
 	echo "TESTS_DIR is "$TESTS_DIR
 fi
+
+if [ $CALLING_METHOD"X" == "X" ] ; then
+	CALLING_METHOD="--aot-entry"
+	echo CALLING_METHOD is unset, using $CALLING_METHOD
+else
+	echo "CALLING_METHOD is "$CALLING_METHOD
+fi
 GOLDEN_DIR="$TESTS_DIR/golden_results"
 echo GOLDEN_DIR is $GOLDEN_DIR
 
@@ -82,7 +89,6 @@ MIXED="./build/em-interp/em-interp"
 INNERLOOP=20
 OUTERLOOP=20
 for fil in $FILES_LIST; do
-	echo "FILO"
 	echo $fil
 	filo=${fil##*/}
 	FILE_NAME=$filo
@@ -98,12 +104,12 @@ for fil in $FILES_LIST; do
 	TEST_RESULT=0
 	$WAT2WASM $TEST_NAME -o $WASM || TEST_RESULT=$?
 	$WAT2WASM $TEST_NAME -o $WASMF || TEST_RESULT=$?
-	
+
 	echo "FULL:," &>> $RESULTS_FOLDER/$REPORT.txt
-	for (( i=1; i<=$OUTERLOOP; i++ )); do 
+	for (( i=1; i<=$OUTERLOOP; i++ )); do
 		rm -rf /tmp/omrsharedresources
 		$FULL null.wasm --run-all-exports &> /dev/null;
-		for (( j=1; j<=$INNERLOOP; j++ )); do 
+		for (( j=1; j<=$INNERLOOP; j++ )); do
 			ts=$(date +%s%N) ;
 			$FULL $WASMF --run-all-exports &> /dev/null || TEST_RESULT=$?
 			tt=$(($(date +%s%N) - $ts)) ;
@@ -112,12 +118,12 @@ for fil in $FILES_LIST; do
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done
 	echo "MIXED:," &>> $RESULTS_FOLDER/$REPORT.txt
-	for (( i=1; i<=$OUTERLOOP; i++ )); do 
+	for (( i=1; i<=$OUTERLOOP; i++ )); do
 		rm -rf /tmp/omrsharedresources
 		$FULL null.wasm --run-all-exports &> /dev/null;
-		for (( j=1; j<=$INNERLOOP; j++ )); do 
+		for (( j=1; j<=$INNERLOOP; j++ )); do
 			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-jit  &> /dev/null|| TEST_RESULT=$?
+			$MIXED $WASM --run-all-exports --disable-jit $CALLING_METHOD  &> /dev/null|| TEST_RESULT=$?
 			tt=$(($(date +%s%N) - $ts)) ;
 			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT"".txt
 		done
@@ -125,31 +131,31 @@ for fil in $FILES_LIST; do
 	done
 	echo "INTERP:," &>> $RESULTS_FOLDER/$REPORT.txt
 
-	for (( i=1; i<=$OUTERLOOP; i++ )); do 
+	for (( i=1; i<=$OUTERLOOP; i++ )); do
 		rm -rf /tmp/omrsharedresources
 		$FULL null.wasm --run-all-exports &> /dev/null;
 
-		for (( j=1; j<=$INNERLOOP; j++ )); do 
+		for (( j=1; j<=$INNERLOOP; j++ )); do
 			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-jit --disable-aot &> /dev/null || TEST_RESULT=$?
+			$MIXED $WASM --run-all-exports --disable-jit --disable-aot $CALLING_METHOD &> /dev/null || TEST_RESULT=$?
 			tt=$(($(date +%s%N) - $ts)) ;
 			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done
 
-	echo "JIT:," &>> $RESULTS_FOLDER/$REPORT.txt
-	for (( i=1; i<=$OUTERLOOP; i++ )); do 
-		rm -rf /tmp/omrsharedresources
-		$FULL null.wasm --run-all-exports &> /dev/null;
-		for (( j=1; j<=$INNERLOOP; j++ )); do 
-			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
-			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
-		done
-		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
-	done
+	# echo "JIT:," &>> $RESULTS_FOLDER/$REPORT.txt
+	# for (( i=1; i<=$OUTERLOOP; i++ )); do
+	# 	rm -rf /tmp/omrsharedresources
+	# 	$FULL null.wasm --run-all-exports &> /dev/null;
+	# 	for (( j=1; j<=$INNERLOOP; j++ )); do
+	# 		ts=$(date +%s%N) ;
+	# 		$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
+	# 		tt=$(($(date +%s%N) - $ts)) ;
+	# 		echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
+	# 	done
+	# 	echo "," &>> $RESULTS_FOLDER/$REPORT.txt
+	# done
 done
 if test $TEST_RESULT -eq 0 ;
 then
