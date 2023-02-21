@@ -97,6 +97,24 @@
             "dependsOn": ["Incremental Build WABTAOT"]
         },
         {
+            "label": "Test WABTAOT em-Interp libffi",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "EXEC": "./build/em-interp/em-interp",
+                    "TESTS_DIR": "wabtaot-private-additions/jit/",
+                    "DISABLE_JIT": "true",
+                    "RUN_MODE": "${input:calling-method-ffi}"
+                }
+            },
+            "dependsOn": ["Incremental Build WABTAOT"]
+        },
+        {
             "label": "Test WABTAOT em-Interp entry aot",
             "command": "bash wabtaot-private-additions/scripts/gitlab-aot-jit-test.sh",
             "type": "shell",
@@ -115,7 +133,7 @@
             "dependsOn": ["Incremental Build WABTAOT"]
         },
         {
-            "label": "Test em-Interp AOT calls",
+            "label": "Test em-Interp AOT calls-ffi",
             "command": "bash wabtaot-private-additions/scripts/gitlab-mixed-aot-test.sh",
             "type": "shell",
             "group": {
@@ -126,7 +144,44 @@
                 "env": {
                     "EXEC": "./build/em-interp/em-interp",
                     "TESTS_DIR": "wabtaot-private-additions/call-chains/",
-                    "DISABLE_JIT": "true"
+                    "DISABLE_JIT": "true",
+                    "CALLING_METHOD": "--aot-libffi"
+                }
+            },
+            "dependsOn": ["Incremental Build WABTAOT"]
+        },
+        {
+            "label": "Test em-Interp AOT calls-entry",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-mixed-aot-test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "EXEC": "./build/em-interp/em-interp",
+                    "TESTS_DIR": "wabtaot-private-additions/call-chains/",
+                    "DISABLE_JIT": "true",
+                    "CALLING_METHOD": "--aot-entry"
+                }
+            },
+            "dependsOn": ["Incremental Build WABTAOT"]
+        },
+        {
+            "label": "Test em-Interp AOT calls-aot-hardcoded",
+            "command": "bash wabtaot-private-additions/scripts/gitlab-mixed-aot-test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "EXEC": "./build/em-interp/em-interp",
+                    "TESTS_DIR": "wabtaot-private-additions/call-chains/",
+                    "DISABLE_JIT": "true",
+                    "CALLING_METHOD": "--aot-hardcoded"
                 }
             },
             "dependsOn": ["Incremental Build WABTAOT"]
@@ -532,6 +587,13 @@
             "type": "promptString",
             "description": "Used for debugging. Set JIT threshold",
             "default": "--aot-hardcoded"
+            // type specific configuration attributes
+        },
+        {
+            "id": "calling-method-ffi",
+            "type": "promptString",
+            "description": "Used for testing. FFI",
+            "default": "--aot-libffi"
             // type specific configuration attributes
         },
         {

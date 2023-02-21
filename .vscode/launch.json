@@ -31,6 +31,25 @@
             ]
         },
         {
+            "name": "(gdb) C JitBuilderInliningLaunch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/third_party/omr/build/jitbuilder/release/inliningrecfib",
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "args": [ "0"],
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "(gdb) WABTAOT Launch",
             "type": "cppdbg",
             "request": "launch",
@@ -158,7 +177,7 @@
                 "${workspaceFolder}/${input:filename-for-wasm}",
                 "--run-all-exports",
                 "--jit-threshold=1000",
-                "${input:calling-method}"
+                "${input:calling-method-entry}"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -251,7 +270,7 @@
             "id": "filename-for-wasm",
             "type": "promptString",
             "description": "Used for debugging. Print the filename",
-            "default": "test_results/memory_grow.wasm"
+            "default": "test_results/return_three.wasm"
             // type specific configuration attributes
         },
         {
@@ -266,6 +285,13 @@
             "type": "promptString",
             "description": "Used for debugging. Set JIT threshold",
             "default": "--aot-hardcoded"
+            // type specific configuration attributes
+        },
+        {
+            "id": "calling-method-entry",
+            "type": "promptString",
+            "description": "Used for debugging. Set JIT threshold",
+            "default": "--aot-entry"
             // type specific configuration attributes
         },
         {

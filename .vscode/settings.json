@@ -77,7 +77,8 @@
         "bitset": "cpp",
         "condition_variable": "cpp",
         "shared_mutex": "cpp",
-        "*.ins": "cpp"
+        "*.ins": "cpp",
+        "complex": "cpp"
     },
     "files.watcherExclude": {
         "**/build_interp/": true,
