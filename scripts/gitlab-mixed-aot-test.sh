@@ -45,12 +45,15 @@ WAT2WASM="./bin/wat2wasm"
 
 RESULTS_FOLDER="test_results"
 SUMMARY_FOLDER=$RESULTS_FOLDER"/summary"
-rm -rf $RESULTS_FOLDER || true
-rm -rf $SUMMARY_FOLDER || true
-mkdir -p $RESULTS_FOLDER
-mkdir -p $SUMMARY_FOLDER
+if [ $DONOTDELETE"X" == "X" ] ; then
+	rm -rf $RESULTS_FOLDER || true
+	rm -rf $SUMMARY_FOLDER || true
+	mkdir -p $RESULTS_FOLDER
+	mkdir -p $SUMMARY_FOLDER
+fi
 
-FILES_LIST=`find  $TESTS_DIR  -maxdepth 1 -type f -iname "*.txt" `
+
+FILES_LIST=`find  $TESTS_DIR  -maxdepth 1 -type f -iname "*.txt" | sort`
 GLOBAL_RESULT=0
 INTERPRETER_FAILURES=$SUMMARY_FOLDER"/interpreter_failures.txt"
 COMPILE_FAILURES=$SUMMARY_FOLDER"/compile_failures.txt"
@@ -84,10 +87,26 @@ else
 	echo "Found tests "$FILES_LIST
 fi
 
+if [ "$REPORT""X" == "X" ] ; then
+	REPORT="results"
+		echo "no report seting found, will be stored in"$REPORT".txt"
+else
+	echo "Results will be stored in"$REPORT".txt"
+fi
+if [ "$INNERLOOP""X" == "X" ] ; then
+	INNERLOOP=20
+	echo "no Inner loop seting found, it is set to"$INNERLOOP
+else
+	echo "Inner loop is "$INNERLOOP
+fi
+if [ "$OUTERLOOP""X" == "X" ] ; then
+	OUTERLOOP=20
+	echo "no outer  loop seting found, it is set to"$OUTERLOOP
+else
+	echo "outer loop is "$OUTERLOOP
+fi
 FULL="./build/src/aot/wabtaot"
 MIXED="./build/em-interp/em-interp"
-INNERLOOP=20
-OUTERLOOP=20
 for fil in $FILES_LIST; do
 	echo $fil
 	filo=${fil##*/}
@@ -95,8 +114,6 @@ for fil in $FILES_LIST; do
 	TEST_NAME=${fil}
 
 	FILE_NAME_NOEXTEN=${FILE_NAME%".txt"}
-	REPORT="results"
-	echo  $FILE_NAME_NOEXTEN &>> $RESULTS_FOLDER/$REPORT.txt
 
 	## Generate a WASM file
 	WASM=$RESULTS_FOLDER"/"$FILE_NAME_NOEXTEN".wasm"
@@ -105,9 +122,9 @@ for fil in $FILES_LIST; do
 	$WAT2WASM $TEST_NAME -o $WASM || TEST_RESULT=$?
 	$WAT2WASM $TEST_NAME -o $WASMF || TEST_RESULT=$?
 
-	echo "FULL:," &>> $RESULTS_FOLDER/$REPORT.txt
 	for (( i=1; i<=$OUTERLOOP; i++ )); do
 		rm -rf /tmp/omrsharedresources
+		echo -n $FILE_NAME_NOEXTEN ", FULL, " &>> $RESULTS_FOLDER/$REPORT.txt
 		$FULL null.wasm --run-all-exports &> /dev/null;
 		for (( j=1; j<=$INNERLOOP; j++ )); do
 			ts=$(date +%s%N) ;
@@ -117,9 +134,10 @@ for fil in $FILES_LIST; do
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done
-	echo "MIXED:," &>> $RESULTS_FOLDER/$REPORT.txt
+
 	for (( i=1; i<=$OUTERLOOP; i++ )); do
 		rm -rf /tmp/omrsharedresources
+		echo -n $FILE_NAME_NOEXTEN ", MIXED, " &>> $RESULTS_FOLDER/$REPORT.txt
 		$FULL null.wasm --run-all-exports &> /dev/null;
 		for (( j=1; j<=$INNERLOOP; j++ )); do
 			ts=$(date +%s%N) ;
@@ -129,12 +147,11 @@ for fil in $FILES_LIST; do
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done
-	echo "INTERP:," &>> $RESULTS_FOLDER/$REPORT.txt
 
 	for (( i=1; i<=$OUTERLOOP; i++ )); do
 		rm -rf /tmp/omrsharedresources
 		$FULL null.wasm --run-all-exports &> /dev/null;
-
+		echo -n $FILE_NAME_NOEXTEN ", INTERP, " &>> $RESULTS_FOLDER/$REPORT.txt
 		for (( j=1; j<=$INNERLOOP; j++ )); do
 			ts=$(date +%s%N) ;
 			$MIXED $WASM --run-all-exports --disable-jit --disable-aot $CALLING_METHOD &> /dev/null || TEST_RESULT=$?
@@ -144,18 +161,19 @@ for fil in $FILES_LIST; do
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done
 
-	# echo "JIT:," &>> $RESULTS_FOLDER/$REPORT.txt
-	# for (( i=1; i<=$OUTERLOOP; i++ )); do
-	# 	rm -rf /tmp/omrsharedresources
-	# 	$FULL null.wasm --run-all-exports &> /dev/null;
-	# 	for (( j=1; j<=$INNERLOOP; j++ )); do
-	# 		ts=$(date +%s%N) ;
-	# 		$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
-	# 		tt=$(($(date +%s%N) - $ts)) ;
-	# 		echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
-	# 	done
-	# 	echo "," &>> $RESULTS_FOLDER/$REPORT.txt
-	# done
+
+	for (( i=1; i<=$OUTERLOOP; i++ )); do
+		rm -rf /tmp/omrsharedresources
+		$FULL null.wasm --run-all-exports &> /dev/null;
+		echo -n $FILE_NAME_NOEXTEN ", JIT, " &>> $RESULTS_FOLDER/$REPORT.txt
+		for (( j=1; j<=$INNERLOOP; j++ )); do
+			ts=$(date +%s%N) ;
+			$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
+			tt=$(($(date +%s%N) - $ts)) ;
+			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
+		done
+		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
+	done
 done
 if test $TEST_RESULT -eq 0 ;
 then
