@@ -78,7 +78,12 @@
         "condition_variable": "cpp",
         "shared_mutex": "cpp",
         "*.ins": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "numbers": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp"
     },
     "files.watcherExclude": {
         "**/build_interp/": true,

@@ -248,6 +248,17 @@
             "dependsOn":["Clean Shared Cache And ELF"]
         },
         {
+            "label": "Run reinterpret Once",
+            "command": "cd ${workspaceFolder} && ./bin/wat2wasm wabtaot-private-additions/jit/reinterpret.txt -o reinterpret.wasm && ./build/em-interp/em-interp ./test_results/reinterpret.wasm --run-all-exports --disable-jit --aot-entry",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "dependsOn":["Incremental Build WABTAOT"]
+        },
+        {
             "label": "Incremental Build WABTAOT no clean",
             "command": "cd ${workspaceFolder}/build && make -j12  && cd ${workspaceFolder}",
             "type": "shell",

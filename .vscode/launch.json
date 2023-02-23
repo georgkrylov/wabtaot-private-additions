@@ -40,7 +40,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "args": [ "0"],
+            "args": [ "1"],
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -182,6 +182,31 @@
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "Incremental Build WABTAOT no clean",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Em Interpreter + AOT Launch Prepare Connect TreesFailure",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/em-interp/em-interp",
+            "args": [
+                "${workspaceFolder}/reinterpret.wasm",
+                "--run-all-exports",
+                "--jit-threshold=1000",
+                "--aot-entry"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Run reinterpret Once",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
