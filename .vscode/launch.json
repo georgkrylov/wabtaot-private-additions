@@ -50,6 +50,24 @@
             ]
         },
         {
+            "name": "(gdb) C JitBuilder bytecodeBuilderInlining Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/third_party/omr/build/jitbuilder/release/bytecodeBuilderInlining",
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [ {"name":"TR_Options","value": "log=log.dmp,traceFull"}],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "(gdb) WABTAOT Launch",
             "type": "cppdbg",
             "request": "launch",
