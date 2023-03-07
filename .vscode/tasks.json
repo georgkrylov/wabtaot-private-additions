@@ -442,6 +442,16 @@
             "problemMatcher": []
         },
         {
+            "label": "Incremental Build OMR and Compiler",
+            "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && cd ${workspaceFolder}/third_party/omr/build && cmake -DOMR_COMPILER=ON -DOMR_TEST_COMPILER=ON -DCMAKE_BUILD_TYPE=Debug  -DOMR_JITBUILDER=ON .. && make -j12 ",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "Clean Build OMR and test Compiler+aot",
             "command": "rm -rf /tmp/omrsharedresources/wasm_shared_cache && rm -rf ${workspaceFolder}/third_party/omr/build && cd ${workspaceFolder}/third_party/omr/ && mkdir build && cd build && cmake -DOMR_COMPILER=ON -DOMR_TEST_COMPILER=ON -DOMR_JITBUILDER=ON -DOMR_AOT=ON  -DCMAKE_BUILD_TYPE=Debug ..  && make -j12 && make test",
             "type": "shell",

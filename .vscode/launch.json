@@ -37,7 +37,7 @@
             "program": "${workspaceFolder}/third_party/omr/build/jitbuilder/release/inliningrecfib",
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
-            "environment": [],
+            "environment": [{"name": "TR_Options","value": "traceIlGen,traceFull,log=trtrace.log"}],
             "externalConsole": false,
             "MIMode": "gdb",
             "args": [ "1"],
@@ -56,7 +56,7 @@
             "program": "${workspaceFolder}/third_party/omr/build/jitbuilder/release/bytecodeBuilderInlining",
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
-            "environment": [ {"name":"TR_Options","value": "log=log.dmp,traceFull"}],
+            "environment": [{"name": "TR_Options","value": "traceIlGen,traceFull,log=trtrace.log"}],
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
@@ -65,7 +65,8 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "Incremental Build OMR and Compiler"
         },
         {
             "name": "(gdb) WABTAOT Launch",
@@ -225,7 +226,7 @@
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "Run reinterpret Once",
-            "environment": [],
+            "environment": [{"name": "TR_Options","value": "traceIlGen,traceFull,log=trtrace.log"}],
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
@@ -249,7 +250,31 @@
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "preLaunchTask": "Incremental Build Wabtaot",
+            "preLaunchTask": "Incremental Build WABTAOT",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Polybench Em AOT Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/em-interp/em-interp",
+            "args": [
+                "${workspaceFolder}/${input:filename-for-polybench}",
+                "--disable-jit",
+                "--aot-libffi"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "preLaunchTask": "Incremental Build WABTAOT",
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
