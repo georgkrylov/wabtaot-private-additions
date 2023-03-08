@@ -4,5 +4,4 @@ stack_trace_comp_fail
 truncation_saturating
 multi_value
 call_complex
-callindirect
 truncation
