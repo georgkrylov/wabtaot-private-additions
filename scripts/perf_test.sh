@@ -6,7 +6,7 @@ rm -rf ./test_results/perf/*
 mkdir -p ./test_results/perf
 TR_OPTIONS=
 rm trtrace.log
-for execc in  ./build/em-interp/em-interp ./build/src/aot/wabtaot ; do
+for execc in  ./build/em-interp/em-interp ; do
     rm -rf /tmp/omrsharedresources/
     $execc something &> /dev/null
     for test in ./test_results/*.wasm; do
@@ -20,11 +20,7 @@ for execc in  ./build/em-interp/em-interp ./build/src/aot/wabtaot ; do
             outname=$tname-$ename-$i.out
             errfile=$tname-$ename-$i.err
             echo $outname
-            if [[ $execc=="./build/em-interp/em-interp" ]]; then
-                perf record -g $execc $test --run-all-exports --disable-jit > $OUTPUT_DIR/$outname 2> $OUTPUT_DIR/$errfile
-            else
-                perf record -g $execc $test --run-all-exports > $OUTPUT_DIR/$outname  2> $OUTPUT_DIR/$errfile
-            fi
+            perf record -g $execc $test  --disable-jit --aot-libffi > $OUTPUT_DIR/$outname 2> $OUTPUT_DIR/$errfile
             mv trtrace.log $OUTPUT_DIR/$tname-$ename-$i.trace
             perf script | stackcollapse-perf.pl > $OUTPUT_DIR/perf-$tname-$ename-$i-folded
             flamegraph.pl $OUTPUT_DIR/perf-$tname-$ename-$i-folded > $OUTPUT_DIR/perf-$tname-$ename-$i.svg
