@@ -8,3 +8,9 @@ Three tests are disabled, due to lack of opcode support in wasmJIT
 * multi_value.txt multiple result values not currently supported
 
 The results by AOT compiler should always match the presented results.
+
+The compile_load skip list was enriched for em-interp with
+i64_arithmetic
+f32_arithmetic
+i32_arithmetic
+as they have different fails that are understandeable

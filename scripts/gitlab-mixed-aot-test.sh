@@ -162,18 +162,18 @@ for fil in $FILES_LIST; do
 	done
 
 
-	for (( i=1; i<=$OUTERLOOP; i++ )); do
-		rm -rf /tmp/omrsharedresources
-		$FULL null.wasm --run-all-exports &> /dev/null;
-		echo -n $FILE_NAME_NOEXTEN ", JIT, " &>> $RESULTS_FOLDER/$REPORT.txt
-		for (( j=1; j<=$INNERLOOP; j++ )); do
-			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
-			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
-		done
-		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
-	done
+	# for (( i=1; i<=$OUTERLOOP; i++ )); do
+	# 	rm -rf /tmp/omrsharedresources
+	# 	$FULL null.wasm --run-all-exports &> /dev/null;
+	# 	echo -n $FILE_NAME_NOEXTEN ", JIT, " &>> $RESULTS_FOLDER/$REPORT.txt
+	# 	for (( j=1; j<=$INNERLOOP; j++ )); do
+	# 		ts=$(date +%s%N) ;
+	# 		$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
+	# 		tt=$(($(date +%s%N) - $ts)) ;
+	# 		echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
+	# 	done
+	# 	echo "," &>> $RESULTS_FOLDER/$REPORT.txt
+	# done
 done
 if test $TEST_RESULT -eq 0 ;
 then

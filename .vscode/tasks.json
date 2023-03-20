@@ -127,7 +127,7 @@
                     "EXEC": "./build/em-interp/em-interp",
                     "TESTS_DIR": "wabtaot-private-additions/jit/",
                     "DISABLE_JIT": "true",
-                    "RUN_MODE": "${input:calling-method}"
+                    "RUN_MODE": "${input:calling-method-entry}"
                 }
             },
             "dependsOn": ["Incremental Build WABTAOT"]
@@ -145,10 +145,46 @@
                     "EXEC": "./build/em-interp/em-interp",
                     "TESTS_DIR": "wabtaot-private-additions/call-chains/",
                     "DISABLE_JIT": "true",
-                    "CALLING_METHOD": "--aot-libffi"
+                    "CALLING_METHOD": "--aot-libffi",
+                    "INNERLOOP": "${input:inner_loop_repetition}",
+                    "OUTERLOOP": "${input:outer_loop_repetition}"
                 }
             },
             "dependsOn": ["Incremental Build WABTAOT"]
+        },
+        {
+            "label": "Perf em-Interp AOT calls-ffi",
+            "command": "bash wabtaot-private-additions/scripts/perf_test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "EXEC": "./build/em-interp/em-interp",
+                    "RUN_EXPORTS": "--run-all-exports",
+                    "CALLING_METHOD": "--aot-libffi"
+                }
+            },
+            "dependsOn": ["Test em-Interp AOT calls-ffi"]
+        },
+        {
+            "label": "Perf em-Interp AOT wabtaot bytecode",
+            "command": "bash wabtaot-private-additions/scripts/perf_test.sh",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "EXEC": "./build/em-interp/em-interp",
+                    "RUN_EXPORTS": "--run-all-exports",
+                    "CALLING_METHOD": "--aot-libffi"
+                }
+            },
+            "dependsOn": ["Test WABTAOT em-Interp libffi"]
         },
         {
             "label": "Test em-Interp AOT calls-entry",
@@ -608,6 +644,34 @@
             "type": "promptString",
             "description": "Used for debugging. Set JIT threshold",
             "default": "--aot-hardcoded"
+            // type specific configuration attributes
+        },
+        {
+            "id": "calling-method-entry",
+            "type": "promptString",
+            "description": "Used for debugging. Set JIT threshold",
+            "default": "--aot-entry"
+            // type specific configuration attributes
+        },
+        {
+            "id": "calling-method-libffi",
+            "type": "promptString",
+            "description": "Used for debugging. Set JIT threshold",
+            "default": "--aot-libffi"
+            // type specific configuration attributes
+        },
+        {
+            "id": "inner_loop_repetition",
+            "type": "promptString",
+            "description": "Used for inner loop",
+            "default": "20"
+            // type specific configuration attributes
+        },
+        {
+            "id": "outer_loop_repetition",
+            "type": "promptString",
+            "description": "Used for outer loop",
+            "default": "2"
             // type specific configuration attributes
         },
         {
