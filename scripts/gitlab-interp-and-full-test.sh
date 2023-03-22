@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 if [ $TESTS_DIR"X" == "X" ] ; then
@@ -112,6 +113,13 @@ if [ "$OUTERLOOP""X" == "X" ] ; then
 else
 	echo "outer loop is "$OUTERLOOP
 fi
+if [ "$TEST_RUN""X" == "X" ] ; then
+	echo "TEST_RUN seting is not found, running as usual"
+else
+	OUTERLOOP=1
+   INNERLOOP=3
+	echo "TEST_RUN seting is found"
+fi
 FULL="./build/src/aot/wabtaot"
 MIXED="./build/em-interp/em-interp"
 for fil in $FILES_LIST; do
@@ -121,38 +129,42 @@ for fil in $FILES_LIST; do
 	TEST_NAME=${fil}
 
 	FILE_NAME_NOEXTEN=${FILE_NAME%".txt"}
-
+   OUT_FILE_NAME="/dev/null"
+   if [ "$TEST_RUN""X" == "X" ] ; then
+      OUT_FILE_NAME="/dev/null"
+   else
+      OUT_FILE_NAME=$RESULTS_FOLDER"/"$REPORT-$FILE_NAME_NOEXTEN".out"
+   fi
+   echo "$OUT_FILE_NAME"
 	## Generate a WASM file
-	WASM=$RESULTS_FOLDER"/"$FILE_NAME_NOEXTEN".wasm"
+	WASMF=$RESULTS_FOLDER"/"$FILE_NAME_NOEXTEN"F.wasm"
 	TEST_RESULT=0
-	$WAT2WASM $TEST_NAME -o $WASM || TEST_RESULT=$?
-
+	$WAT2WASM $TEST_NAME -o $WASMF || TEST_RESULT=$?
 
 	for (( i=1; i<=$OUTERLOOP; i++ )); do
 		rm -rf /tmp/omrsharedresources
-		echo -n $FILE_NAME_NOEXTEN ", MIXED, " &>> $RESULTS_FOLDER/$REPORT.txt
-		$FULL null.wasm --run-all-exports &> /dev/null;
+		echo -n $FILE_NAME_NOEXTEN ", FULL, " &>> $RESULTS_FOLDER/$REPORT.txt
+		$FULL null.wasm --run-all-exports &> $OUT_FILE_NAME;
 		for (( j=1; j<=$INNERLOOP; j++ )); do
 			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-jit $CALLING_METHOD $COMPILE_OPTION &> /dev/null|| TEST_RESULT=$?
+			$FULL $WASMF --run-all-exports &>$OUT_FILE_NAME || TEST_RESULT=$?
 			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT"".txt
+			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done
-
-	# for (( i=1; i<=$OUTERLOOP; i++ )); do
-	# 	rm -rf /tmp/omrsharedresources
-	# 	$FULL null.wasm --run-all-exports &> /dev/null;
-	# 	echo -n $FILE_NAME_NOEXTEN ", JIT, " &>> $RESULTS_FOLDER/$REPORT.txt
-	# 	for (( j=1; j<=$INNERLOOP; j++ )); do
-	# 		ts=$(date +%s%N) ;
-	# 		$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
-	# 		tt=$(($(date +%s%N) - $ts)) ;
-	# 		echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
-	# 	done
-	# 	echo "," &>> $RESULTS_FOLDER/$REPORT.txt
-	# done
+	for (( i=1; i<=$OUTERLOOP; i++ )); do
+		rm -rf /tmp/omrsharedresources
+		$FULL null.wasm --run-all-exports &>$OUT_FILE_NAME;
+		echo -n $FILE_NAME_NOEXTEN ", INTERP, " &>> $RESULTS_FOLDER/$REPORT.txt
+		for (( j=1; j<=$INNERLOOP; j++ )); do
+			ts=$(date +%s%N) ;
+			$MIXED $WASMF --run-all-exports --disable-jit --disable-aot $CALLING_METHOD &>$OUT_FILE_NAME || TEST_RESULT=$?
+			tt=$(($(date +%s%N) - $ts)) ;
+			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
+		done
+		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
+	done
 done
 if test $TEST_RESULT -eq 0 ;
 then

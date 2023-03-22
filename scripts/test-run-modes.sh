@@ -1,9 +1,13 @@
 TESTS_DIR="wabtaot-private-additions/call-chains/"
 CALLING_METHODS=("--aot-hardcoded" "--aot-entry" "--aot-libffi")
-export TESTS_DIR INNERLOOP OUTERLOOP
 INNERLOOP=20
 OUTERLOOP=10
+REPORT="results-aot-interp"
+export TESTS_DIR INNERLOOP OUTERLOOP REPORT
 COMPILE_OPTIONS=("--aot-rtc" "--aot-rtl")
+bash wabtaot-private-additions/scripts/gitlab-interp-and-full-test.sh
+DONOTDELETE=T
+export DONOTDELETE
 for CALLING_METHOD in ${CALLING_METHODS[@]};
    do
     for COMPILE_OPTION in ${COMPILE_OPTIONS[@]};
@@ -19,7 +23,5 @@ for CALLING_METHOD in ${CALLING_METHODS[@]};
          export COMPILE_OPTION
       fi
       bash wabtaot-private-additions/scripts/gitlab-mixed-aot-test.sh
-      DONOTDELETE=T
-      export DONOTDELETE
    done
 done
