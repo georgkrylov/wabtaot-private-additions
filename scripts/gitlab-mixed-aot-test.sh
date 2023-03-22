@@ -13,6 +13,13 @@ if [ $CALLING_METHOD"X" == "X" ] ; then
 else
 	echo "CALLING_METHOD is "$CALLING_METHOD
 fi
+if [ $COMPILE_OPTION"X" == "X" ] ; then
+
+	echo COMPILE_OPTION is unset
+else
+	echo "COMPILE_OPTION is "$COMPILE_OPTION
+fi
+
 GOLDEN_DIR="$TESTS_DIR/golden_results"
 echo GOLDEN_DIR is $GOLDEN_DIR
 
