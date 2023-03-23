@@ -143,18 +143,6 @@ for fil in $FILES_LIST; do
 
 	for (( i=1; i<=$OUTERLOOP; i++ )); do
 		rm -rf /tmp/omrsharedresources
-		echo -n $FILE_NAME_NOEXTEN ", FULL, " &>> $RESULTS_FOLDER/$REPORT.txt
-		$FULL null.wasm --run-all-exports &> $OUT_FILE_NAME;
-		for (( j=1; j<=$INNERLOOP; j++ )); do
-			ts=$(date +%s%N) ;
-			$FULL $WASMF --run-all-exports &>$OUT_FILE_NAME || TEST_RESULT=$?
-			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
-		done
-		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
-	done
-	for (( i=1; i<=$OUTERLOOP; i++ )); do
-		rm -rf /tmp/omrsharedresources
 		$FULL null.wasm --run-all-exports &>$OUT_FILE_NAME;
 		echo -n $FILE_NAME_NOEXTEN ", INTERP, " &>> $RESULTS_FOLDER/$REPORT.txt
 		for (( j=1; j<=$INNERLOOP; j++ )); do
