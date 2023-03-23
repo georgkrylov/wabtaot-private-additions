@@ -1,5 +1,10 @@
 #!/bin/bash
-
+if [ $COMPILE_OPTION"X" == "X" ]; then
+	echo "COMPILE OPTION IS UNSET"
+elif [ $COMPILE_OPTION == "--aot-rtc" ]; then
+	echo "SUPPOSED TO UNSET"
+	unset COMPILE_OPTION
+fi
 if [ $RUN_MODE"X" == "X" ] ; then
 	RUN_MODE="aot-entry"
 	echo RUN_MODE is unset, using $RUN_MODE
@@ -58,6 +63,7 @@ LOAD_FAILURES=$SUMMARY_FOLDER"/load_failures.txt"
 COMPILE_LOAD_MISMATCH=$SUMMARY_FOLDER"/compiled_loaded_mismatch.txt"
 GOLDEN_FAILURES=$SUMMARY_FOLDER"/loaded_golden_mismatch.txt"
 INTERPRETER_SKIP_LIST=$GOLDEN_DIR"/skip/interpreter_skip_list.txt"
+EXEC_SKIP_LIST=$GOLDEN_DIR"/skip/exec_skip_list.txt"
 COMPILE_SKIP_LIST=$GOLDEN_DIR"/skip/compile_skip_list.txt"
 LOAD_SKIP_LIST=$GOLDEN_DIR"/skip/load_skip_list.txt"
 LOADED_GOLDEN_SKIP_LIST=$GOLDEN_DIR"/skip/loaded_golden_skip_list.txt"
@@ -66,14 +72,16 @@ LOADED_GOLDEN_SKIP_LIST=$GOLDEN_DIR"/skip/loaded_golden_skip_list.txt"
 # Should have probably been just grep
 function find_item()
 {
-	for i in `cat $2`
-	do
-	if [[ $i == $1 ]];
+	echo $2 &>> 2
+	echo "HI" &>>2
+	while read -r i; do
+	echo $i &>>2
+	if [[ "$i" == *"$1"* ]];
 	then
 		echo "0"
 		return
-	fi
-	done
+	fi 
+	done < $2
 	echo "1"
 }
 
@@ -95,6 +103,8 @@ echo $FILE_NAME_NOEXT
 echo $TEST_NAME
 
 SEARCH=$(find_item $FILE_NAME_NOEXT $INTERPRETER_SKIP_LIST)
+SEARCH2=$(find_item "$EXEC $FILE_NAME interpreter" $EXEC_SKIP_LIST)
+SEARCH=$((SEARCH && SEARCH2))
 if  test $SEARCH -eq 0
 then
 echo $FILE_NAME "is in interpreter skip list, not doing any tests further"
@@ -121,6 +131,8 @@ GOLDEN=$GOLDEN_DIR/$FILE_NAME_NOEXT"_interp_golden.out"
 cat $GOLDEN > $RESULTS_FOLDER"/"$FILE_NAME_NOEXT"_interp_golden.out"
 
 SEARCH=$(find_item $FILE_NAME_NOEXT $COMPILE_SKIP_LIST)
+SEARCH2=$(find_item "$EXEC $FILE_NAME compile" $EXEC_SKIP_LIST)
+SEARCH=$((SEARCH && SEARCH2))
 if  test $SEARCH -eq 0
 then
 echo $FILE_NAME "is in compile skip list, not doing any tests further"
@@ -129,7 +141,7 @@ fi
 
 TEST_RESULT=0
 
-$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE &> $COMPILED || TEST_RESULT=$?
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE  $COMPILE_OPTION &> $COMPILED || TEST_RESULT=$?
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME compiled
@@ -140,13 +152,15 @@ else
 fi
 
 SEARCH=$(find_item $FILE_NAME_NOEXT $LOAD_SKIP_LIST)
+SEARCH2=$(find_item "$EXEC $FILE_NAME load" $EXEC_SKIP_LIST)
+SEARCH=$((SEARCH && SEARCH2))
 if  test $SEARCH -eq 0
 then
 echo $FILE_NAME "is in load skip list, not doing any tests further"
 continue
 fi
 
-$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE &> $LOADED || TEST_RESULT=$?
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE $COMPILE_OPTION &> $LOADED || TEST_RESULT=$?
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME loaded
@@ -165,8 +179,38 @@ else
 	GLOBAL_RESULT=$((GLOBAL_RESULT || 1))
 	continue
 fi
+SEARCH=$(find_item $FILE_NAME_NOEXT $LOAD_SKIP_LIST)
+SEARCH2=$(find_item "$EXEC $FILE_NAME load2" $EXEC_SKIP_LIST)
+SEARCH=$((SEARCH && SEARCH2))
+if  test $SEARCH -eq 0
+then
+echo $FILE_NAME "is in load skip list, not doing any tests further"
+continue
+fi
+
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE $COMPILE_OPTION &> $LOADED"2" || TEST_RESULT=$?
+if test $TEST_RESULT -eq 0
+then
+	echo $TEST_NAME loaded
+else
+	echo $TEST_NAME  >> $LOAD_FAILURES
+	GLOBAL_RESULT=$((GLOBAL_RESULT || 1))
+	continue
+fi
+
+diff -w $COMPILED $LOADED"2" &> /dev/null || TEST_RESULT=$?
+if test $TEST_RESULT -eq 0
+then
+	echo $TEST_NAME compile run matches load run2
+else
+	echo $TEST_NAME  >> $COMPILE_LOAD_MISMATCH
+	GLOBAL_RESULT=$((GLOBAL_RESULT || 1))
+	continue
+fi
 
 SEARCH=$(find_item $FILE_NAME_NOEXT $LOADED_GOLDEN_SKIP_LIST)
+SEARCH2=$(find_item "$EXEC $FILE_NAME loaded_golden" $EXEC_SKIP_LIST)
+SEARCH=$((SEARCH && SEARCH2))
 if  test $SEARCH -eq 0
 then
 echo $FILE_NAME "is in loaded golden skip list, not doing any tests further"

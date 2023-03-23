@@ -1,7 +1,11 @@
 TESTS_DIR="wabtaot-private-additions/call-chains/"
 CALLING_METHODS=("--aot-hardcoded" "--aot-entry" "--aot-libffi")
-INNERLOOP=20
-OUTERLOOP=10
+if [ "$INNERLOOP""X" == "X" ] ; then
+   INNERLOOP=20
+fi
+if [ "$OUTERLOOP""X" == "X" ] ; then
+   OUTERLOOP=10
+fi
 REPORT="results-aot-wabtaot-full"
 export TESTS_DIR INNERLOOP OUTERLOOP REPORT
 COMPILE_OPTIONS=("--aot-rtc" "--aot-rtl")
