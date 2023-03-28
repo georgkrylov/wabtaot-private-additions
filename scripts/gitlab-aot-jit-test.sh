@@ -72,11 +72,9 @@ LOADED_GOLDEN_SKIP_LIST=$GOLDEN_DIR"/skip/loaded_golden_skip_list.txt"
 # Should have probably been just grep
 function find_item()
 {
-	echo $2 &>> 2
-	echo "HI" &>>2
 	while read -r i; do
-	echo $i &>>2
-	if [[ "$i" == *"$1"* ]];
+	#TODO fix the problem of skipping call.txt because of callindirect
+	if [[ "$i" == "$1" ]];
 	then
 		echo "0"
 		return
