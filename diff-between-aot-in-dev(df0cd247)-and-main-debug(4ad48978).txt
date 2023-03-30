@@ -1,6 +1,0 @@
-400,402c400
-< i is: 10, opcode is: 186 	value read 5
-< Emscripten compiled function args_sizes_get is called. Will store the values argc=2 argv_buf=63  into offsets: 2276 and 2280 respectively
-< 	value read 185
----
-> i is: 10, opcode is: 186 	value read 5	value read 185

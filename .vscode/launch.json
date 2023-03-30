@@ -269,12 +269,13 @@
             "args": [
                 "${workspaceFolder}/${input:filename-for-polybench}",
                 "--disable-jit",
-                "--aot-libffi"
+                "--aot-libffi",
+                "--aot-rtl"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "preLaunchTask": "Incremental Build WABTAOT",
+            "preLaunchTask": "Incremental Build WABTAOT no clean",
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
@@ -338,7 +339,7 @@
             "id": "filename-for-wasm",
             "type": "promptString",
             "description": "Used for debugging. Print the filename",
-            "default": "test_results/fib_benchmark_loop.wasm"
+            "default": "test_results/return_three.wasm"
             // type specific configuration attributes
         },
         {
@@ -352,7 +353,7 @@
             "id": "calling-method",
             "type": "promptString",
             "description": "Used for debugging. Set JIT threshold",
-            "default": "--aot-hardcoded"
+            "default": "--aot-entry"
             // type specific configuration attributes
         },
         {
@@ -373,7 +374,7 @@
             "id": "filename-for-polybench",
             "type": "promptString",
             "description": "Used for debugging. Print the filename",
-            "default": "polybench/mini_output/correlation.wasm"
+            "default": "polybench/small_output/correlation.wasm"
             // type specific configuration attributes
         },
     ]
