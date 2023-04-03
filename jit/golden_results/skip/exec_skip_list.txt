@@ -1,4 +1,3 @@
-./build/src/aot/wabtaot callindirect.txt compile
 ./build/src/aot/wabtaot i32_arithmetic.txt loaded_golden
 ./build/em-interp/em-interp i32_arithmetic.txt loaded_golden
 ./build/em-interp/em-interp memory_grow.txt load2
