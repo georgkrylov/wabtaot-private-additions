@@ -1,5 +1,2 @@
 brif_brunless
 truncation
-i64_arithmetic
-f32_arithmetic
-i32_arithmetic

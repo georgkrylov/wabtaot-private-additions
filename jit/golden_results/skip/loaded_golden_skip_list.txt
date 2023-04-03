@@ -13,5 +13,4 @@ load
 multi_value
 callindirect
 i64_arithmetic
-f32_arithmetic
 i32_arithmetic
