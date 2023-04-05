@@ -40,7 +40,7 @@ for execc in  ./build/em-interp/em-interp ; do
             outname=$tname-$ename-$i.out
             errfile=$tname-$ename-$i.err
             echo $outname
-            perf record -g $execc $test  --disable-jit $CALLING_METHOD $RUN_EXPORTS > $OUTPUT_DIR/$outname 2> $OUTPUT_DIR/$errfile
+            perf record -g $execc $test  --aot-libffi --jit-threshold=520 $CALLING_METHOD $RUN_EXPORTS > $OUTPUT_DIR/$outname 2> $OUTPUT_DIR/$errfile
             mv trtrace.log $OUTPUT_DIR/$tname-$ename-$i.trace
             perf script | stackcollapse-perf.pl > $OUTPUT_DIR/perf-$tname-$ename-$i-folded
             flamegraph.pl $OUTPUT_DIR/perf-$tname-$ename-$i-folded > $OUTPUT_DIR/perf-$tname-$ename-$i.svg

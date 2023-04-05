@@ -6,7 +6,7 @@ elif [ $COMPILE_OPTION == "--aot-rtc" ]; then
 	unset COMPILE_OPTION
 fi
 if [ $RUN_MODE"X" == "X" ] ; then
-	RUN_MODE="aot-entry"
+	RUN_MODE="--aot-entry"
 	echo RUN_MODE is unset, using $RUN_MODE
 else
 	echo " RUN_MODE is "$RUN_MODE
@@ -47,6 +47,12 @@ if [ $EXEC_FOUND"X" == "X" ] ; then
 fi
 
 WAT2WASM="wat2wasm"
+
+if [[ "$EXEC" == *"$SUBSTRING"* ]];	then
+	unset RUN_MODE
+	DISABLE_AOT="--disable-aot"
+	DISABLE_JIT="--disable-jit"
+fi
 
 RESULTS_FOLDER="test_results"
 SUMMARY_FOLDER=$RESULTS_FOLDER"/summary"
