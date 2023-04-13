@@ -13,6 +13,13 @@ if [ $CALLING_METHOD"X" == "X" ] ; then
 else
 	echo "CALLING_METHOD is "$CALLING_METHOD
 fi
+if [ $ANALYSIS_OPTION"X" == "X" ] ; then
+
+	echo ANALYSIS_OPTION is unset -- static analysis is enabled
+else
+	echo "ANALYSIS_OPTION is "$ANALYSIS_OPTION
+fi
+
 if [ $COMPILE_OPTION"X" == "X" ] ; then
 
 	echo COMPILE_OPTION is unset
@@ -36,8 +43,8 @@ if [ $DISABLE_JIT"X" != "X" ] ; then
 fi
 #This could be extracted from artifact name???
 if [ $EXEC"X" == "X" ] ; then
-    echo "Executable is unset, using ./build/src/aot/wabtaot"
-	EXEC="./build/src/aot/wabtaot"
+    echo "Executable is unset, using ./build/em-interp/em-interp"
+	EXEC="./build/em-interp/em-interp"
 else
 	echo "Executable is set to ${EXEC}"
 fi
@@ -112,8 +119,7 @@ if [ "$OUTERLOOP""X" == "X" ] ; then
 else
 	echo "outer loop is "$OUTERLOOP
 fi
-FULL="./build/src/aot/wabtaot"
-MIXED="./build/em-interp/em-interp"
+
 for fil in $FILES_LIST; do
 	echo $fil
 	filo=${fil##*/}
@@ -131,10 +137,10 @@ for fil in $FILES_LIST; do
 	for (( i=1; i<=$OUTERLOOP; i++ )); do
 		rm -rf /tmp/omrsharedresources
 		echo -n $FILE_NAME_NOEXTEN ", MIXED, " &>> $RESULTS_FOLDER/$REPORT.txt
-		$FULL null.wasm --run-all-exports &> /dev/null;
+		$EXEC null.wasm --run-all-exports &> /dev/null;
 		for (( j=1; j<=$INNERLOOP; j++ )); do
 			ts=$(date +%s%N) ;
-			$MIXED $WASM --run-all-exports --disable-jit $CALLING_METHOD $COMPILE_OPTION &> /dev/null|| TEST_RESULT=$?
+			$EXEC $WASM --run-all-exports --disable-jit $CALLING_METHOD $COMPILE_OPTION $ANALYSIS_OPTION &> /dev/null|| TEST_RESULT=$?
 			tt=$(($(date +%s%N) - $ts)) ;
 			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT"".txt
 		done
@@ -147,7 +153,7 @@ for fil in $FILES_LIST; do
 	# 	echo -n $FILE_NAME_NOEXTEN ", JIT, " &>> $RESULTS_FOLDER/$REPORT.txt
 	# 	for (( j=1; j<=$INNERLOOP; j++ )); do
 	# 		ts=$(date +%s%N) ;
-	# 		$MIXED $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
+	# 		$EXEC $WASM --run-all-exports --disable-aot  &> /dev/null || TEST_RESULT=$?
 	# 		tt=$(($(date +%s%N) - $ts)) ;
 	# 		echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
 	# 	done
