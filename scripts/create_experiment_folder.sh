@@ -3,6 +3,8 @@ if [ "$HOSTNAME" == "CASA36" ]; then
     LOCAL_SCRATCH="/local_scratch/wasmjitwithomr/"
 elif [ "$HOSTNAME" == "casa47" ]; then
     LOCAL_SCRATCH="/home/georgiy-experiment/"
+elif [ "$HOSTNAME" == "alvis" ]; then
+    LOCAL_SCRATCH="/tmp/gkrylov/"
 fi
 
 if [ "$LOCAL_SCRATCH""X" == "X" ] ; then

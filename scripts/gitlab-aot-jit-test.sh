@@ -46,7 +46,7 @@ if [ $EXEC_FOUND"X" == "X" ] ; then
 	exit 1
 fi
 
-WAT2WASM="wat2wasm"
+WAT2WASM="./bin/wat2wasm"
 
 if [[ "$EXEC" == *"$SUBSTRING"* ]];	then
 	unset RUN_MODE

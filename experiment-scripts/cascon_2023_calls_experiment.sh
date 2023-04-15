@@ -50,7 +50,11 @@ rm experiment_folder.txt
 rm version.txt
 echo $EXPERIMENT_FOLDER
 RESULTS_FOLDER=${EXPERIMENT_FOLDER#*experiments}
+echo $RESULTS_FOLDER
+WITHTIMESTAMP="/homes/gkrylov/wabtaot-experiments"${RESULTS_FOLDER}
+echo "WITH TIMESTAMP"$WITHTIMESTAMP
 RESULTS_FOLDER="/homes/gkrylov/wabtaot-experiments"${RESULTS_FOLDER%/*}
+
 echo $RESULTS_FOLDER
 mkdir -p $RESULTS_FOLDER
 cd $EXPERIMENT_FOLDER
@@ -59,3 +63,6 @@ OUTERLOOP=30
 export INNERLOOP OUTERLOOP
 bash $EXPSCRIPTFOLDER/test-run-modes.sh
 mv $EXPERIMENT_FOLDER $RESULTS_FOLDER
+cd $WITHTIMESTAMP
+mkdir test_results/files-combined
+cp test_results/*.txt test_results/files-combined
