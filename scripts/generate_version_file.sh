@@ -19,6 +19,7 @@ function verify_tag()
 }
 verify_tag
 pwd > version.txt
+hostname >> version.txt
 git rev-parse --short HEAD >> version.txt
 cd em-interp
 verify_tag

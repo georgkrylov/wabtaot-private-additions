@@ -15,7 +15,7 @@ DONOTDELETE=T
 export DONOTDELETE
 
 REPORT="results-aot-em-interp"
-bash wabtaot-private-additions/scripts/gitlab-em-interp-test.sh
+env DISABLE_AOT='t' DISABLE_JIT='t' bash wabtaot-private-additions/scripts/gitlab-em-interp-test.sh
 for CALLING_METHOD in ${CALLING_METHODS[@]};
 do
 for ANALYSIS_OPTION in ${STATIC_ANALYSIS_OPTIONS[@]};

@@ -1,4 +1,5 @@
 HOSTNAME=`hostname`
+HOST_SUFFIX=$HOSTNAME-
 if [ "$HOSTNAME" == "CASA36" ]; then
     LOCAL_SCRATCH="/local_scratch/wasmjitwithomr/"
 elif [ "$HOSTNAME" == "casa47" ]; then
@@ -15,11 +16,11 @@ else
 fi
 
 if [ "$EXPERIMENT_NAME""X" == "X" ] ; then
-    EXPERIMENT_NAME=`date +"%Y-%m-%dT%H-%M"`
+    EXPERIMENT_NAME=`date +"%Y-%m-%dT%H-%M-%S"`
     echo "Experiment name is: "$EXPERIMENT_NAME
 else
-    DATETIME_SUFFIX=`date +"%Y-%m-%dT%H-%M"`
-    EXPERIMENT_NAME=$EXPERIMENT_NAME/$DATETIME_SUFFIX
+    DATETIME_SUFFIX=`date +"%Y-%m-%dT%H-%M-%S"`
+    EXPERIMENT_NAME=$HOST_SUFFIX$EXPERIMENT_NAME/$DATETIME_SUFFIX
 fi
 
 EXPERIMENT_FOLDER=$LOCAL_SCRATCH"experiments/"$EXPERIMENT_NAME
