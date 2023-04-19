@@ -139,10 +139,8 @@ for fil in $FILES_LIST; do
 		echo -n $FILE_NAME_NOEXTEN ", MIXED, " &>> $RESULTS_FOLDER/$REPORT.txt
 		$EXEC null.wasm --run-all-exports &> /dev/null;
 		for (( j=1; j<=$INNERLOOP; j++ )); do
-			ts=$(date +%s%N) ;
-			$EXEC $WASM --run-all-exports --disable-jit $CALLING_METHOD $COMPILE_OPTION $ANALYSIS_OPTION &> /dev/null|| TEST_RESULT=$?
-			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT"".txt
+			$EXEC $WASM --run-all-exports --disable-jit $CALLING_METHOD $COMPILE_OPTION $ANALYSIS_OPTION > /dev/null 2>> $RESULTS_FOLDER/$REPORT"".txt || TEST_RESULT=$?
+
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done

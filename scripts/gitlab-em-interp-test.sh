@@ -146,10 +146,7 @@ for fil in $FILES_LIST; do
 		$FULL null.wasm --run-all-exports &>$OUT_FILE_NAME;
 		echo -n $FILE_NAME_NOEXTEN ", INTERP, " &>> $RESULTS_FOLDER/$REPORT.txt
 		for (( j=1; j<=$INNERLOOP; j++ )); do
-			ts=$(date +%s%N) ;
-			$MIXED $WASMF --run-all-exports --disable-jit --disable-aot $CALLING_METHOD &>$OUT_FILE_NAME || TEST_RESULT=$?
-			tt=$(($(date +%s%N) - $ts)) ;
-			echo -n $tt"," &>> $RESULTS_FOLDER/$REPORT.txt
+			$MIXED $WASMF --run-all-exports --disable-jit --disable-aot $CALLING_METHOD  >$OUT_FILE_NAME  2>> $RESULTS_FOLDER/$REPORT"".txt  || TEST_RESULT=$?
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done
