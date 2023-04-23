@@ -8,7 +8,7 @@ if [ "$OUTERLOOP""X" == "X" ] ; then
 fi
 REPORT="results-aot-wabtaot-full"
 export TESTS_DIR INNERLOOP OUTERLOOP REPORT
-COMPILE_OPTIONS=("--aot-rtc")
+COMPILE_OPTIONS=("--aot-rtc" "--aot-rtl")
 STATIC_ANALYSIS_OPTIONS=("--disable-aot-analysis" "--enable-aot-analysis")
 bash wabtaot-private-additions/scripts/gitlab-wabtaot-test.sh
 DONOTDELETE=T

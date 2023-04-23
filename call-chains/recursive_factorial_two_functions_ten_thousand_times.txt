@@ -1,0 +1,62 @@
+;;; TOOL: run-interp-jit
+(module
+  (func $i32_callee  (param i32)  (result i32)
+    block $exit
+        local.get 0
+        i32.const 1
+        i32.eq
+        br_if $exit           ;; <>
+        local.get 0
+        i32.const 1
+        i32.sub
+        call $i32_calleee
+        local.get 0
+        i32.mul
+        return
+    end
+    i32.const 1
+    return
+    )  
+
+  (func $i32_calleee  (param i32)  (result i32)
+    block $exit
+        local.get 0
+        i32.const 1
+        i32.eq
+        br_if $exit           ;; <>
+        local.get 0
+        i32.const 1
+        i32.sub
+        call $i32_callee
+        local.get 0
+        i32.mul
+        return
+    end
+    i32.const 1
+    return
+    )
+ (func (export "main") (result i32) (local i32 i32)
+   i32.const 0
+   set_local 1
+   i32.const 10000
+   set_local 0
+    block $exitt
+    loop $loopp
+        get_local 0           ;; <p0>
+        get_local 1           ;; <p0, 2>
+        i32.eq
+        br_if $exitt           ;; <>
+        i32.const 10
+        call $i32_callee
+        drop
+        get_local 1
+        i32.const 1
+        i32.add
+        set_local 1
+        br $loopp
+    end
+    end
+            i32.const 10
+        call $i32_callee
+    )
+    )
