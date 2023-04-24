@@ -37,10 +37,11 @@ if [ $DISABLE_AOT"X" != "X" ] ; then
 fi
 
 
-if [ $DISABLE_JIT"X" != "X" ] ; then
-    echo "JIT was disabled"
-    DISABLE_JIT="--disable-jit"
+if [ $JIT_OPTION"X" == "X" ] ; then
+    echo "JIT was not specified, disabling jit"
+    JIT_OPTION="--disable-jit"
 fi
+echo "JIT option is"$JIT_OPTION
 #This could be extracted from artifact name???
 if [ $EXEC"X" == "X" ] ; then
     echo "Executable is unset, using ./build/em-interp/em-interp"
@@ -139,7 +140,7 @@ for fil in $FILES_LIST; do
 		echo -n $FILE_NAME_NOEXTEN ", MIXED, " &>> $RESULTS_FOLDER/$REPORT.txt
 		$EXEC null.wasm --run-all-exports &> /dev/null;
 		for (( j=1; j<=$INNERLOOP; j++ )); do
-			$EXEC $WASM --run-all-exports --disable-jit $CALLING_METHOD $COMPILE_OPTION $ANALYSIS_OPTION > /dev/null 2>> $RESULTS_FOLDER/$REPORT"".txt || TEST_RESULT=$?
+			$EXEC $WASM --run-all-exports $JIT_OPTION $CALLING_METHOD $COMPILE_OPTION $ANALYSIS_OPTION > /dev/null 2>> $RESULTS_FOLDER/$REPORT"".txt || TEST_RESULT=$?
 
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
