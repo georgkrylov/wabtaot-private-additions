@@ -146,7 +146,7 @@ for fil in $FILES_LIST; do
 		echo -n $FILE_NAME_NOEXTEN ", FULL, " &>> $RESULTS_FOLDER/$REPORT.txt
 		$FULL null.wasm --run-all-exports &> $OUT_FILE_NAME;
 		for (( j=1; j<=$INNERLOOP; j++ )); do
-			$FULL $WASMF --run-all-exports > $OUT_FILE_NAME 2>> $RESULTS_FOLDER/$REPORT"".txt || TEST_RESULT=$?
+			$FULL $WASMF --run-all-exports $MEASURE_TIME > $OUT_FILE_NAME 2>> $RESULTS_FOLDER/$REPORT"".txt || TEST_RESULT=$?
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done

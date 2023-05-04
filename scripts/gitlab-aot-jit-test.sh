@@ -145,7 +145,7 @@ fi
 
 TEST_RESULT=0
 
-$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE  $COMPILE_OPTION &> $COMPILED || TEST_RESULT=$?
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE  $ANALYSIS $COMPILE_OPTION &> $COMPILED || TEST_RESULT=$?
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME compiled
@@ -164,7 +164,7 @@ echo $FILE_NAME "is in load skip list, not doing any tests further"
 continue
 fi
 
-$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE $COMPILE_OPTION &> $LOADED || TEST_RESULT=$?
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE $COMPILE_OPTION $ANALYSIS &> $LOADED || TEST_RESULT=$?
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME loaded
@@ -192,7 +192,7 @@ echo $FILE_NAME "is in load skip list, not doing any tests further"
 continue
 fi
 
-$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE $COMPILE_OPTION &> $LOADED"2" || TEST_RESULT=$?
+$EXEC $WASM --run-all-exports $DISABLE_AOT $DISABLE_JIT $RUN_MODE $COMPILE_OPTION  $ANALYSIS &> $LOADED"2" || TEST_RESULT=$?
 if test $TEST_RESULT -eq 0
 then
 	echo $TEST_NAME loaded

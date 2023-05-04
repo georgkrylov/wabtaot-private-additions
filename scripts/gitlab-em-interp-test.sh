@@ -146,7 +146,7 @@ for fil in $FILES_LIST; do
 		$FULL null.wasm --run-all-exports &>$OUT_FILE_NAME;
 		echo -n $FILE_NAME_NOEXTEN ", INTERP, " &>> $RESULTS_FOLDER/$REPORT.txt
 		for (( j=1; j<=$INNERLOOP; j++ )); do
-			$MIXED $WASMF --run-all-exports --disable-jit --disable-aot $CALLING_METHOD  >$OUT_FILE_NAME  2>> $RESULTS_FOLDER/$REPORT"".txt  || TEST_RESULT=$?
+			$MIXED $WASMF --run-all-exports --disable-jit --disable-aot $CALLING_METHOD $MEASURE_TIME  >$OUT_FILE_NAME  2>> $RESULTS_FOLDER/$REPORT"".txt  || TEST_RESULT=$?
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
 	done

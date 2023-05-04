@@ -6,7 +6,11 @@ if [ $TESTS_DIR"X" == "X" ] ; then
 else
 	echo "TESTS_DIR is "$TESTS_DIR
 fi
-
+if [ $COMPILE_ALL"x" == "x" ]; then
+	echo "Compile all  is disabled and set to " $COMPILE_ALL
+else 
+	echo "Compile all  is enabled and set to " $COMPILE_ALL
+fi
 if [ $CALLING_METHOD"X" == "X" ] ; then
 	CALLING_METHOD="--aot-entry"
 	echo CALLING_METHOD is unset, using $CALLING_METHOD
@@ -140,7 +144,7 @@ for fil in $FILES_LIST; do
 		echo -n $FILE_NAME_NOEXTEN ", MIXED, " &>> $RESULTS_FOLDER/$REPORT.txt
 		$EXEC null.wasm --run-all-exports &> /dev/null;
 		for (( j=1; j<=$INNERLOOP; j++ )); do
-			$EXEC $WASM --run-all-exports $JIT_OPTION $CALLING_METHOD $COMPILE_OPTION $ANALYSIS_OPTION > /dev/null 2>> $RESULTS_FOLDER/$REPORT"".txt || TEST_RESULT=$?
+			$EXEC $WASM --run-all-exports $JIT_OPTION $CALLING_METHOD $COMPILE_OPTION $ANALYSIS_OPTION $COMPILE_ALL $MEASURE_TIME > /dev/null 2>> $RESULTS_FOLDER/$REPORT"".txt || TEST_RESULT=$?
 
 		done
 		echo "," &>> $RESULTS_FOLDER/$REPORT.txt
