@@ -122,7 +122,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/src/aot/wabtaot",
             "args": [
-                "${workspaceFolder}/polybench/mini_output/atax.wasm"
+                "${workspaceFolder}/polybench/mini_output/correlation.wasm"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -138,6 +138,7 @@
                 }
             ]
         },
+
         {
             "name": "(gdb) Interpreter Launch",
             "type": "cppdbg",
@@ -145,8 +146,8 @@
             "program": "${workspaceFolder}/bin/wasm-interp",
             "args": [
                 "--run-all-exports",
-                "--disable-jit",
                 "--disable-aot",
+                "--disable-jit",
                 "${workspaceFolder}/${input:filename-for-wasm}",
             ],
             "stopAtEntry": true,
@@ -195,7 +196,34 @@
             "args": [
                 "${workspaceFolder}/${input:filename-for-wasm}",
                 "--run-all-exports",
-                "--jit-threshold=1000",
+                "--disable-jit",
+                "--aot-rtl",
+                "${input:calling-method}"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Incremental Build WABTAOT no clean",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Em Interpreter + AOT Launch CompileAll",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/em-interp/em-interp",
+            "args": [
+                "${workspaceFolder}/${input:filename-for-wasm}",
+                "--run-all-exports",
+                "--disable-jit",
+                "--aot-compile-all",
                 "${input:calling-method}"
             ],
             "stopAtEntry": true,
@@ -270,7 +298,80 @@
                 "${workspaceFolder}/${input:filename-for-polybench}",
                 "--disable-jit",
                 "--aot-libffi",
-                "--aot-rtl"
+                "--aot-compile-all",
+                "--aot-pressure=1.0"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "preLaunchTask": "Incremental Build WABTAOT no clean",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },{
+            "name": "(gdb) Coremark Em AOT Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/em-interp/em-interp",
+            "args": [
+                "${workspaceFolder}/../wasm-coremark/coremark-minimal.wasm",
+                "--aot-compile-all",
+                "--disable-jit",
+                "--aot-pressure=1.0"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "preLaunchTask": "Incremental Build WABTAOT no clean",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },{
+            "name": "(gdb) Coremark Em Interp Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/em-interp/em-interp",
+            "args": [
+                "${workspaceFolder}/../wasm-coremark/coremark-minimal.wasm",
+                "--disable-aot",
+                "--disable-jit"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "preLaunchTask": "Incremental Build WABTAOT no clean",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "(gdb) Polybench Em AOT Launch No Analysis",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/em-interp/em-interp",
+            "args": [
+                "${workspaceFolder}/${input:filename-for-polybench}",
+                "--aot-rtl",
+                "--aot-libffi",
+                "--disable-aot-analysis"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -339,7 +440,7 @@
             "id": "filename-for-wasm",
             "type": "promptString",
             "description": "Used for debugging. Print the filename",
-            "default": "test_results/return_three.wasm"
+            "default": "test_results/callindirect.wasm"
             // type specific configuration attributes
         },
         {
@@ -353,7 +454,7 @@
             "id": "calling-method",
             "type": "promptString",
             "description": "Used for debugging. Set JIT threshold",
-            "default": "--aot-entry"
+            "default": "--aot-libffi"
             // type specific configuration attributes
         },
         {
