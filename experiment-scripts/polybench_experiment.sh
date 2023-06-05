@@ -73,11 +73,11 @@ RESULTS_FOLDER="/homes/gkrylov/wabtaot-experiments"${RESULTS_FOLDER%/*}
 echo $RESULTS_FOLDER
 mkdir -p $RESULTS_FOLDER
 cd $EXPERIMENT_FOLDER
-INNERLOOP=20
-OUTERLOOP=30
+INNERLOOP=15
+OUTERLOOP=10
 export INNERLOOP OUTERLOOP
 bash $EXPSCRIPTFOLDER/test-polybench.sh
-# mv $EXPERIMENT_FOLDER $RESULTS_FOLDER
-# cd $WITHTIMESTAMP
-# mkdir test_results/files-combined
-# cp test_results/*.txt test_results/files-combined
+mv $EXPERIMENT_FOLDER $RESULTS_FOLDER
+cd $WITHTIMESTAMP
+mkdir test_results/files-combined
+cp test_results/*.txt test_results/files-combined

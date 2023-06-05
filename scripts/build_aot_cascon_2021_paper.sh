@@ -1,5 +1,5 @@
 cd $EXPERIMENT_ROOT
-git checkout b453347fcd1acfdec082640392c60d3f010b5464
+git checkout 8b0f9a5cf6ed37047c362c5770b0d05e937285f1
 echo "wabtaot-paper-version" >> ./version.txt
 git rev-parse --short HEAD >> ./version.txt
 cd third_party/omr 
