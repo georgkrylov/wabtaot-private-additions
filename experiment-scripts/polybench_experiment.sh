@@ -1,6 +1,8 @@
 SCRIPTS_FOLDER="./wabtaot-private-additions/scripts"
 EXPERIMENT_ROOT=`pwd`
 export EXPERIMENT_ROOT
+#to avoid trying to compare with node on machines it is not installed
+NO_CHECK=t
 EXPERIMENT_NAME="2023-aot-all-polybench"
 export EXPERIMENT_NAME
 bash $SCRIPTS_FOLDER/generate_version_file.sh
@@ -37,7 +39,7 @@ else
     echo "NO BUILD REQUESTED, version might mismatch"
 fi
 
-cp "./build/src/aot/wabtaot" $WABTAOTFOLDER/wabtaot
+cp "./build_paper/src/aot/wabtaot" $WABTAOTFOLDER/wabtaot-paper
 cp "./build/em-interp/em-interp" $EMINTERPFOLDER/em-interp
 
 cp -r ./bin/wat2wasm $BINFOLDER
@@ -79,5 +81,5 @@ export INNERLOOP OUTERLOOP
 bash $EXPSCRIPTFOLDER/test-polybench.sh
 mv $EXPERIMENT_FOLDER $RESULTS_FOLDER
 cd $WITHTIMESTAMP
-mkdir test_results/files-combined
-cp test_results/*.txt test_results/files-combined
+mkdir -p test_results/files-combined
+cp test_results/*.csv test_results/files-combined

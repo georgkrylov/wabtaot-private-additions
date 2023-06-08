@@ -10,6 +10,5 @@ git rev-parse --short HEAD >> ../../version.txt
 cd ../..
 rm -rf build_paper &&            mkdir build_paper &&         cd build_paper &&    cmake -DBUILD_TOOLS=ON -DWASM_SHARED_CACHE=ON -DOMR_ELF_SHARED_OBJECT=OFF ..  && make -j14
 cd ..
-cp "./build_paper/src/aot/wabtaot" $WABTAOTFOLDER/wabtaot-paper
 git checkout $WABTAOTVERSION
 git submodule update
