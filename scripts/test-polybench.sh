@@ -11,7 +11,7 @@ REPORT="results-aot-wabtaot-full"
 export TESTS_DIR INNERLOOP OUTERLOOP REPORT
 DATASET_SIZES=("-DMINI_DATASET" "-DSMALL_DATASET")
 export DATASET_SIZES
-JIT_OPTIONS=("--disable-jit" "--jit-threshold=27" "--jit-threshold=15")
+JIT_OPTIONS=("--disable-jit" "--jit-threshold=2" "--jit-threshold=5" "--jit-threshold=10")
 COMPILE_OPTIONS=("--disable-aot" "--aot-rtc" "--aot-rtl" "--aot-compile-all --aot-pressure=0.1" "--aot-compile-all --aot-pressure=0.3" "--aot-compile-all --aot-pressure=0.5" "--aot-compile-all --aot-pressure=0.7" "--aot-compile-all --aot-pressure=1.0" )
 STATIC_ANALYSIS_OPTIONS=("--disable-aot-analysis" "--enable-aot-analysis")
 
