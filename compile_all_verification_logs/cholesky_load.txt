@@ -1,0 +1,53 @@
+	Log: running the compiled function f8mch, at mark 0s 12796ns
+	Log: the compiled function returns at mark 0s 20641ns
+	Log: interpreting function f9mch, at mark 0s 54691ns
+		Log: interpreting function f13mch, at mark 0s 67650ns
+			Log: interpreting function f14mch, at mark 0s 79910ns
+				Log: interpreting function f58mch, at mark 0s 98402ns
+					Log: interpreting function f57mch, at mark 0s 125166ns
+						Log: interpreting function f55mch, at mark 0s 143002ns
+							Log: interpreting function f60mch, at mark 0s 176773ns
+								Log: running the compiled function f7mch, at mark 0s 188487ns
+								Log: the compiled function returns at mark 0s 190907ns
+							Log: interpreter returns, at mark 0s 196430ns
+							Log: interpreting function f60mch, at mark 0s 202978ns
+								Log: running the compiled function f7mch, at mark 0s 205768ns
+								Log: the compiled function returns at mark 0s 206368ns
+							Log: interpreter returns, at mark 0s 210166ns
+						Log: interpreter returns, at mark 0s 282771ns
+						Log: running the compiled function f59mch, at mark 0s 344221ns
+						Log: the compiled function returns at mark 0s 347207ns
+						Log: running the compiled function f59mch, at mark 0s 356486ns
+						Log: the compiled function returns at mark 0s 357371ns
+					Log: interpreter returns, at mark 0s 360299ns
+				Log: interpreter returns, at mark 0s 365144ns
+			Log: interpreter returns, at mark 0s 373820ns
+		Log: interpreter returns, at mark 0s 378935ns
+		Log: interpreting function f10mch, at mark 0s 400479ns
+			Log: interpreting function f13mch, at mark 0s 79729292ns
+				Log: interpreting function f14mch, at mark 0s 79762234ns
+					Log: interpreting function f58mch, at mark 0s 79774080ns
+						Log: interpreting function f57mch, at mark 0s 79782846ns
+							Log: interpreting function f55mch, at mark 0s 79791154ns
+								Log: interpreting function f60mch, at mark 0s 79806671ns
+									Log: running the compiled function f7mch, at mark 0s 79810755ns
+									Log: the compiled function returns at mark 0s 79815397ns
+								Log: interpreter returns, at mark 0s 79821469ns
+							Log: interpreter returns, at mark 0s 79840974ns
+							Log: running the compiled function f59mch, at mark 0s 79853972ns
+							Log: the compiled function returns at mark 0s 79857311ns
+							Log: running the compiled function f59mch, at mark 0s 79865526ns
+							Log: the compiled function returns at mark 0s 79866657ns
+						Log: interpreter returns, at mark 0s 79870556ns
+					Log: interpreter returns, at mark 0s 79875026ns
+				Log: interpreter returns, at mark 0s 79882495ns
+			Log: interpreter returns, at mark 0s 79887580ns
+			Log: running the compiled function f56mch, at mark 14s 14164633997ns
+			Log: the compiled function returns at mark 14s 14164638278ns
+		Log: interpreter returns, at mark 14s 14164658440ns
+		Log: running the compiled function f11mch, at mark 14s 14164713532ns
+		Log: the compiled function returns at mark 14s 14167607517ns
+		Log: running the compiled function f56mch, at mark 14s 14167622747ns
+		Log: the compiled function returns at mark 14s 14167625311ns
+	Log: interpreter returns, at mark 14s 14167630855ns
+14186891635,
