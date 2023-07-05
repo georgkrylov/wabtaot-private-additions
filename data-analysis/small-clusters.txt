@@ -1,0 +1,258 @@
+basekmeansprecision = 0.025000
+file = 7
+arraysss = [](0x0)
+cont = 0
+ans = 0
+numOfArrays = 29
+kmprecision = 0.5250
+nojitCompAllRange =
+
+    1   10   11   12   13   14   25
+
+Interpreter and compileall with no jit, wabtaotnumOfClusters = 18
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = cholesky
+  [6,1] = correlation
+  [7,1] = durbin
+  [8,1] = fdtd-2d
+  [9,1] = floyd-warshall
+  [10,1] = gemver
+  [11,1] = gramschmidt
+  [12,1] = jacobi-1d
+  [13,1] = jacobi-2d
+  [14,1] = lu
+  [15,1] = seidel-2d
+  [16,1] = symm
+  [17,1] = syrk
+  [18,1] = trmm
+}
+
+jitOneCompAllRange =
+
+    2   15   16   17   18   19   25
+
+Interpreter and compileall with jit 1, wabtaotnumOfClusters = 7
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = adi
+  [3,1] = atax
+  [4,1] = bicg
+  [5,1] = cholesky
+  [6,1] = correlation
+  [7,1] = nussinov
+}
+
+jitTenCompAllRange =
+
+    3   20   21   22   23   24   25
+
+Interpreter and compileall with jit 10, wabtaotnumOfClusters = 21
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = cholesky
+  [6,1] = correlation
+  [7,1] = doitgen
+  [8,1] = durbin
+  [9,1] = fdtd-2d
+  [10,1] = floyd-warshall
+  [11,1] = gemver
+  [12,1] = gesummv
+  [13,1] = heat-3d
+  [14,1] = jacobi-1d
+  [15,1] = jacobi-2d
+  [16,1] = nussinov
+  [17,1] = seidel-2d
+  [18,1] = symm
+  [19,1] = syr2k
+  [20,1] = syrk
+  [21,1] = trmm
+}
+
+noJitRtcRange =
+
+    1    4   25
+
+Interpreter and rtc with no jit, wabtaotnumOfClusters = 15
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = cholesky
+  [6,1] = doitgen
+  [7,1] = durbin
+  [8,1] = floyd-warshall
+  [9,1] = gemver
+  [10,1] = heat-3d
+  [11,1] = jacobi-1d
+  [12,1] = lu
+  [13,1] = symm
+  [14,1] = trisolv
+  [15,1] = trmm
+}
+
+noJitRtlRange =
+
+    1    7   25
+
+Interpreter and rtl with no jit, wabtaotnumOfClusters = 17
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = bicg
+  [6,1] = cholesky
+  [7,1] = durbin
+  [8,1] = floyd-warshall
+  [9,1] = gemver
+  [10,1] = gesummv
+  [11,1] = gramschmidt
+  [12,1] = heat-3d
+  [13,1] = jacobi-1d
+  [14,1] = jacobi-2d
+  [15,1] = lu
+  [16,1] = symm
+  [17,1] = trmm
+}
+
+jitOneRtcRange =
+
+    2    5   25
+
+Interpreter and rtc with jit one, wabtaotnumOfClusters = 3
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = adi
+  [3,1] = atax
+}
+
+jitOneRtlRange =
+
+    2    8   25
+
+Interpreter and rtl with jit one, wabtaotnumOfClusters = 3
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = adi
+  [3,1] = atax
+}
+
+jitTenRtcRange =
+
+    3    6   25
+
+Interpreter and rtc with jit ten, wabtaotnumOfClusters = 17
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = bicg
+  [6,1] = cholesky
+  [7,1] = doitgen
+  [8,1] = durbin
+  [9,1] = fdtd-2d
+  [10,1] = floyd-warshall
+  [11,1] = gemver
+  [12,1] = gramschmidt
+  [13,1] = heat-3d
+  [14,1] = jacobi-1d
+  [15,1] = lu
+  [16,1] = symm
+  [17,1] = trmm
+}
+
+jitTenRtlRange =
+
+    3    9   25
+
+Interpreter and rtl with jit ten, wabtaotnumOfClusters = 17
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = cholesky
+  [6,1] = correlation
+  [7,1] = doitgen
+  [8,1] = durbin
+  [9,1] = floyd-warshall
+  [10,1] = gemver
+  [11,1] = gesummv
+  [12,1] = gramschmidt
+  [13,1] = heat-3d
+  [14,1] = jacobi-1d
+  [15,1] = jacobi-2d
+  [16,1] = lu
+  [17,1] = symm
+}
+
+CompAllRange =
+
+   10   11   12   13   14   15   16   17   18   19   20   21   22   23   24
+
+Compileall 
+numOfClusters = 17
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = bicg
+  [6,1] = cholesky
+  [7,1] = correlation
+  [8,1] = covariance
+  [9,1] = doitgen
+  [10,1] = durbin
+  [11,1] = floyd-warshall
+  [12,1] = gemm
+  [13,1] = heat-3d
+  [14,1] = jacobi-2d
+  [15,1] = nussinov
+  [16,1] = seidel-2d
+  [17,1] = trmm
+}
+
+RtcRange =
+
+   4   5   6
+
+rtc 
+numOfClusters = 3
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = cholesky
+  [3,1] = ludcmp
+}
+
+RtlRange =
+
+   7   8   9
+
+RtlnumOfClusters = 3
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = adi
+  [3,1] = cholesky
+}
+
