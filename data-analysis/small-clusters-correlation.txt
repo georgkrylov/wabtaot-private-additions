@@ -1,0 +1,625 @@
+basekmeansprecision = 0.025000
+file = 7
+arraysss = [](0x0)
+cont = 0
+ans = 0
+numOfArrays = 29
+nojitCompAllRange =
+
+    1   10   11   12   13   14   25
+
+Interpreter and compileall with no jit, wabtaot
+kmeansprecision = 0.040000
+score = 4.6238
+score = 0.8458
+score = 0.1378
+score = 0.1378
+score = 0.1145
+score = 0.050282
+score = 0.032791
+numOfClusters = 7
+2mm 2mm
+3mm 2mm
+adi adi
+atax atax
+bicg atax
+cholesky cholesky
+correlation 2mm
+covariance 2mm
+doitgen 2mm
+durbin durbin
+fdtd-2d adi
+floyd-warshall floyd-warshall
+gemm 2mm
+gemver atax
+gesummv durbin
+gramschmidt 2mm
+heat-3d cholesky
+jacobi-1d durbin
+jacobi-2d floyd-warshall
+lu cholesky
+ludcmp cholesky
+mvt atax
+nussinov adi
+seidel-2d floyd-warshall
+symm symm
+syr2k 2mm
+syrk symm
+trisolv durbin
+trmm symm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = adi
+  [3,1] = atax
+  [4,1] = cholesky
+  [5,1] = durbin
+  [6,1] = floyd-warshall
+  [7,1] = symm
+}
+
+jitOneCompAllRange =
+
+    2   15   16   17   18   19   25
+
+Interpreter and compileall with jit 1, wabtaot
+kmeansprecision = 0.040000
+score = 0.087759
+score = 0.069995
+score = 0.017902
+numOfClusters = 3
+2mm 2mm
+3mm 2mm
+adi adi
+atax atax
+bicg atax
+cholesky atax
+correlation 2mm
+covariance atax
+doitgen atax
+durbin atax
+fdtd-2d atax
+floyd-warshall 2mm
+gemm atax
+gemver 2mm
+gesummv atax
+gramschmidt atax
+heat-3d adi
+jacobi-1d atax
+jacobi-2d 2mm
+lu 2mm
+ludcmp adi
+mvt atax
+nussinov adi
+seidel-2d atax
+symm atax
+syr2k atax
+syrk atax
+trisolv atax
+trmm atax
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = adi
+  [3,1] = atax
+}
+
+jitTenCompAllRange =
+
+    3   20   21   22   23   24   25
+
+Interpreter and compileall with jit 10, wabtaot
+kmeansprecision = 0.040000
+score = 4.2538
+score = 1.2603
+score = 0.3009
+score = 0.3009
+score = 0.091177
+score = 0.089448
+score = 0.091177
+score = 0.051090
+score = 0.065704
+score = 0.043412
+score = 0.043412
+score = 0.015477
+numOfClusters = 12
+2mm 2mm
+3mm 3mm
+adi adi
+atax atax
+bicg bicg
+cholesky cholesky
+correlation correlation
+covariance 2mm
+doitgen 2mm
+durbin durbin
+fdtd-2d adi
+floyd-warshall floyd-warshall
+gemm 2mm
+gemver gemver
+gesummv gemver
+gramschmidt 2mm
+heat-3d cholesky
+jacobi-1d durbin
+jacobi-2d jacobi-2d
+lu cholesky
+ludcmp cholesky
+mvt atax
+nussinov cholesky
+seidel-2d jacobi-2d
+symm symm
+syr2k 2mm
+syrk symm
+trisolv durbin
+trmm symm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = bicg
+  [6,1] = cholesky
+  [7,1] = correlation
+  [8,1] = durbin
+  [9,1] = floyd-warshall
+  [10,1] = gemver
+  [11,1] = jacobi-2d
+  [12,1] = symm
+}
+
+noJitRtcRange =
+
+    1    4   25
+
+Interpreter and rtc with no jit, wabtaot
+kmeansprecision = 0.040000
+score = 5.8014
+score = 3.7377
+score = 0.9683
+score = 0.2279
+score = 0.1219
+score = 0.042686
+score = 0.042686
+score = 0.033112
+numOfClusters = 8
+2mm 2mm
+3mm 3mm
+adi adi
+atax atax
+bicg atax
+cholesky cholesky
+correlation 3mm
+covariance 2mm
+doitgen 3mm
+durbin durbin
+fdtd-2d adi
+floyd-warshall floyd-warshall
+gemm 3mm
+gemver atax
+gesummv durbin
+gramschmidt 3mm
+heat-3d adi
+jacobi-1d jacobi-1d
+jacobi-2d adi
+lu cholesky
+ludcmp cholesky
+mvt atax
+nussinov adi
+seidel-2d adi
+symm 2mm
+syr2k 2mm
+syrk 2mm
+trisolv jacobi-1d
+trmm 2mm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = cholesky
+  [6,1] = durbin
+  [7,1] = floyd-warshall
+  [8,1] = jacobi-1d
+}
+
+noJitRtlRange =
+
+    1    7   25
+
+Interpreter and rtl with no jit, wabtaot
+kmeansprecision = 0.040000
+score = 6.4133
+score = 2.2999
+score = 0.9089
+score = 0.2693
+score = 0.2693
+score = 0.099700
+score = 0.056049
+score = 0.056049
+score = 0.041574
+score = 0.019741
+numOfClusters = 10
+2mm 2mm
+3mm 3mm
+adi adi
+atax atax
+bicg atax
+cholesky cholesky
+correlation 2mm
+covariance 2mm
+doitgen 3mm
+durbin durbin
+fdtd-2d adi
+floyd-warshall floyd-warshall
+gemm 2mm
+gemver gemver
+gesummv atax
+gramschmidt 2mm
+heat-3d floyd-warshall
+jacobi-1d durbin
+jacobi-2d adi
+lu cholesky
+ludcmp cholesky
+mvt atax
+nussinov floyd-warshall
+seidel-2d floyd-warshall
+symm symm
+syr2k 2mm
+syrk symm
+trisolv durbin
+trmm trmm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = cholesky
+  [6,1] = durbin
+  [7,1] = floyd-warshall
+  [8,1] = gemver
+  [9,1] = symm
+  [10,1] = trmm
+}
+
+jitOneRtcRange =
+
+    2    5   25
+
+Interpreter and rtc with jit one, wabtaot
+kmeansprecision = 0.040000
+score = 0.032933
+numOfClusters = 1
+2mm 2mm
+3mm 2mm
+adi 2mm
+atax 2mm
+bicg 2mm
+cholesky 2mm
+correlation 2mm
+covariance 2mm
+doitgen 2mm
+durbin 2mm
+fdtd-2d 2mm
+floyd-warshall 2mm
+gemm 2mm
+gemver 2mm
+gesummv 2mm
+gramschmidt 2mm
+heat-3d 2mm
+jacobi-1d 2mm
+jacobi-2d 2mm
+lu 2mm
+ludcmp 2mm
+mvt 2mm
+nussinov 2mm
+seidel-2d 2mm
+symm 2mm
+syr2k 2mm
+syrk 2mm
+trisolv 2mm
+trmm 2mm
+ans =
+{
+  [1,1] = 2mm
+}
+
+jitOneRtlRange =
+
+    2    8   25
+
+Interpreter and rtl with jit one, wabtaot
+kmeansprecision = 0.040000
+score = 0.032933
+numOfClusters = 1
+2mm 2mm
+3mm 2mm
+adi 2mm
+atax 2mm
+bicg 2mm
+cholesky 2mm
+correlation 2mm
+covariance 2mm
+doitgen 2mm
+durbin 2mm
+fdtd-2d 2mm
+floyd-warshall 2mm
+gemm 2mm
+gemver 2mm
+gesummv 2mm
+gramschmidt 2mm
+heat-3d 2mm
+jacobi-1d 2mm
+jacobi-2d 2mm
+lu 2mm
+ludcmp 2mm
+mvt 2mm
+nussinov 2mm
+seidel-2d 2mm
+symm 2mm
+syr2k 2mm
+syrk 2mm
+trisolv 2mm
+trmm 2mm
+ans =
+{
+  [1,1] = 2mm
+}
+
+jitTenRtcRange =
+
+    3    6   25
+
+Interpreter and rtc with jit ten, wabtaot
+kmeansprecision = 0.040000
+score = 5.4432
+score = 1.7827
+score = 1.0842
+score = 0.2613
+score = 0.1515
+score = 0.038858
+numOfClusters = 6
+2mm 2mm
+3mm 2mm
+adi adi
+atax atax
+bicg atax
+cholesky cholesky
+correlation 2mm
+covariance 2mm
+doitgen 2mm
+durbin durbin
+fdtd-2d adi
+floyd-warshall adi
+gemm 2mm
+gemver gemver
+gesummv gemver
+gramschmidt 2mm
+heat-3d adi
+jacobi-1d durbin
+jacobi-2d adi
+lu cholesky
+ludcmp cholesky
+mvt atax
+nussinov adi
+seidel-2d adi
+symm gemver
+syr2k 2mm
+syrk gemver
+trisolv durbin
+trmm gemver
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = adi
+  [3,1] = atax
+  [4,1] = cholesky
+  [5,1] = durbin
+  [6,1] = gemver
+}
+
+jitTenRtlRange =
+
+    3    9   25
+
+Interpreter and rtl with jit ten, wabtaot
+kmeansprecision = 0.040000
+score = 5.9746
+score = 1.9535
+score = 1.0418
+score = 0.2382
+score = 0.9359
+score = 0.1892
+score = 0.042297
+score = 0.064604
+score = 0.013893
+numOfClusters = 9
+2mm 2mm
+3mm 3mm
+adi adi
+atax atax
+bicg atax
+cholesky cholesky
+correlation 2mm
+covariance 2mm
+doitgen 3mm
+durbin durbin
+fdtd-2d adi
+floyd-warshall floyd-warshall
+gemm 2mm
+gemver gemver
+gesummv gemver
+gramschmidt 2mm
+heat-3d floyd-warshall
+jacobi-1d durbin
+jacobi-2d floyd-warshall
+lu cholesky
+ludcmp cholesky
+mvt atax
+nussinov floyd-warshall
+seidel-2d floyd-warshall
+symm symm
+syr2k 2mm
+syrk symm
+trisolv durbin
+trmm symm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = cholesky
+  [6,1] = durbin
+  [7,1] = floyd-warshall
+  [8,1] = gemver
+  [9,1] = symm
+}
+
+CompAllRange =
+
+   10   11   12   13   14   15   16   17   18   19   20   21   22   23   24
+
+Compileall 
+kmeansprecision = 0.040000
+score = 3.1664
+score = 0.3519
+score = 0.2476
+score = 0.2476
+score = 0.1152
+score = 0.053634
+score = 0.068397
+score = 0.045345
+score = 0.036729
+numOfClusters = 9
+2mm 2mm
+3mm 3mm
+adi adi
+atax atax
+bicg atax
+cholesky cholesky
+correlation 3mm
+covariance 3mm
+doitgen 3mm
+durbin durbin
+fdtd-2d adi
+floyd-warshall floyd-warshall
+gemm 3mm
+gemver durbin
+gesummv durbin
+gramschmidt 3mm
+heat-3d cholesky
+jacobi-1d durbin
+jacobi-2d jacobi-2d
+lu cholesky
+ludcmp cholesky
+mvt atax
+nussinov cholesky
+seidel-2d seidel-2d
+symm 2mm
+syr2k 3mm
+syrk 2mm
+trisolv durbin
+trmm 2mm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = cholesky
+  [6,1] = durbin
+  [7,1] = floyd-warshall
+  [8,1] = jacobi-2d
+  [9,1] = seidel-2d
+}
+
+RtcRange =
+
+   4   5   6
+
+rtc 
+kmeansprecision = 0.040000
+score = 5.9880
+score = 1.1102e-16
+numOfClusters = 2
+2mm 2mm
+3mm 2mm
+adi 2mm
+atax 2mm
+bicg 2mm
+cholesky cholesky
+correlation 2mm
+covariance 2mm
+doitgen 2mm
+durbin 2mm
+fdtd-2d 2mm
+floyd-warshall 2mm
+gemm 2mm
+gemver 2mm
+gesummv 2mm
+gramschmidt 2mm
+heat-3d 2mm
+jacobi-1d 2mm
+jacobi-2d 2mm
+lu cholesky
+ludcmp cholesky
+mvt 2mm
+nussinov 2mm
+seidel-2d 2mm
+symm 2mm
+syr2k 2mm
+syrk 2mm
+trisolv 2mm
+trmm 2mm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = cholesky
+}
+
+RtlRange =
+
+   7   8   9
+
+Rtlkmeansprecision = 0.040000
+score = 5.8961
+score = 0.011352
+numOfClusters = 2
+2mm 2mm
+3mm 2mm
+adi 2mm
+atax 2mm
+bicg 2mm
+cholesky cholesky
+correlation 2mm
+covariance 2mm
+doitgen 2mm
+durbin 2mm
+fdtd-2d 2mm
+floyd-warshall 2mm
+gemm 2mm
+gemver 2mm
+gesummv 2mm
+gramschmidt 2mm
+heat-3d 2mm
+jacobi-1d 2mm
+jacobi-2d 2mm
+lu cholesky
+ludcmp cholesky
+mvt 2mm
+nussinov 2mm
+seidel-2d 2mm
+symm 2mm
+syr2k 2mm
+syrk 2mm
+trisolv 2mm
+trmm 2mm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = cholesky
+}
+

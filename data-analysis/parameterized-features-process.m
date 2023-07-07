@@ -1,6 +1,8 @@
 #! /bin/octave -qf
 pkg load statistics
 function dotheThing(arraysss, names, selectedRange,kmeansprecision)
+  ## for correlation - overrides kmeans precision
+  kmeansprecision=0.04
   for i=1:size(arraysss)(3)
     # Take each metric, divide by maximum within selected columns, and then
     # round to one significant digit
@@ -13,11 +15,11 @@ function dotheThing(arraysss, names, selectedRange,kmeansprecision)
 
   numOfClusters = 0;
   ## arbitrary high value
-  score = 1993;
+  score = 1000;
   while ( score > kmeansprecision)
     numOfClusters = numOfClusters + 1;
-    [idx, c,sumd] = kmeans(ddata,numOfClusters,"Distance","cityblock","Maxiter",1000000,"EmptyAction","drop"); 
-    score = max(sumd);
+    [idx, c,sumd] = kmeans(ddata,numOfClusters,"Distance","correlation","Maxiter",1000000,"EmptyAction","drop"); 
+    score = max(sumd)
   endwhile
   display(numOfClusters)
   newtargets=[cell(),cell()];
@@ -31,7 +33,7 @@ function dotheThing(arraysss, names, selectedRange,kmeansprecision)
   endfor
   for i = 1:size(names)(2)
     res = cstrcat(newtargets(i,1){:}," ",newtargets(i,2){:});
-##    printf("%s\n",res);
+   printf("%s\n",res);
   endfor
   unique(newtargets(:,2))
 endfunction
@@ -64,36 +66,36 @@ fclose(file)
 numOfArrays=i
 # Excel INDEX is one-based (empirically), can verify the boundaries by using it
 # sums among 21 elements
-kmprecision = basekmeansprecision * 21
+kmprecision = basekmeansprecision * 21;
 # Extracting features with wabtaot and interp included
 nojitCompAllRange = [1,10:14,25]
-printf("Interpreter and compileall with no jit, wabtaot")
+printf("Interpreter and compileall with no jit, wabtaot\n")
 dotheThing(arraysss,cells, nojitCompAllRange,kmprecision)
 jitOneCompAllRange = [2,15:19,25]
-printf("Interpreter and compileall with jit 1, wabtaot")
+printf("Interpreter and compileall with jit 1, wabtaot\n")
 dotheThing(arraysss,cells, jitOneCompAllRange,kmprecision)
 jitTenCompAllRange = [3,20:24,25]
-printf("Interpreter and compileall with jit 10, wabtaot")
+printf("Interpreter and compileall with jit 10, wabtaot\n")
 dotheThing(arraysss,cells, jitTenCompAllRange,kmprecision)
 #sums among 9 elements
 kmprecision = basekmeansprecision*9;
 noJitRtcRange = [1,4,25]
-printf("Interpreter and rtc with no jit, wabtaot")
+printf("Interpreter and rtc with no jit, wabtaot\n")
 dotheThing(arraysss,cells, noJitRtcRange,kmprecision)
 noJitRtlRange = [1,7,25]
-printf("Interpreter and rtl with no jit, wabtaot")
+printf("Interpreter and rtl with no jit, wabtaot\n")
 dotheThing(arraysss,cells, noJitRtlRange,kmprecision)
 jitOneRtcRange = [2,5,25]
-printf("Interpreter and rtc with jit one, wabtaot")
+printf("Interpreter and rtc with jit one, wabtaot\n")
 dotheThing(arraysss,cells, jitOneRtcRange,kmprecision)
 jitOneRtlRange = [2,8,25]
-printf("Interpreter and rtl with jit one, wabtaot")
+printf("Interpreter and rtl with jit one, wabtaot\n")
 dotheThing(arraysss,cells, jitOneRtlRange,kmprecision)
 jitTenRtcRange = [3,6,25]
-printf("Interpreter and rtc with jit ten, wabtaot")
+printf("Interpreter and rtc with jit ten, wabtaot\n")
 dotheThing(arraysss,cells, jitTenRtcRange,kmprecision)
 jitTenRtlRange = [3,9,25]
-printf("Interpreter and rtl with jit ten, wabtaot")
+printf("Interpreter and rtl with jit ten, wabtaot\n")
 dotheThing(arraysss,cells, jitTenRtlRange,kmprecision)
 
 # sums among 72 elements
