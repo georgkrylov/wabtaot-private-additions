@@ -2,7 +2,7 @@
 pkg load statistics
 function dotheThing(arraysss, names, selectedRange,kmeansprecision)
   ## for correlation - overrides kmeans precision
-  kmeansprecision=0.04
+  kmeansprecision=0.05
   for i=1:size(arraysss)(3)
     # Take each metric, divide by maximum within selected columns, and then
     # round to one significant digit
