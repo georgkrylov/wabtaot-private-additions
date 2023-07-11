@@ -82,6 +82,9 @@ kmprecision = basekmeansprecision*9;
 noJitRtcRange = [1,4,25]
 printf("Interpreter and rtc with no jit, wabtaot\n")
 dotheThing(arraysss,cells, noJitRtcRange,kmprecision)
+noJitRtcRtlRange = [1,4,7,25]
+printf("Interpreter and rtc and rtl with no jit, wabtaot\n")
+dotheThing(arraysss,cells, noJitRtcRtlRange,kmprecision)
 noJitRtlRange = [1,7,25]
 printf("Interpreter and rtl with no jit, wabtaot\n")
 dotheThing(arraysss,cells, noJitRtlRange,kmprecision)
