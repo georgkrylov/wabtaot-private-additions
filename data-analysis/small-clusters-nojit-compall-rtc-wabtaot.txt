@@ -1,0 +1,63 @@
+basekmeansprecision = 0.025000
+file = 7
+arraysss = [](0x0)
+cont = 0
+ans = 0
+numOfArrays = 29
+nojitRtcCompAllWabtaotRange =
+
+    1    4   10   11   12   13   14   25
+
+kmeansprecision = 0.050000
+score = 4.7451
+score = 1.3234
+score = 0.5034
+score = 0.1262
+score = 0.1015
+score = 0.1015
+score = 0.063223
+score = 0.1015
+score = 0.027511
+numOfClusters = 9
+2mm 2mm
+3mm 3mm
+adi adi
+atax atax
+bicg atax
+cholesky cholesky
+correlation correlation
+covariance 2mm
+doitgen 3mm
+durbin durbin
+fdtd-2d adi
+floyd-warshall floyd-warshall
+gemm 2mm
+gemver atax
+gesummv atax
+gramschmidt 2mm
+heat-3d adi
+jacobi-1d durbin
+jacobi-2d floyd-warshall
+lu cholesky
+ludcmp cholesky
+mvt atax
+nussinov adi
+seidel-2d floyd-warshall
+symm symm
+syr2k 2mm
+syrk symm
+trisolv durbin
+trmm symm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = 3mm
+  [3,1] = adi
+  [4,1] = atax
+  [5,1] = cholesky
+  [6,1] = correlation
+  [7,1] = durbin
+  [8,1] = floyd-warshall
+  [9,1] = symm
+}
+
