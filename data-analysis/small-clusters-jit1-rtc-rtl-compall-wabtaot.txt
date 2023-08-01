@@ -1,0 +1,49 @@
+basekmeansprecision = 0.025000
+file = 7
+arraysss = [](0x0)
+cont = 0
+ans = 0
+numOfArrays = 29
+jitOneRtcCompAllWabtaotRange =
+
+    2    5    8   15   16   17   18   19   25
+
+kmeansprecision = 0.050000
+score = 0.060938
+score = 0.024531
+numOfClusters = 2
+2mm 2mm
+3mm 2mm
+adi adi
+atax 2mm
+bicg 2mm
+cholesky 2mm
+correlation 2mm
+covariance 2mm
+doitgen 2mm
+durbin 2mm
+fdtd-2d 2mm
+floyd-warshall adi
+gemm 2mm
+gemver 2mm
+gesummv 2mm
+gramschmidt 2mm
+heat-3d adi
+jacobi-1d 2mm
+jacobi-2d 2mm
+lu 2mm
+ludcmp adi
+mvt 2mm
+nussinov adi
+seidel-2d 2mm
+symm 2mm
+syr2k 2mm
+syrk 2mm
+trisolv 2mm
+trmm 2mm
+ans =
+{
+  [1,1] = 2mm
+  [2,1] = adi
+}
+
