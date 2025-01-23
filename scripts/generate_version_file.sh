@@ -11,7 +11,7 @@ function verify_tag()
    if [ "$WABTAOTTAG" == "undefined" ]; then
       echo Creating a TAG with $EXPERIMENT_NAME
       git tag  $EXPERIMENT_NAME
-      git push origin $EXPERIMENT_NAME -o ci.skip
+      # git push origin $EXPERIMENT_NAME -o ci.skip
    else
       echo TAG already exists
    fi
