@@ -1,5 +1,5 @@
-SCRIPTS_FOLDER="./wabtaot-private-additions/scripts"
-EXPERIMENT_NAME="compile_all_tests"
+SCRIPTS_FOLDER="wabtaot-private-additions/scripts"
+EXPERIMENT_NAME="chapter6"
 export EXPERIMENT_NAME
 bash $SCRIPTS_FOLDER/generate_version_file.sh
 VERSION_FILE="version.txt"
@@ -30,7 +30,6 @@ cp "./build/em-interp/em-interp" $EMINTERPFOLDER/em-interp
 cp -r ./bin/wat2wasm $BINFOLDER
 cp -r $SCRIPTS_FOLDER/* $EXPSCRIPTFOLDER
 cp -r ./wabtaot-private-additions/call-chains $EXPERIMENT_FOLDER/wabtaot-private-additions/
-CWD=`pwd`
 if [ "$NO_CHECK""X" == "X" ] ; then
     export SCRIPTS_FOLDER
     TEST_RESULT=0
@@ -46,14 +45,20 @@ if [ "$NO_CHECK""X" == "X" ] ; then
 else
     echo "NO CHECK REQUESTED, RESULTS MIGHT BE INCORRECT"
 fi
+
+
 rm experiment_folder.txt
 rm version.txt
+
+CURR_DIR=$(pwd)
+RESULTS_PREFIX=$(dirname "$CURR_DIR")
+
 echo $EXPERIMENT_FOLDER
 RESULTS_FOLDER=${EXPERIMENT_FOLDER#*experiments}
 echo $RESULTS_FOLDER
-WITHTIMESTAMP="/homes/gkrylov/wabtaot-experiments"${RESULTS_FOLDER}
+WITHTIMESTAMP=${RESULTS_PREFIX}${RESULTS_FOLDER}
 echo "WITH TIMESTAMP"$WITHTIMESTAMP
-RESULTS_FOLDER="/homes/gkrylov/wabtaot-experiments"${RESULTS_FOLDER%/*}
+RESULTS_FOLDER=${RESULTS_PREFIX}${RESULTS_FOLDER%/*}
 
 echo $RESULTS_FOLDER
 mkdir -p $RESULTS_FOLDER
@@ -61,6 +66,7 @@ cd $EXPERIMENT_FOLDER
 INNERLOOP=20
 OUTERLOOP=5
 export INNERLOOP OUTERLOOP
+echo "EXPERIMENT SCRIPT FOLDER IS:  $EXPSCRIPTFOLDER"
 bash $EXPSCRIPTFOLDER/check_compile_all.sh
 mv $EXPERIMENT_FOLDER $RESULTS_FOLDER
 cd $WITHTIMESTAMP
