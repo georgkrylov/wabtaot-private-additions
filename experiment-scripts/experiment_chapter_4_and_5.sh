@@ -1,5 +1,5 @@
 SCRIPTS_FOLDER="wabtaot-private-additions/scripts"
-EXPERIMENT_NAME="libffi-vs-other"
+EXPERIMENT_NAME="chapter4-and-5"
 export EXPERIMENT_NAME
 bash $SCRIPTS_FOLDER/generate_version_file.sh
 VERSION_FILE="version.txt"
